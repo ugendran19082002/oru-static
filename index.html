@@ -68,6 +68,38 @@
         }
 
         .feature-card:hover { transform: translateY(-4px); }
+
+        /* Animations */
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slide-in-right {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        .animate-fade-in { animation: fade-in 1s ease-out forwards; }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        /* Mobile Menu */
+        #mobile-menu-overlay.active {
+            display: flex;
+            animation: fade-in 0.3s ease-out;
+        }
+        #mobile-menu-content.active {
+            animation: slide-in-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
 
@@ -89,18 +121,42 @@
             <button class="hidden lg:block btn-gradient text-white px-7 py-3 rounded-2xl font-body font-bold text-sm">
                 Download App
             </button>
-            <button class="lg:hidden text-primary">
+            <button class="lg:hidden text-primary" id="mobile-menu-open">
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-md hidden items-center justify-end">
+        <div id="mobile-menu-content" class="w-full max-w-[300px] h-full bg-white p-8 flex flex-col shadow-2xl relative">
+            <button id="mobile-menu-close" class="absolute top-6 right-6 text-on-surface">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <div class="flex items-center gap-3 mb-12">
+                <img src="assets/images/logo.png" class="w-10 h-10 rounded-xl" alt="Logo">
+                <span class="font-headline text-xl font-black text-primary tracking-tighter">Thannigo</span>
+            </div>
+            <div class="flex flex-col gap-6">
+                <a href="#how-it-works" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">How it Works</a>
+                <a href="#features" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Features</a>
+                <a href="#ecosystem" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Ecosystem</a>
+                <a href="#about" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">About</a>
+            </div>
+            <div class="mt-auto pt-8 border-t border-primary/5">
+                <button class="w-full btn-gradient text-white py-4 rounded-2xl font-body font-bold">
+                    Download App
+                </button>
+            </div>
+        </div>
+    </div>
+
     <main class="pt-20 hero-gradient">
         
         <!-- Hero Section -->
-        <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 lg:pt-32 lg:pb-40 relative">
+        <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 lg:pt-32 lg:pb-40 relative reveal">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
+                <div class="animate-fade-up">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary font-bold text-sm mb-8">
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -132,7 +188,7 @@
                     </div>
                 </div>
                 <!-- Hero Visual -->
-                <div class="relative">
+                <div class="relative reveal delay-200">
                     <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                         <img src="assets/images/hero-gen.png" class="w-full aspect-[4/5] lg:aspect-auto object-cover" alt="Thannigo Delivery">
                         <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary/40 to-transparent"></div>
@@ -158,7 +214,7 @@
         </section>
 
         <!-- Problem & Solution -->
-        <section class="py-24 bg-white border-y border-primary/5 relative overflow-hidden">
+        <section class="py-24 bg-white border-y border-primary/5 relative overflow-hidden reveal">
             <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <div class="bg-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
                     <span class="material-symbols-outlined text-5xl text-primary/40 mb-6">info</span>
@@ -198,7 +254,7 @@
         </section>
 
         <!-- How It Works -->
-        <section class="py-24 max-w-7xl mx-auto px-6" id="how-it-works">
+        <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="how-it-works">
             <div class="text-center mb-20">
                 <h2 class="font-headline text-4xl font-extrabold mb-4">How it Works</h2>
                 <p class="font-body text-on-surface-variant">Simplifying your hydration in three easy steps.</p>
@@ -233,7 +289,7 @@
         </section>
 
         <!-- Features Grid -->
-        <section class="py-24 bg-primary/5" id="features">
+        <section class="py-24 bg-primary/5 reveal" id="features">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
                     <div class="max-w-xl">
@@ -295,7 +351,7 @@
         </section>
 
         <!-- The Ecosystem (Roles) -->
-        <section class="py-24 max-w-7xl mx-auto px-6" id="ecosystem">
+        <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="ecosystem">
             <div class="text-center mb-20 max-w-2xl mx-auto">
                 <h2 class="font-headline text-4xl font-extrabold mb-6">Built for Everyone</h2>
                 <p class="font-body text-on-surface-variant">A synchronized platform connecting the entire water supply chain.</p>
@@ -395,7 +451,7 @@
         </section>
 
         <!-- Download Section -->
-        <section class="py-32 bg-white relative overflow-hidden">
+        <section class="py-32 bg-white relative overflow-hidden reveal">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="bg-primary/5 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-24 text-center">
                     <h2 class="font-headline text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">Ready for Fresh Water?</h2>
@@ -427,7 +483,7 @@
         </section>
 
         <!-- About (Leadership) -->
-        <section class="py-24 max-w-7xl mx-auto px-6" id="about">
+        <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="about">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="font-headline text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6">About Thannigo</h2>
@@ -513,5 +569,48 @@
         </div>
     </footer>
 
+    <!-- Mobile Menu Script -->
+    <script>
+        const openBtn = document.getElementById('mobile-menu-open');
+        const closeBtn = document.getElementById('mobile-menu-close');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const content = document.getElementById('mobile-menu-content');
+        const links = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            overlay.classList.toggle('hidden');
+            overlay.classList.toggle('active');
+            content.classList.toggle('active');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        links.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Close on background click
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) toggleMenu();
+        });
+
+        // Intersection Observer for Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
