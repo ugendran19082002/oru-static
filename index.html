@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Thannigo - Smart Water Can Delivery in 15 Minutes</title>
+    <title>ThanniGo - Smart Water Can Delivery in 15 Minutes</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/logo.png">
-    
+
     <script src="assets/js/tailwind.min.js"></script>
     <link href="assets/css/fonts.css" rel="stylesheet" />
     <link href="assets/css/material-symbols.css" rel="stylesheet" />
@@ -43,9 +43,19 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px) saturate(180%);
@@ -56,7 +66,7 @@
 
         .hero-gradient {
             background: radial-gradient(circle at top right, rgba(0, 88, 191, 0.08), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(0, 111, 239, 0.05), transparent 40%);
+                radial-gradient(circle at bottom left, rgba(0, 111, 239, 0.05), transparent 40%);
         }
 
         .btn-gradient {
@@ -69,36 +79,69 @@
             box-shadow: 0 12px 24px -8px rgba(0, 88, 191, 0.4);
         }
 
-        .feature-card:hover { transform: translateY(-4px); }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
 
         /* Animations */
         @keyframes fade-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slide-in-right {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
         }
 
-        .animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        .animate-fade-in { animation: fade-in 1s ease-out forwards; }
-        
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
+        .animate-fade-up {
+            animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
 
         /* Mobile Menu */
         #mobile-menu-overlay.active {
             display: flex;
             animation: fade-in 0.3s ease-out;
         }
+
         #mobile-menu-content.active {
             animation: slide-in-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -111,14 +154,20 @@
     <nav class="fixed top-0 w-full z-50 glass-panel border-b border-surface-variant/10">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="assets/images/logo.png" class="w-12 h-12 rounded-xl shadow-md transform scale-110 object-contain" alt="Thannigo Logo">
-                <span class="font-headline text-2xl font-black text-primary tracking-tighter">Thannigo</span>
+                <img src="assets/images/logo.png"
+                    class="w-12 h-12 rounded-xl shadow-md transform scale-110 object-contain" alt="Thannigo Logo">
+                <span class="font-headline text-2xl font-black text-primary tracking-tighter">ThanniGo®</span>
             </div>
             <div class="hidden lg:flex items-center gap-8">
-                <a href="#how-it-works" class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">How it Works</a>
-                <a href="#features" class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">Features</a>
-                <a href="#ecosystem" class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">Ecosystem</a>
-                <a href="#about" class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">About</a>
+                <a href="#how-it-works"
+                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">How it
+                    Works</a>
+                <a href="#features"
+                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">Features</a>
+                <a href="#ecosystem"
+                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">Ecosystem</a>
+                <a href="#about"
+                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">About</a>
             </div>
             <button class="hidden lg:block btn-gradient text-white px-7 py-3 rounded-2xl font-body font-bold text-sm">
                 Download App
@@ -130,19 +179,24 @@
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-md hidden items-center justify-end">
-        <div id="mobile-menu-content" class="w-full max-w-[300px] h-full bg-white p-8 flex flex-col shadow-2xl relative">
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-md hidden items-center justify-end">
+        <div id="mobile-menu-content"
+            class="w-full max-w-[300px] h-full bg-white p-8 flex flex-col shadow-2xl relative">
             <button id="mobile-menu-close" class="absolute top-6 right-6 text-on-surface">
                 <span class="material-symbols-outlined text-3xl">close</span>
             </button>
             <div class="flex items-center gap-3 mb-12">
                 <img src="assets/images/logo.png" class="w-10 h-10 rounded-xl" alt="Logo">
-                <span class="font-headline text-xl font-black text-primary tracking-tighter">Thannigo</span>
+                <span class="font-headline text-xl font-black text-primary tracking-tighter">ThanniGo®</span>
             </div>
             <div class="flex flex-col gap-6">
-                <a href="#how-it-works" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">How it Works</a>
-                <a href="#features" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Features</a>
-                <a href="#ecosystem" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Ecosystem</a>
+                <a href="#how-it-works" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">How
+                    it Works</a>
+                <a href="#features"
+                    class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Features</a>
+                <a href="#ecosystem"
+                    class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Ecosystem</a>
                 <a href="#about" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">About</a>
             </div>
             <div class="mt-auto pt-8 border-t border-primary/5">
@@ -154,46 +208,65 @@
     </div>
 
     <main class="pt-20 hero-gradient">
-        
+
         <!-- Hero Section -->
         <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 lg:pt-32 lg:pb-40 relative reveal">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="animate-fade-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary font-bold text-sm mb-8">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary font-bold text-sm mb-8">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
                         Over 10,000+ Cans Delivered Daily
                     </div>
-                    <h1 class="font-headline text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8">
-                        Pure Water, <br/>
+                    <h1
+                        class="font-headline text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8">
+                        Pure Water, <br />
                         <span class="text-primary lg:whitespace-nowrap">Delivered in 15 Min.</span>
                     </h1>
                     <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-xl mb-12">
-                        The smartest way to get fresh water cans at your doorstep. Fast, reliable, and trackable. Now serving Chennai with on-demand purity.
+                        The smartest way to get fresh water cans at your doorstep. Fast, reliable, and trackable. Now
+                        serving Chennai with on-demand purity.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center gap-6">
-                        <button class="w-full sm:w-auto btn-gradient text-white px-10 py-5 rounded-2xl font-body font-bold text-lg flex items-center justify-center gap-3">
+                        <button
+                            class="w-full sm:w-auto btn-gradient text-white px-10 py-5 rounded-2xl font-body font-bold text-lg flex items-center justify-center gap-3">
                             <span class="material-symbols-outlined">download</span>
                             Download App
                         </button>
-                        <div class="flex items-center gap-5 px-6 py-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-sm grow sm:grow-0">
+                        <div
+                            class="flex items-center gap-5 px-6 py-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-sm grow sm:grow-0">
                             <div class="flex flex-col">
-                                <span class="font-label text-[10px] font-black text-on-surface-variant/60 uppercase tracking-[0.2em] mb-2 leading-none">Available Platforms</span>
+                                <span
+                                    class="font-label text-[10px] font-black text-on-surface-variant/60 uppercase tracking-[0.2em] mb-2 leading-none">Available
+                                    Platforms</span>
                                 <div class="flex items-center gap-6">
                                     <div class="flex items-center gap-2 group cursor-pointer">
-                                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 transition-colors group-hover:bg-emerald-500 group-hover:text-white">
-                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414C17.0673 15.3414 16.6981 14.9723 16.6981 14.5165C16.6981 14.0608 17.0673 13.6917 17.523 13.6917C17.9788 13.6917 18.3479 14.0608 18.3479 14.5165C18.3479 14.9723 17.9788 15.3414 17.523 15.3414ZM6.47644 15.3414C6.0207 15.3414 5.65158 14.9723 5.65158 14.5165C5.65158 14.0608 6.0207 13.6917 6.47644 13.6917C6.93218 13.6917 7.3013 14.0608 7.3013 14.5165C7.3013 14.9723 6.93218 15.3414 6.47644 15.3414ZM17.9157 11.2384L19.7405 8.07767C19.8643 7.86333 19.791 7.58888 19.5767 7.46511C19.3623 7.34125 19.0881 7.4147 18.9642 7.62899L17.1121 10.8364C15.6881 10.1873 14.072 9.82239 12.3512 9.82239C10.6304 9.82239 9.01429 10.1873 7.5904 10.8364L5.7383 7.62899C5.61444 7.4147 5.34017 7.34125 5.12592 7.46511C4.91157 7.58888 4.83832 7.86333 4.96208 8.07767L6.78684 11.2384C3.80556 12.833 1.77335 15.8236 1.65584 19.3403H22.3444C22.227 15.8236 20.197 12.833 17.9157 11.2384Z"/></svg>
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 transition-colors group-hover:bg-emerald-500 group-hover:text-white">
+                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M17.523 15.3414C17.0673 15.3414 16.6981 14.9723 16.6981 14.5165C16.6981 14.0608 17.0673 13.6917 17.523 13.6917C17.9788 13.6917 18.3479 14.0608 18.3479 14.5165C18.3479 14.9723 17.9788 15.3414 17.523 15.3414ZM6.47644 15.3414C6.0207 15.3414 5.65158 14.9723 5.65158 14.5165C5.65158 14.0608 6.0207 13.6917 6.47644 13.6917C6.93218 13.6917 7.3013 14.0608 7.3013 14.5165C7.3013 14.9723 6.93218 15.3414 6.47644 15.3414ZM17.9157 11.2384L19.7405 8.07767C19.8643 7.86333 19.791 7.58888 19.5767 7.46511C19.3623 7.34125 19.0881 7.4147 18.9642 7.62899L17.1121 10.8364C15.6881 10.1873 14.072 9.82239 12.3512 9.82239C10.6304 9.82239 9.01429 10.1873 7.5904 10.8364L5.7383 7.62899C5.61444 7.4147 5.34017 7.34125 5.12592 7.46511C4.91157 7.58888 4.83832 7.86333 4.96208 8.07767L6.78684 11.2384C3.80556 12.833 1.77335 15.8236 1.65584 19.3403H22.3444C22.227 15.8236 20.197 12.833 17.9157 11.2384Z" />
+                                            </svg>
                                         </div>
-                                        <span class="text-xs font-bold text-on-surface-variant/80 group-hover:text-primary transition-colors">Android</span>
+                                        <span
+                                            class="text-xs font-bold text-on-surface-variant/80 group-hover:text-primary transition-colors">Android</span>
                                     </div>
                                     <div class="w-px h-6 bg-on-surface-variant/10"></div>
                                     <div class="flex items-center gap-2 group cursor-pointer">
-                                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 transition-colors group-hover:bg-blue-500 group-hover:text-white">
-                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91 1.65.17 2.9.77 3.57 1.75-3.32 1.95-2.77 5.92.51 7.2.73-1.8 1.55-3.6 1.55-5.3-.23.1-.46.2-.69.31zM15.47 2.65c.76-.91 1.26-2.18 1.12-3.45-1.09.04-2.41.72-3.19 1.63-.7.81-1.3 2.11-1.14 3.34 1.21.09 2.45-.61 3.21-1.52z"/></svg>
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 transition-colors group-hover:bg-blue-500 group-hover:text-white">
+                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91 1.65.17 2.9.77 3.57 1.75-3.32 1.95-2.77 5.92.51 7.2.73-1.8 1.55-3.6 1.55-5.3-.23.1-.46.2-.69.31zM15.47 2.65c.76-.91 1.26-2.18 1.12-3.45-1.09.04-2.41.72-3.19 1.63-.7.81-1.3 2.11-1.14 3.34 1.21.09 2.45-.61 3.21-1.52z" />
+                                            </svg>
                                         </div>
-                                        <span class="text-xs font-bold text-on-surface-variant/80 group-hover:text-primary transition-colors">iOS App</span>
+                                        <span
+                                            class="text-xs font-bold text-on-surface-variant/80 group-hover:text-primary transition-colors">iOS
+                                            App</span>
                                     </div>
                                 </div>
                             </div>
@@ -203,24 +276,31 @@
                 <!-- Hero Visual -->
                 <div class="relative reveal delay-200">
                     <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <img src="assets/images/hero-gen.png" class="w-full aspect-[4/5] lg:aspect-auto object-cover" alt="Thannigo Delivery">
-                        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary/40 to-transparent"></div>
+                        <img src="assets/images/hero-gen.png" class="w-full aspect-[4/5] lg:aspect-auto object-cover"
+                            alt="Thannigo Delivery">
+                        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary/40 to-transparent">
+                        </div>
                     </div>
                     <!-- Floating Card -->
-                    <div class="absolute -bottom-8 left-4 right-4 sm:-left-12 sm:right-auto sm:w-80 glass-panel p-6 rounded-3xl shadow-xl animate-bounce-slow">
+                    <div
+                        class="absolute -bottom-8 left-4 right-4 sm:-left-12 sm:right-auto sm:w-80 glass-panel p-6 rounded-3xl shadow-xl animate-bounce-slow">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white">
-                                <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">local_shipping</span>
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1">local_shipping</span>
                             </div>
                             <div>
-                                <p class="font-label text-xs font-bold text-on-surface-variant uppercase tracking-wider">Estimated Time</p>
+                                <p
+                                    class="font-label text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                                    Estimated Time</p>
                                 <p class="font-headline text-xl font-black text-primary">15 Minutes</p>
                             </div>
                         </div>
                         <div class="h-2 w-full bg-primary/10 rounded-full overflow-hidden">
                             <div class="h-full bg-primary w-3/4 rounded-full animate-pulse"></div>
                         </div>
-                        <p class="font-body text-xs text-on-surface-variant mt-3 text-right font-medium">Driver is near your location</p>
+                        <p class="font-body text-xs text-on-surface-variant mt-3 text-right font-medium">Driver is near
+                            your location</p>
                     </div>
                 </div>
             </div>
@@ -235,22 +315,28 @@
                     <ul class="space-y-6">
                         <li class="flex items-start gap-4">
                             <span class="material-symbols-outlined text-red-500">cancel</span>
-                            <p class="font-body text-on-surface-variant">Carrying 20L water cans up the stairs is painful and exhausting.</p>
+                            <p class="font-body text-on-surface-variant">Carrying 20L water cans up the stairs is
+                                painful and exhausting.</p>
                         </li>
                         <li class="flex items-start gap-4">
                             <span class="material-symbols-outlined text-red-500">cancel</span>
-                            <p class="font-body text-on-surface-variant">No reliable way to track when your water will actually arrive.</p>
+                            <p class="font-body text-on-surface-variant">No reliable way to track when your water will
+                                actually arrive.</p>
                         </li>
                         <li class="flex items-start gap-4">
                             <span class="material-symbols-outlined text-red-500">cancel</span>
-                            <p class="font-body text-on-surface-variant">Uncertain quality and high prices from local vendors.</p>
+                            <p class="font-body text-on-surface-variant">Uncertain quality and high prices from local
+                                vendors.</p>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 class="font-headline text-4xl lg:text-5xl font-extrabold mb-8 leading-tight">Thannigo is the <br/><span class="text-primary italic">Smart Solution.</span></h2>
+                    <h2 class="font-headline text-4xl lg:text-5xl font-extrabold mb-8 leading-tight">ThanniGo is the
+                        <br /><span class="text-primary italic">Smart Solution.</span>
+                    </h2>
                     <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-10">
-                        We bridge the gap between you and certified local water shops. With a single tap, we bring the purity of fresh water directly to your floor, saving your time and back.
+                        We bridge the gap between you and certified local water shops. With a single tap, we bring the
+                        purity of fresh water directly to your floor, saving your time and back.
                     </p>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="p-6 rounded-2xl bg-primary/5">
@@ -276,27 +362,33 @@
                 <div class="hidden md:block absolute top-12 left-[20%] right-[20%] h-0.5 bg-primary/10 -z-10"></div>
                 <!-- Step 1 -->
                 <div class="flex flex-col items-center text-center group">
-                    <div class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                         <span class="material-symbols-outlined text-4xl">smartphone</span>
                     </div>
                     <h3 class="font-headline text-xl font-bold mt-8 mb-4">1. Place Order</h3>
-                    <p class="font-body text-on-surface-variant text-sm px-4">Choose your favorite shop on the map and select your cans.</p>
+                    <p class="font-body text-on-surface-variant text-sm px-4">Choose your favorite shop on the map and
+                        select your cans.</p>
                 </div>
                 <!-- Step 2 -->
                 <div class="flex flex-col items-center text-center group">
-                    <div class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                         <span class="material-symbols-outlined text-4xl">storefront</span>
                     </div>
                     <h3 class="font-headline text-xl font-bold mt-8 mb-4">2. Shop Confirms</h3>
-                    <p class="font-body text-on-surface-variant text-sm px-4">Local shop receives and immediately prepares your order for dispatch.</p>
+                    <p class="font-body text-on-surface-variant text-sm px-4">Local shop receives and immediately
+                        prepares your order for dispatch.</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="flex flex-col items-center text-center group">
-                    <div class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                         <span class="material-symbols-outlined text-4xl">check_circle</span>
                     </div>
                     <h3 class="font-headline text-xl font-bold mt-8 mb-4">3. Delivered in 15m</h3>
-                    <p class="font-body text-on-surface-variant text-sm px-4">Your delivery partner brings the water to your door within 15 minutes.</p>
+                    <p class="font-body text-on-surface-variant text-sm px-4">Your delivery partner brings the water to
+                        your door within 15 minutes.</p>
                 </div>
             </div>
         </section>
@@ -306,58 +398,78 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
                     <div class="max-w-xl">
-                        <h2 class="font-headline text-4xl font-extrabold mb-6">Designed for Every <br/><span class="text-primary italic text-6xl">Hydration Need.</span></h2>
+                        <h2 class="font-headline text-4xl font-extrabold mb-6">Designed for Every <br /><span
+                                class="text-primary italic text-6xl">Hydration Need.</span></h2>
                     </div>
-                    <p class="font-body text-on-surface-variant max-w-sm mb-2">We've loaded Thannigo with features that make managing your water supply effortless.</p>
+                    <p class="font-body text-on-surface-variant max-w-sm mb-2">We've loaded ThanniGo with features that
+                        make managing your water supply effortless.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-primary mb-8">
+                    <div
+                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-primary mb-8">
                             <span class="material-symbols-outlined text-3xl">my_location</span>
                         </div>
                         <h3 class="font-headline text-xl font-bold mb-4">Live GPS Tracking</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Watch your delivery partner on the map in real-time. Transparent and precise arrivals.</p>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Watch your delivery partner
+                            on the map in real-time. Transparent and precise arrivals.</p>
                     </div>
                     <!-- Feature 2 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div class="w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-8">
+                    <div
+                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-8">
                             <span class="material-symbols-outlined text-3xl">event_repeat</span>
                         </div>
                         <h3 class="font-headline text-xl font-bold mb-4">Recurring Subscriptions</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Schedule daily, weekly, or monthly deliveries automatically. Set it and forget it.</p>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Schedule daily, weekly, or
+                            monthly deliveries automatically. Set it and forget it.</p>
                     </div>
                     <!-- Feature 3 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div class="w-16 h-16 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 mb-8">
+                    <div
+                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 mb-8">
                             <span class="material-symbols-outlined text-3xl">map</span>
                         </div>
                         <h3 class="font-headline text-xl font-bold mb-4">Multi-Shop Choice</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Compare ratings, prices, and locations of multiple shops around you on an interactive map.</p>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Compare ratings, prices,
+                            and locations of multiple shops around you on an interactive map.</p>
                     </div>
                     <!-- Feature 4 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-600 mb-8">
+                    <div
+                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-600 mb-8">
                             <span class="material-symbols-outlined text-3xl">redeem</span>
                         </div>
                         <h3 class="font-headline text-xl font-bold mb-4">Loyalty & Rewards</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Earn points on every order. Redeem for free cans, discounts, or special rewards.</p>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Earn points on every order.
+                            Redeem for free cans, discounts, or special rewards.</p>
                     </div>
                     <!-- Feature 5 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-8">
+                    <div
+                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-8">
                             <span class="material-symbols-outlined text-3xl">fingerprint</span>
                         </div>
                         <h3 class="font-headline text-xl font-bold mb-4">Next-Gen Security</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">OTP-secured login, custom PINs, and biometric authentication for maximum account safety.</p>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">OTP-secured login, custom
+                            PINs, and biometric authentication for maximum account safety.</p>
                     </div>
                     <!-- Feature 6 -->
-                    <div class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8">
+                    <div
+                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8">
                             <span class="material-symbols-outlined text-3xl">payments</span>
                         </div>
                         <h3 class="font-headline text-xl font-bold mb-4">Flexible Payments</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Pay via Cash on Delivery or seamless online checkout powered by Razorpay.</p>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Pay via Cash on Delivery or
+                            seamless online checkout powered by Razorpay.</p>
                     </div>
                 </div>
             </div>
@@ -367,13 +479,15 @@
         <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="ecosystem">
             <div class="text-center mb-20 max-w-2xl mx-auto">
                 <h2 class="font-headline text-4xl font-extrabold mb-6">Built for Everyone</h2>
-                <p class="font-body text-on-surface-variant">A synchronized platform connecting the entire water supply chain.</p>
+                <p class="font-body text-on-surface-variant">A synchronized platform connecting the entire water supply
+                    chain.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Customer -->
                 <div class="bg-white border border-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-sm">
                     <h3 class="font-headline text-2xl font-bold text-primary mb-4">Customer App</h3>
-                    <p class="font-body text-on-surface-variant mb-8">Intuitive interface to order instantly, track live, and manage subscriptions with ease.</p>
+                    <p class="font-body text-on-surface-variant mb-8">Intuitive interface to order instantly, track
+                        live, and manage subscriptions with ease.</p>
                     <div class="flex items-center gap-2 text-primary font-bold">
                         <span class="material-symbols-outlined">person</span>
                         User Dashboard
@@ -382,36 +496,47 @@
                 <!-- Admin -->
                 <div class="bg-slate-900 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-white">
                     <h3 class="font-headline text-2xl font-bold text-primary-container mb-4">Admin Hub</h3>
-                    <p class="font-body text-slate-400 mb-8">Centralized control center to monitor growth, verify partners, and manage platform global settings.</p>
+                    <p class="font-body text-slate-400 mb-8">Centralized control center to monitor growth, verify
+                        partners, and manage platform global settings.</p>
                     <div class="flex items-center gap-2 text-primary-container font-bold">
                         <span class="material-symbols-outlined">admin_panel_settings</span>
                         Control Panel
                     </div>
                 </div>
                 <!-- Shop Owner -->
-                <div class="md:col-span-2 bg-white border border-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden group">
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                <div
+                    class="md:col-span-2 bg-white border border-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden group">
+                    <div
+                        class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700">
+                    </div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
                         <div>
                             <h3 class="font-headline text-3xl font-bold text-primary mb-4">For Shop Owners</h3>
-                            <p class="font-body text-on-surface-variant text-lg mb-8">Digitize your water shop. Direct visibility to customers and total control over your business and delivery fleet.</p>
+                            <p class="font-body text-on-surface-variant text-lg mb-8">Digitize your water shop. Direct
+                                visibility to customers and total control over your business and delivery fleet.</p>
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">inventory</span> Inventory Management
+                                    <span class="material-symbols-outlined text-primary text-sm">inventory</span>
+                                    Inventory Management
                                 </div>
                                 <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">group</span> Fleet Tracking
+                                    <span class="material-symbols-outlined text-primary text-sm">group</span> Fleet
+                                    Tracking
                                 </div>
                                 <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">paid</span> Automated Payouts
+                                    <span class="material-symbols-outlined text-primary text-sm">paid</span> Automated
+                                    Payouts
                                 </div>
                                 <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">campaign</span> Promotions
+                                    <span class="material-symbols-outlined text-primary text-sm">campaign</span>
+                                    Promotions
                                 </div>
                             </div>
                         </div>
                         <div class="flex items-center justify-center p-8 bg-background rounded-3xl group">
-                            <img src="assets/images/logo.png" class="w-28 h-28 object-contain transform scale-125 group-hover:scale-150 transition-transform duration-700" alt="Shop Dashboard">
+                            <img src="assets/images/logo.png"
+                                class="w-28 h-28 object-contain transform scale-125 group-hover:scale-150 transition-transform duration-700"
+                                alt="Shop Dashboard">
                             <div class="ml-10">
                                 <p class="font-headline font-black text-2xl text-primary">Shop Dashboard</p>
                                 <p class="font-body text-xs text-on-surface-variant">Live Order & Revenue Tracking</p>
@@ -420,12 +545,14 @@
                     </div>
                 </div>
                 <!-- Delivery Partner -->
-                <div class="md:col-span-2 bg-primary p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-white relative overflow-hidden">
+                <div
+                    class="md:col-span-2 bg-primary p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-white relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                         <div>
                             <h3 class="font-headline text-3xl font-bold mb-4 text-white">For Delivery Partners</h3>
-                            <p class="font-body text-blue-100 text-lg mb-10">Efficient tools for shop drivers. Optimize routes and maximize deliveries for your shop.</p>
+                            <p class="font-body text-blue-100 text-lg mb-10">Efficient tools for shop drivers. Optimize
+                                routes and maximize deliveries for your shop.</p>
                             <div class="space-y-4">
                                 <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl">
                                     <span class="material-symbols-outlined">directions</span>
@@ -440,7 +567,8 @@
                         <div class="glass-panel p-10 rounded-3xl text-on-surface">
                             <div class="flex justify-between items-center mb-6">
                                 <span class="font-bold text-on-surface-variant">Today's Earnings</span>
-                                <span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold font-label">Active</span>
+                                <span
+                                    class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold font-label">Active</span>
                             </div>
                             <p class="font-headline text-5xl font-black text-primary">₹1,250</p>
                             <div class="mt-8 pt-8 border-t border-on-surface/10 flex justify-between">
@@ -467,13 +595,17 @@
         <section class="py-32 bg-white relative overflow-hidden reveal">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="bg-primary/5 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-24 text-center">
-                    <h2 class="font-headline text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">Ready for Fresh Water?</h2>
-                    <p class="font-body text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">Download the Thannigo app today and experience the future of water can delivery. Coming soon to Chennai App Store.</p>
+                    <h2 class="font-headline text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">Ready for
+                        Fresh Water?</h2>
+                    <p class="font-body text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">Download the Thannigo
+                        app today and experience the future of water can delivery. Coming soon to Chennai App Store.</p>
                     <div class="flex flex-wrap justify-center gap-4 md:gap-6">
                         <!-- Play Store Badge -->
-                        <div class="min-w-[160px] h-14 bg-slate-900 rounded-xl flex items-center justify-center gap-3 px-5 cursor-not-allowed opacity-80 group hover:bg-slate-800 transition-colors">
+                        <div
+                            class="min-w-[160px] h-14 bg-slate-900 rounded-xl flex items-center justify-center gap-3 px-5 cursor-not-allowed opacity-80 group hover:bg-slate-800 transition-colors">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 512 512" fill="currentColor">
-                                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256.6L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.3 18-28.5-1.2-36.3zM104.6 499l280.8-161.2-60.1-60.1L68.7 534.6c11.6 4.7 24.3 1.2 35.9-35.6z"/>
+                                <path
+                                    d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256.6L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.3 18-28.5-1.2-36.3zM104.6 499l280.8-161.2-60.1-60.1L68.7 534.6c11.6 4.7 24.3 1.2 35.9-35.6z" />
                             </svg>
                             <div class="text-left">
                                 <p class="text-[9px] text-slate-400 uppercase leading-none font-bold">Get it on</p>
@@ -481,12 +613,15 @@
                             </div>
                         </div>
                         <!-- App Store Badge -->
-                        <div class="min-w-[160px] h-14 bg-slate-900 rounded-xl flex items-center justify-center gap-3 px-5 cursor-not-allowed opacity-80 group hover:bg-slate-800 transition-colors">
+                        <div
+                            class="min-w-[160px] h-14 bg-slate-900 rounded-xl flex items-center justify-center gap-3 px-5 cursor-not-allowed opacity-80 group hover:bg-slate-800 transition-colors">
                             <svg class="w-7 h-7 text-white" viewBox="0 0 384 512" fill="currentColor">
-                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                                <path
+                                    d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
                             </svg>
                             <div class="text-left">
-                                <p class="text-[9px] text-slate-400 uppercase leading-none font-bold">Download on the</p>
+                                <p class="text-[9px] text-slate-400 uppercase leading-none font-bold">Download on the
+                                </p>
                                 <p class="text-white font-bold text-base leading-tight">App Store</p>
                             </div>
                         </div>
@@ -499,31 +634,60 @@
         <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="about">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="font-headline text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6">About Thannigo</h2>
-                    <h3 class="font-headline text-4xl font-extrabold mb-8 leading-tight">Purity delivered, <br/>reliability guaranteed.</h3>
+                    <h2 class="font-headline text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6">About
+                        ThanniGo</h2>
+                    <h3 class="font-headline text-4xl font-extrabold mb-8 leading-tight">Purity delivered,
+                        <br />reliability guaranteed.
+                    </h3>
                     <p class="font-body text-lg text-on-surface-variant leading-relaxed">
-                        Thannigo is a reliable water delivery service providing clean and safe drinking water to households. We believe that access to premium, purified water shouldn't be a chore. Our concierge-level service ensures you never run dry.
+                        ThanniGo is a reliable water delivery service providing clean and safe drinking water to
+                        households. We believe that access to premium, purified water shouldn't be a chore. Our
+                        concierge-level service ensures you never run dry.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 gap-4">
                     <!-- Mr. Ugendran S -->
-                    <div class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-primary/10 shadow-sm group hover:border-primary/30 transition-all duration-300">
-                        <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">shield_person</span>
+                    <div
+                        class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-primary/10 shadow-sm group hover:border-primary/30 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl"
+                                style="font-variation-settings: 'FILL' 1">shield_person</span>
                         </div>
                         <div>
                             <p class="font-body font-black text-on-surface text-lg">Mr. Ugendran</p>
-                            <p class="font-label text-[10px] text-primary uppercase tracking-[0.2em] font-black mt-1">Founder & CTO</p>
+                            <p class="font-label text-[10px] text-primary uppercase tracking-[0.2em] font-black mt-1">
+                                Co-Founder, CEO</p>
                         </div>
                     </div>
                     <!-- Mr. A.R Sudeep -->
-                    <div class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-indigo-100 shadow-sm group hover:border-indigo-300 transition-all duration-300">
-                        <div class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">psychology</span>
+                    <div
+                        class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-indigo-100 shadow-sm group hover:border-indigo-300 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl"
+                                style="font-variation-settings: 'FILL' 1">psychology</span>
                         </div>
                         <div>
                             <p class="font-body font-black text-on-surface text-lg">Mr. Sudeep</p>
-                            <p class="font-label text-[10px] text-indigo-600 uppercase tracking-[0.2em] font-black mt-1">Co-Founder & CMO</p>
+                            <p
+                                class="font-label text-[10px] text-indigo-600 uppercase tracking-[0.2em] font-black mt-1">
+                                Co-Founder, COO</p>
+                        </div>
+                    </div>
+                    <!-- Mr. Hari Murugan -->
+                    <div
+                        class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-emerald-100 shadow-sm group hover:border-emerald-300 transition-all duration-300">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl"
+                                style="font-variation-settings: 'FILL' 1">campaign</span>
+                        </div>
+                        <div>
+                            <p class="font-body font-black text-on-surface text-lg">Mr. Hari Murugan</p>
+                            <p
+                                class="font-label text-[10px] text-emerald-600 uppercase tracking-[0.2em] font-black mt-1">
+                                Co-Founder, CMO</p>
                         </div>
                     </div>
                 </div>
@@ -538,8 +702,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
                     <div class="flex items-center gap-3 mb-8">
-                        <img src="assets/images/logo.png" class="w-10 h-10 rounded-lg transform scale-110 object-contain" alt="Logo">
-                        <span class="font-headline text-xl font-black text-primary tracking-tighter">Thannigo</span>
+                        <img src="assets/images/logo.png"
+                            class="w-10 h-10 rounded-lg transform scale-110 object-contain" alt="Logo">
+                        <span class="font-headline text-xl font-black text-primary tracking-tighter">ThanniGo®</span>
                     </div>
                     <p class="font-body text-sm text-on-surface-variant leading-relaxed">
                         Smart water can delivery to your doorstep. Fast, reliable, and trackable.
@@ -579,8 +744,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-12 border-t border-primary/5 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center gap-6">
-                <p class="font-body text-xs text-on-surface-variant font-medium">© 2026 Thannigo Concierge. All rights reserved.</p>
+            <div
+                class="pt-12 border-t border-primary/5 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center gap-6">
+                <p class="font-body text-xs text-on-surface-variant font-medium">© <span id="copyright-year">2026</span>
+                    ThanniGo® Concierge. All rights reserved.</p>
                 <p class="font-body text-xs text-on-surface-variant italic">Serving with Purity & Pride</p>
             </div>
         </div>
@@ -600,6 +767,10 @@
             content.classList.toggle('active');
             document.body.classList.toggle('overflow-hidden');
         }
+
+        // Set dynamic copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
 
         openBtn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
@@ -630,4 +801,5 @@
         });
     </script>
 </body>
-</html>
+
+</html> 
