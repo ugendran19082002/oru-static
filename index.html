@@ -1,805 +1,871 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>ThanniGo - Smart Water Can Delivery in 15 Minutes</title>
-    <link rel="icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <script src="assets/js/tailwind.min.js"></script>
-    <link href="assets/css/fonts.css" rel="stylesheet" />
-    <link href="assets/css/material-symbols.css" rel="stylesheet" />
+  <!-- ── SEO ─────────────────────────────────────────────── -->
+  <title>ThanniGo — Your Neighbourhood, Delivered Instantly</title>
+  <meta name="description" content="ThanniGo is a multi-role hyperlocal commerce and delivery platform connecting customers, local shops, and delivery partners with real-time tracking, loyalty rewards, and smart order management.">
+  <meta name="keywords" content="hyperlocal delivery, local commerce platform, shop delivery app, order tracking, delivery partner app, ThanniGo">
+  <meta name="author" content="ThanniGo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thannigo.com/">
 
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0058bf",
-                        "primary-container": "#006fef",
-                        "secondary": "#405d98",
-                        "secondary-container": "#a1beff",
-                        "background": "#f7f9fb",
-                        "surface": "#ffffff",
-                        "on-surface": "#191c1e",
-                        "on-surface-variant": "#414755",
-                        "outline": "#727786",
-                    },
-                    borderRadius: {
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "2xl": "2rem",
-                    },
-                    fontFamily: {
-                        "headline": ["Plus Jakarta Sans", "sans-serif"],
-                        "body": ["Inter", "sans-serif"],
-                    }
-                },
-            },
-        }
-    </script>
+  <!-- ── OpenGraph ─────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="ThanniGo — Your Neighbourhood, Delivered Instantly">
+  <meta property="og:description" content="A modern multi-role platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
+  <meta property="og:url"         content="https://thannigo.com/">
+  <meta property="og:image"       content="https://thannigo.com/assets/images/hero-gen.png">
+  <meta property="og:site_name"   content="ThanniGo">
+  <meta property="og:locale"      content="en_IN">
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+  <!-- ── Twitter Card ──────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="ThanniGo — Your Neighbourhood, Delivered Instantly">
+  <meta name="twitter:description" content="A modern multi-role platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
+  <meta name="twitter:image"       content="https://thannigo.com/assets/images/hero-gen.png">
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+  <!-- ── Favicon ───────────────────────────────────────────── -->
+  <link rel="icon"             type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon"                  href="assets/images/favicon.png">
 
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px 0 rgba(0, 88, 191, 0.08);
-        }
+  <!-- ── Fonts & Icons ────────────────────────────────────── -->
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/material-symbols.css">
 
-        .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(0, 88, 191, 0.08), transparent 40%),
-                radial-gradient(circle at bottom left, rgba(0, 111, 239, 0.05), transparent 40%);
-        }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, #0058bf 0%, #006fef 100%);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-gradient:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px -8px rgba(0, 88, 191, 0.4);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-        }
-
-        /* Animations */
-        @keyframes fade-up {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slide-in-right {
-            from {
-                transform: translateX(100%);
-            }
-
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        .animate-fade-up {
-            animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .animate-fade-in {
-            animation: fade-in 1s ease-out forwards;
-        }
-
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        /* Mobile Menu */
-        #mobile-menu-overlay.active {
-            display: flex;
-            animation: fade-in 0.3s ease-out;
-        }
-
-        #mobile-menu-content.active {
-            animation: slide-in-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-    </style>
+  <!-- ── Styles ───────────────────────────────────────────── -->
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bg-background text-on-surface antialiased selection:bg-primary/10">
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#" aria-label="ThanniGo Home">
+        <img src="assets/images/logo.png" alt="ThanniGo" height="36">
+      </a>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-surface-variant/10">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="assets/images/logo.png"
-                    class="w-12 h-12 rounded-xl shadow-md transform scale-110 object-contain" alt="Thannigo Logo">
-                <span class="font-headline text-2xl font-black text-primary tracking-tighter">ThanniGo®</span>
-            </div>
-            <div class="hidden lg:flex items-center gap-8">
-                <a href="#how-it-works"
-                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">How it
-                    Works</a>
-                <a href="#features"
-                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">Features</a>
-                <a href="#ecosystem"
-                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">Ecosystem</a>
-                <a href="#about"
-                    class="font-body font-medium text-on-surface-variant hover:text-primary transition-colors">About</a>
-            </div>
-            <button class="hidden lg:block btn-gradient text-white px-7 py-3 rounded-2xl font-body font-bold text-sm">
-                Download App
-            </button>
-            <button class="lg:hidden text-primary" id="mobile-menu-open">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </nav>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#tech">Tech Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-md hidden items-center justify-end">
-        <div id="mobile-menu-content"
-            class="w-full max-w-[300px] h-full bg-white p-8 flex flex-col shadow-2xl relative">
-            <button id="mobile-menu-close" class="absolute top-6 right-6 text-on-surface">
-                <span class="material-symbols-outlined text-3xl">close</span>
-            </button>
-            <div class="flex items-center gap-3 mb-12">
-                <img src="assets/images/logo.png" class="w-10 h-10 rounded-xl" alt="Logo">
-                <span class="font-headline text-xl font-black text-primary tracking-tighter">ThanniGo®</span>
-            </div>
-            <div class="flex flex-col gap-6">
-                <a href="#how-it-works" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">How
-                    it Works</a>
-                <a href="#features"
-                    class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Features</a>
-                <a href="#ecosystem"
-                    class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">Ecosystem</a>
-                <a href="#about" class="mobile-nav-link font-body text-lg font-bold text-on-surface-variant">About</a>
-            </div>
-            <div class="mt-auto pt-8 border-t border-primary/5">
-                <button class="w-full btn-gradient text-white py-4 rounded-2xl font-body font-bold">
-                    Download App
-                </button>
-            </div>
-        </div>
+      <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <main class="pt-20 hero-gradient">
+    <div class="nav-mobile-menu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#tech">Tech Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </nav>
 
-        <!-- Hero Section -->
-        <section class="max-w-7xl mx-auto px-6 pt-16 pb-24 lg:pt-32 lg:pb-40 relative reveal">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="animate-fade-up">
-                    <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary font-bold text-sm mb-8">
-                        <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        Over 10,000+ Cans Delivered Daily
-                    </div>
-                    <h1
-                        class="font-headline text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-8">
-                        Pure Water, <br />
-                        <span class="text-primary lg:whitespace-nowrap">Delivered in 15 Min.</span>
-                    </h1>
-                    <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-xl mb-12">
-                        The smartest way to get fresh water cans at your doorstep. Fast, reliable, and trackable. Now
-                        serving Chennai with on-demand purity.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center gap-6">
-                        <button
-                            class="w-full sm:w-auto btn-gradient text-white px-10 py-5 rounded-2xl font-body font-bold text-lg flex items-center justify-center gap-3">
-                            <span class="material-symbols-outlined">download</span>
-                            Download App
-                        </button>
-                        <div
-                            class="flex items-center gap-5 px-6 py-4 rounded-2xl bg-white/40 backdrop-blur-md border border-white/60 shadow-sm grow sm:grow-0">
-                            <div class="flex flex-col">
-                                <span
-                                    class="font-label text-[10px] font-black text-on-surface-variant/60 uppercase tracking-[0.2em] mb-2 leading-none">Available
-                                    Platforms</span>
-                                <div class="flex items-center gap-6">
-                                    <div class="flex items-center gap-2 group cursor-pointer">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 transition-colors group-hover:bg-emerald-500 group-hover:text-white">
-                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                                <path
-                                                    d="M17.523 15.3414C17.0673 15.3414 16.6981 14.9723 16.6981 14.5165C16.6981 14.0608 17.0673 13.6917 17.523 13.6917C17.9788 13.6917 18.3479 14.0608 18.3479 14.5165C18.3479 14.9723 17.9788 15.3414 17.523 15.3414ZM6.47644 15.3414C6.0207 15.3414 5.65158 14.9723 5.65158 14.5165C5.65158 14.0608 6.0207 13.6917 6.47644 13.6917C6.93218 13.6917 7.3013 14.0608 7.3013 14.5165C7.3013 14.9723 6.93218 15.3414 6.47644 15.3414ZM17.9157 11.2384L19.7405 8.07767C19.8643 7.86333 19.791 7.58888 19.5767 7.46511C19.3623 7.34125 19.0881 7.4147 18.9642 7.62899L17.1121 10.8364C15.6881 10.1873 14.072 9.82239 12.3512 9.82239C10.6304 9.82239 9.01429 10.1873 7.5904 10.8364L5.7383 7.62899C5.61444 7.4147 5.34017 7.34125 5.12592 7.46511C4.91157 7.58888 4.83832 7.86333 4.96208 8.07767L6.78684 11.2384C3.80556 12.833 1.77335 15.8236 1.65584 19.3403H22.3444C22.227 15.8236 20.197 12.833 17.9157 11.2384Z" />
-                                            </svg>
-                                        </div>
-                                        <span
-                                            class="text-xs font-bold text-on-surface-variant/80 group-hover:text-primary transition-colors">Android</span>
-                                    </div>
-                                    <div class="w-px h-6 bg-on-surface-variant/10"></div>
-                                    <div class="flex items-center gap-2 group cursor-pointer">
-                                        <div
-                                            class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 transition-colors group-hover:bg-blue-500 group-hover:text-white">
-                                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                                <path
-                                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91 1.65.17 2.9.77 3.57 1.75-3.32 1.95-2.77 5.92.51 7.2.73-1.8 1.55-3.6 1.55-5.3-.23.1-.46.2-.69.31zM15.47 2.65c.76-.91 1.26-2.18 1.12-3.45-1.09.04-2.41.72-3.19 1.63-.7.81-1.3 2.11-1.14 3.34 1.21.09 2.45-.61 3.21-1.52z" />
-                                            </svg>
-                                        </div>
-                                        <span
-                                            class="text-xs font-bold text-on-surface-variant/80 group-hover:text-primary transition-colors">iOS
-                                            App</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Hero Visual -->
-                <div class="relative reveal delay-200">
-                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <img src="assets/images/hero-gen.png" class="w-full aspect-[4/5] lg:aspect-auto object-cover"
-                            alt="Thannigo Delivery">
-                        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary/40 to-transparent">
-                        </div>
-                    </div>
-                    <!-- Floating Card -->
-                    <div
-                        class="absolute -bottom-8 left-4 right-4 sm:-left-12 sm:right-auto sm:w-80 glass-panel p-6 rounded-3xl shadow-xl animate-bounce-slow">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white">
-                                <span class="material-symbols-outlined text-3xl"
-                                    style="font-variation-settings: 'FILL' 1">local_shipping</span>
-                            </div>
-                            <div>
-                                <p
-                                    class="font-label text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-                                    Estimated Time</p>
-                                <p class="font-headline text-xl font-black text-primary">15 Minutes</p>
-                            </div>
-                        </div>
-                        <div class="h-2 w-full bg-primary/10 rounded-full overflow-hidden">
-                            <div class="h-full bg-primary w-3/4 rounded-full animate-pulse"></div>
-                        </div>
-                        <p class="font-body text-xs text-on-surface-variant mt-3 text-right font-medium">Driver is near
-                            your location</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Problem & Solution -->
-        <section class="py-24 bg-white border-y border-primary/5 relative overflow-hidden reveal">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="bg-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                    <span class="material-symbols-outlined text-5xl text-primary/40 mb-6">info</span>
-                    <h2 class="font-headline text-3xl font-bold mb-6">The Struggle is Real.</h2>
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-red-500">cancel</span>
-                            <p class="font-body text-on-surface-variant">Carrying 20L water cans up the stairs is
-                                painful and exhausting.</p>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-red-500">cancel</span>
-                            <p class="font-body text-on-surface-variant">No reliable way to track when your water will
-                                actually arrive.</p>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-red-500">cancel</span>
-                            <p class="font-body text-on-surface-variant">Uncertain quality and high prices from local
-                                vendors.</p>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="font-headline text-4xl lg:text-5xl font-extrabold mb-8 leading-tight">ThanniGo is the
-                        <br /><span class="text-primary italic">Smart Solution.</span>
-                    </h2>
-                    <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-10">
-                        We bridge the gap between you and certified local water shops. With a single tap, we bring the
-                        purity of fresh water directly to your floor, saving your time and back.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="p-6 rounded-2xl bg-primary/5">
-                            <p class="font-headline text-3xl font-black text-primary mb-1">99%</p>
-                            <p class="font-body text-sm font-bold text-on-surface-variant">On-time Delivery</p>
-                        </div>
-                        <div class="p-6 rounded-2xl bg-primary/5">
-                            <p class="font-headline text-3xl font-black text-primary mb-1">Free</p>
-                            <p class="font-body text-sm font-bold text-on-surface-variant">Doorstep Drop-off</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
 
-        <!-- How It Works -->
-        <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="how-it-works">
-            <div class="text-center mb-20">
-                <h2 class="font-headline text-4xl font-extrabold mb-4">How it Works</h2>
-                <p class="font-body text-on-surface-variant">Simplifying your hydration in three easy steps.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-                <div class="hidden md:block absolute top-12 left-[20%] right-[20%] h-0.5 bg-primary/10 -z-10"></div>
-                <!-- Step 1 -->
-                <div class="flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                        <span class="material-symbols-outlined text-4xl">smartphone</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-bold mt-8 mb-4">1. Place Order</h3>
-                    <p class="font-body text-on-surface-variant text-sm px-4">Choose your favorite shop on the map and
-                        select your cans.</p>
-                </div>
-                <!-- Step 2 -->
-                <div class="flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                        <span class="material-symbols-outlined text-4xl">storefront</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-bold mt-8 mb-4">2. Shop Confirms</h3>
-                    <p class="font-body text-on-surface-variant text-sm px-4">Local shop receives and immediately
-                        prepares your order for dispatch.</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="flex flex-col items-center text-center group">
-                    <div
-                        class="w-24 h-24 rounded-3xl bg-white border-4 border-background flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                        <span class="material-symbols-outlined text-4xl">check_circle</span>
-                    </div>
-                    <h3 class="font-headline text-xl font-bold mt-8 mb-4">3. Delivered in 15m</h3>
-                    <p class="font-body text-on-surface-variant text-sm px-4">Your delivery partner brings the water to
-                        your door within 15 minutes.</p>
-                </div>
-            </div>
-        </section>
+    <div class="container hero-inner">
 
-        <!-- Features Grid -->
-        <section class="py-24 bg-primary/5 reveal" id="features">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
-                    <div class="max-w-xl">
-                        <h2 class="font-headline text-4xl font-extrabold mb-6">Designed for Every <br /><span
-                                class="text-primary italic text-6xl">Hydration Need.</span></h2>
-                    </div>
-                    <p class="font-body text-on-surface-variant max-w-sm mb-2">We've loaded ThanniGo with features that
-                        make managing your water supply effortless.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div
-                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-primary mb-8">
-                            <span class="material-symbols-outlined text-3xl">my_location</span>
-                        </div>
-                        <h3 class="font-headline text-xl font-bold mb-4">Live GPS Tracking</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Watch your delivery partner
-                            on the map in real-time. Transparent and precise arrivals.</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div
-                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-8">
-                            <span class="material-symbols-outlined text-3xl">event_repeat</span>
-                        </div>
-                        <h3 class="font-headline text-xl font-bold mb-4">Recurring Subscriptions</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Schedule daily, weekly, or
-                            monthly deliveries automatically. Set it and forget it.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div
-                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 mb-8">
-                            <span class="material-symbols-outlined text-3xl">map</span>
-                        </div>
-                        <h3 class="font-headline text-xl font-bold mb-4">Multi-Shop Choice</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Compare ratings, prices,
-                            and locations of multiple shops around you on an interactive map.</p>
-                    </div>
-                    <!-- Feature 4 -->
-                    <div
-                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-orange-600 mb-8">
-                            <span class="material-symbols-outlined text-3xl">redeem</span>
-                        </div>
-                        <h3 class="font-headline text-xl font-bold mb-4">Loyalty & Rewards</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Earn points on every order.
-                            Redeem for free cans, discounts, or special rewards.</p>
-                    </div>
-                    <!-- Feature 5 -->
-                    <div
-                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-8">
-                            <span class="material-symbols-outlined text-3xl">fingerprint</span>
-                        </div>
-                        <h3 class="font-headline text-xl font-bold mb-4">Next-Gen Security</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">OTP-secured login, custom
-                            PINs, and biometric authentication for maximum account safety.</p>
-                    </div>
-                    <!-- Feature 6 -->
-                    <div
-                        class="bg-white p-10 rounded-[2.5rem] feature-card transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8">
-                            <span class="material-symbols-outlined text-3xl">payments</span>
-                        </div>
-                        <h3 class="font-headline text-xl font-bold mb-4">Flexible Payments</h3>
-                        <p class="font-body text-on-surface-variant text-sm leading-relaxed">Pay via Cash on Delivery or
-                            seamless online checkout powered by Razorpay.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="hero-content">
+        <span class="section-badge">Hyperlocal Commerce Platform</span>
 
-        <!-- The Ecosystem (Roles) -->
-        <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="ecosystem">
-            <div class="text-center mb-20 max-w-2xl mx-auto">
-                <h2 class="font-headline text-4xl font-extrabold mb-6">Built for Everyone</h2>
-                <p class="font-body text-on-surface-variant">A synchronized platform connecting the entire water supply
-                    chain.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Customer -->
-                <div class="bg-white border border-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-sm">
-                    <h3 class="font-headline text-2xl font-bold text-primary mb-4">Customer App</h3>
-                    <p class="font-body text-on-surface-variant mb-8">Intuitive interface to order instantly, track
-                        live, and manage subscriptions with ease.</p>
-                    <div class="flex items-center gap-2 text-primary font-bold">
-                        <span class="material-symbols-outlined">person</span>
-                        User Dashboard
-                    </div>
-                </div>
-                <!-- Admin -->
-                <div class="bg-slate-900 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-white">
-                    <h3 class="font-headline text-2xl font-bold text-primary-container mb-4">Admin Hub</h3>
-                    <p class="font-body text-slate-400 mb-8">Centralized control center to monitor growth, verify
-                        partners, and manage platform global settings.</p>
-                    <div class="flex items-center gap-2 text-primary-container font-bold">
-                        <span class="material-symbols-outlined">admin_panel_settings</span>
-                        Control Panel
-                    </div>
-                </div>
-                <!-- Shop Owner -->
-                <div
-                    class="md:col-span-2 bg-white border border-primary/5 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden group">
-                    <div
-                        class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700">
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
-                        <div>
-                            <h3 class="font-headline text-3xl font-bold text-primary mb-4">For Shop Owners</h3>
-                            <p class="font-body text-on-surface-variant text-lg mb-8">Digitize your water shop. Direct
-                                visibility to customers and total control over your business and delivery fleet.</p>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">inventory</span>
-                                    Inventory Management
-                                </div>
-                                <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">group</span> Fleet
-                                    Tracking
-                                </div>
-                                <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">paid</span> Automated
-                                    Payouts
-                                </div>
-                                <div class="flex items-center gap-2 text-sm font-bold text-on-surface">
-                                    <span class="material-symbols-outlined text-primary text-sm">campaign</span>
-                                    Promotions
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-center p-8 bg-background rounded-3xl group">
-                            <img src="assets/images/logo.png"
-                                class="w-28 h-28 object-contain transform scale-125 group-hover:scale-150 transition-transform duration-700"
-                                alt="Shop Dashboard">
-                            <div class="ml-10">
-                                <p class="font-headline font-black text-2xl text-primary">Shop Dashboard</p>
-                                <p class="font-body text-xs text-on-surface-variant">Live Order & Revenue Tracking</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Delivery Partner -->
-                <div
-                    class="md:col-span-2 bg-primary p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-white relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-                        <div>
-                            <h3 class="font-headline text-3xl font-bold mb-4 text-white">For Delivery Partners</h3>
-                            <p class="font-body text-blue-100 text-lg mb-10">Efficient tools for shop drivers. Optimize
-                                routes and maximize deliveries for your shop.</p>
-                            <div class="space-y-4">
-                                <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl">
-                                    <span class="material-symbols-outlined">directions</span>
-                                    <p class="font-body font-bold text-sm">Smart In-App Navigation</p>
-                                </div>
-                                <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl">
-                                    <span class="material-symbols-outlined">analytics</span>
-                                    <p class="font-body font-bold text-sm">Earnings Tracking & Analytics</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glass-panel p-10 rounded-3xl text-on-surface">
-                            <div class="flex justify-between items-center mb-6">
-                                <span class="font-bold text-on-surface-variant">Today's Earnings</span>
-                                <span
-                                    class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold font-label">Active</span>
-                            </div>
-                            <p class="font-headline text-5xl font-black text-primary">₹1,250</p>
-                            <div class="mt-8 pt-8 border-t border-on-surface/10 flex justify-between">
-                                <div class="text-center">
-                                    <p class="font-bold text-lg">18</p>
-                                    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Trips</p>
-                                </div>
-                                <div class="text-center">
-                                    <p class="font-bold text-lg">4.9</p>
-                                    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Rating</p>
-                                </div>
-                                <div class="text-center">
-                                    <p class="font-bold text-lg">6.5h</p>
-                                    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Online</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h1 id="hero-heading">
+          Your Neighbourhood,<br>
+          <span class="gradient-text">Delivered Instantly</span>
+        </h1>
 
-        <!-- Download Section -->
-        <section class="py-32 bg-white relative overflow-hidden reveal">
-            <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <div class="bg-primary/5 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-24 text-center">
-                    <h2 class="font-headline text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">Ready for
-                        Fresh Water?</h2>
-                    <p class="font-body text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">Download the Thannigo
-                        app today and experience the future of water can delivery. Coming soon to Chennai App Store.</p>
-                    <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-                        <!-- Play Store Badge -->
-                        <div
-                            class="min-w-[160px] h-14 bg-slate-900 rounded-xl flex items-center justify-center gap-3 px-5 cursor-not-allowed opacity-80 group hover:bg-slate-800 transition-colors">
-                            <svg class="w-6 h-6 text-white" viewBox="0 0 512 512" fill="currentColor">
-                                <path
-                                    d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256.6L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.3 18-28.5-1.2-36.3zM104.6 499l280.8-161.2-60.1-60.1L68.7 534.6c11.6 4.7 24.3 1.2 35.9-35.6z" />
-                            </svg>
-                            <div class="text-left">
-                                <p class="text-[9px] text-slate-400 uppercase leading-none font-bold">Get it on</p>
-                                <p class="text-white font-bold text-base leading-tight">Google Play</p>
-                            </div>
-                        </div>
-                        <!-- App Store Badge -->
-                        <div
-                            class="min-w-[160px] h-14 bg-slate-900 rounded-xl flex items-center justify-center gap-3 px-5 cursor-not-allowed opacity-80 group hover:bg-slate-800 transition-colors">
-                            <svg class="w-7 h-7 text-white" viewBox="0 0 384 512" fill="currentColor">
-                                <path
-                                    d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-                            </svg>
-                            <div class="text-left">
-                                <p class="text-[9px] text-slate-400 uppercase leading-none font-bold">Download on the
-                                </p>
-                                <p class="text-white font-bold text-base leading-tight">App Store</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <p class="hero-description">
+          ThanniGo connects customers, local shop owners, and delivery partners on one
+          intelligent platform — making everyday commerce faster, smarter, and more
+          connected than ever before.
+        </p>
 
-        <!-- About (Leadership) -->
-        <section class="py-24 max-w-7xl mx-auto px-6 reveal" id="about">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="font-headline text-sm font-bold uppercase tracking-[0.2em] text-primary mb-6">About
-                        ThanniGo</h2>
-                    <h3 class="font-headline text-4xl font-extrabold mb-8 leading-tight">Purity delivered,
-                        <br />reliability guaranteed.
-                    </h3>
-                    <p class="font-body text-lg text-on-surface-variant leading-relaxed">
-                        ThanniGo is a reliable water delivery service providing clean and safe drinking water to
-                        households. We believe that access to premium, purified water shouldn't be a chore. Our
-                        concierge-level service ensures you never run dry.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 gap-4">
-                    <!-- Mr. Ugendran S -->
-                    <div
-                        class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-primary/10 shadow-sm group hover:border-primary/30 transition-all duration-300">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl"
-                                style="font-variation-settings: 'FILL' 1">shield_person</span>
-                        </div>
-                        <div>
-                            <p class="font-body font-black text-on-surface text-lg">Mr. Ugendran</p>
-                            <p class="font-label text-[10px] text-primary uppercase tracking-[0.2em] font-black mt-1">
-                                Co-Founder, CEO</p>
-                        </div>
-                    </div>
-                    <!-- Mr. A.R Sudeep -->
-                    <div
-                        class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-indigo-100 shadow-sm group hover:border-indigo-300 transition-all duration-300">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl"
-                                style="font-variation-settings: 'FILL' 1">psychology</span>
-                        </div>
-                        <div>
-                            <p class="font-body font-black text-on-surface text-lg">Mr. Sudeep</p>
-                            <p
-                                class="font-label text-[10px] text-indigo-600 uppercase tracking-[0.2em] font-black mt-1">
-                                Co-Founder, COO</p>
-                        </div>
-                    </div>
-                    <!-- Mr. Hari Murugan -->
-                    <div
-                        class="flex items-center gap-5 p-6 rounded-[2.5rem] bg-white border border-emerald-100 shadow-sm group hover:border-emerald-300 transition-all duration-300">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl"
-                                style="font-variation-settings: 'FILL' 1">campaign</span>
-                        </div>
-                        <div>
-                            <p class="font-body font-black text-on-surface text-lg">Mr. Hari Murugan</p>
-                            <p
-                                class="font-label text-[10px] text-emerald-600 uppercase tracking-[0.2em] font-black mt-1">
-                                Co-Founder, CMO</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-primary/5 py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <div>
-                    <div class="flex items-center gap-3 mb-8">
-                        <img src="assets/images/logo.png"
-                            class="w-10 h-10 rounded-lg transform scale-110 object-contain" alt="Logo">
-                        <span class="font-headline text-xl font-black text-primary tracking-tighter">ThanniGo®</span>
-                    </div>
-                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                        Smart water can delivery to your doorstep. Fast, reliable, and trackable.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-headline font-bold mb-6">Contact</h4>
-                    <ul class="font-body text-sm text-on-surface-variant space-y-4">
-                        <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-primary text-sm">mail</span>
-                            supportthannigo@gmail.com
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-primary text-sm">mail</span>
-                            getthannigo@gmail.com
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-primary text-sm">call</span>
-                            +91 84288 82777
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-headline font-bold mb-6">Legal</h4>
-                    <ul class="font-body text-sm text-on-surface-variant space-y-4">
-                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-headline font-bold mb-6">Serving</h4>
-                    <ul class="font-body text-sm text-on-surface-variant space-y-4">
-                        <li class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-primary text-sm">location_on</span>
-                            Chennai Metropolitan Area
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div
-                class="pt-12 border-t border-primary/5 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center gap-6">
-                <p class="font-body text-xs text-on-surface-variant font-medium">© <span id="copyright-year">2026</span>
-                    ThanniGo® Concierge. All rights reserved.</p>
-                <p class="font-body text-xs text-on-surface-variant italic">Serving with Purity & Pride</p>
-            </div>
+        <div class="hero-ctas">
+          <a href="#features" class="btn btn-primary btn-lg">
+            <span class="material-symbols-outlined" aria-hidden="true">explore</span>
+            Explore Features
+          </a>
+          <a href="#how-it-works" class="btn btn-outline btn-lg">
+            <span class="material-symbols-outlined" aria-hidden="true">play_circle</span>
+            How It Works
+          </a>
         </div>
-    </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const openBtn = document.getElementById('mobile-menu-open');
-        const closeBtn = document.getElementById('mobile-menu-close');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const content = document.getElementById('mobile-menu-content');
-        const links = document.querySelectorAll('.mobile-nav-link');
+        <div class="hero-stats" role="list" aria-label="Platform statistics">
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-number" data-count="3" aria-label="3 user roles">3</span>
+            <span class="hero-stat-label">User Roles</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-number" data-count="40" aria-label="40 plus features">40+</span>
+            <span class="hero-stat-label">Features</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-number" data-count="12" aria-label="12 integrations">12</span>
+            <span class="hero-stat-label">Integrations</span>
+          </div>
+        </div>
+      </div>
 
-        function toggleMenu() {
-            overlay.classList.toggle('hidden');
-            overlay.classList.toggle('active');
-            content.classList.toggle('active');
-            document.body.classList.toggle('overflow-hidden');
-        }
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-mockup-frame">
+          <img src="assets/images/hero-gen.png" alt="ThanniGo mobile app interface">
+          <div class="hero-mockup-glow"></div>
+        </div>
 
-        // Set dynamic copyright year
-        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        <div class="hero-float-card card-1">
+          <span class="material-symbols-outlined">local_shipping</span>
+          <div>
+            <strong>Order Delivered</strong>
+            <span>Just now &middot; On time</span>
+          </div>
+        </div>
+
+        <div class="hero-float-card card-2">
+          <span class="material-symbols-outlined">storefront</span>
+          <div>
+            <strong>Shop Nearby</strong>
+            <span>147 shops available</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-scroll-hint" aria-label="Scroll to explore">
+      <span class="material-symbols-outlined">keyboard_arrow_down</span>
+    </div>
+  </section>
 
 
-        openBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        links.forEach(link => link.addEventListener('click', toggleMenu));
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
 
-        // Close on background click
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) toggleMenu();
-        });
+        <div class="about-content reveal">
+          <span class="section-badge">About ThanniGo</span>
+          <h2 id="about-heading">
+            Bridging the Gap Between<br>
+            <span class="gradient-text">Local Shops &amp; Modern Customers</span>
+          </h2>
+          <p>
+            Local businesses have always been the backbone of communities — but they've struggled
+            to compete with the convenience of large e-commerce platforms. ThanniGo was built to
+            change that imbalance.
+          </p>
+          <p>
+            We give shop owners powerful digital tools to manage their entire operations, customers
+            the speed of instant local delivery with live tracking, and delivery partners a structured,
+            reliable earning platform — all connected in real time on a single system.
+          </p>
 
-        // Intersection Observer for Scroll Reveal
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+          <div class="about-pillars">
+            <div class="pillar">
+              <span class="material-symbols-outlined pillar-icon">store</span>
+              <div>
+                <strong>For Shop Owners</strong>
+                <span>Go digital in minutes with full catalog, inventory, and order management</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="material-symbols-outlined pillar-icon">shopping_bag</span>
+              <div>
+                <strong>For Customers</strong>
+                <span>Browse local shops, place orders, and track delivery in real time</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <span class="material-symbols-outlined pillar-icon">directions_bike</span>
+              <div>
+                <strong>For Delivery Partners</strong>
+                <span>Accept deliveries, navigate with precision, and track your earnings</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+        <div class="about-visual reveal">
+          <div class="about-image-frame">
+            <img src="assets/images/hero-water.jpg" alt="ThanniGo local delivery in action" class="about-image">
+          </div>
+        </div>
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROBLEMS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="problems" aria-labelledby="problems-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-badge">The Problem</span>
+        <h2 id="problems-heading">
+          Local Commerce Was Fragmented.<br>
+          <span class="gradient-text">We Built the Fix.</span>
+        </h2>
+        <p class="section-description">
+          Every challenge in local commerce pointed to one gap: no unified platform. ThanniGo
+          addresses each one head-on.
+        </p>
+      </div>
+
+      <div class="problems-grid">
+
+        <article class="problem-card glass-card">
+          <span class="material-symbols-outlined problem-icon">route</span>
+          <h3>Fragmented Local Delivery</h3>
+          <p>Customers had no reliable way to get deliveries from their nearby shops — no tracking, no coordination, no reliability.</p>
+        </article>
+
+        <article class="problem-card glass-card">
+          <span class="material-symbols-outlined problem-icon">storefront</span>
+          <h3>Shops Without Digital Presence</h3>
+          <p>Local shop owners operated entirely on pen-and-paper, missing digital customers and any form of inventory control.</p>
+        </article>
+
+        <article class="problem-card glass-card">
+          <span class="material-symbols-outlined problem-icon">pending_actions</span>
+          <h3>Slow, Manual Order Management</h3>
+          <p>Accepting, confirming, and dispatching orders required constant manual effort with high risk of errors and delays.</p>
+        </article>
+
+        <article class="problem-card glass-card">
+          <span class="material-symbols-outlined problem-icon">location_searching</span>
+          <h3>Invisible Delivery Tracking</h3>
+          <p>Once an order left the shop, customers had zero visibility — no live updates, no ETA, no communication channel.</p>
+        </article>
+
+        <article class="problem-card glass-card">
+          <span class="material-symbols-outlined problem-icon">forum</span>
+          <h3>Communication Gaps</h3>
+          <p>Coordinating between customers, shop staff, and delivery partners required endless phone calls and manual follow-ups.</p>
+        </article>
+
+        <article class="problem-card glass-card">
+          <span class="material-symbols-outlined problem-icon">payments</span>
+          <h3>Cash-Only Operations</h3>
+          <p>Without digital payment infrastructure, shops and customers were locked into cash transactions with no history or reconciliation.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURES
+  ══════════════════════════════════════════════════════════ -->
+  <section id="features" aria-labelledby="features-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-badge">Platform Features</span>
+        <h2 id="features-heading">
+          Built for Every Role in<br>
+          <span class="gradient-text">Your Commerce Ecosystem</span>
+        </h2>
+        <p class="section-description">
+          Every feature on ThanniGo is purpose-built for the specific needs of each participant
+          in the local commerce chain.
+        </p>
+      </div>
+
+      <div class="features-wrapper reveal">
+
+        <div class="tabs-nav" role="tablist" aria-label="Feature categories">
+          <button class="tab-btn active" role="tab" aria-selected="true"
+                  aria-controls="tab-customer" data-tab="customer">
+            <span class="material-symbols-outlined" aria-hidden="true">person</span>
+            Customer
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false"
+                  aria-controls="tab-shop" data-tab="shop">
+            <span class="material-symbols-outlined" aria-hidden="true">store</span>
+            Shop Owner
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false"
+                  aria-controls="tab-delivery" data-tab="delivery">
+            <span class="material-symbols-outlined" aria-hidden="true">directions_bike</span>
+            Delivery Partner
+          </button>
+        </div>
+
+        <div class="tabs-content">
+
+          <!-- ─ Customer ─────────────────────────────────── -->
+          <div class="tab-panel active" id="tab-customer" role="tabpanel" aria-label="Customer features">
+            <div class="features-grid">
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">fingerprint</span>
+                <div>
+                  <h4>OTP &amp; Biometric Login</h4>
+                  <p>Secure SMS one-time password authentication with optional biometric quick access for returning users.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">storefront</span>
+                <div>
+                  <h4>Browse &amp; Search Local Shops</h4>
+                  <p>Discover nearby shops with smart search, category filters, and location-aware results.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">schedule</span>
+                <div>
+                  <h4>Order Scheduling</h4>
+                  <p>Place orders for immediate delivery or schedule them in advance to fit your day.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">my_location</span>
+                <div>
+                  <h4>Real-Time Order Tracking</h4>
+                  <p>Track your delivery on a live map from order confirmation to your doorstep.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">receipt_long</span>
+                <div>
+                  <h4>Order History &amp; Payments</h4>
+                  <p>Access your complete order history, payment records, and receipts in one place.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">star</span>
+                <div>
+                  <h4>Ratings &amp; Reviews</h4>
+                  <p>Rate your orders and share feedback that helps shops and delivery partners improve.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">workspace_premium</span>
+                <div>
+                  <h4>Loyalty Rewards</h4>
+                  <p>Earn loyalty points on every order and unlock rewards, discounts, and exclusive benefits.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">group_add</span>
+                <div>
+                  <h4>Referral Programme</h4>
+                  <p>Invite friends and earn rewards when they join and place their first orders.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">notifications_active</span>
+                <div>
+                  <h4>Push Notifications</h4>
+                  <p>Stay updated on order status, offers, and delivery alerts with real-time push notifications.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">local_offer</span>
+                <div>
+                  <h4>Coupon Redemption</h4>
+                  <p>Apply discount coupons at checkout and see eligible offers automatically.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">water_drop</span>
+                <div>
+                  <h4>Can Balance Management</h4>
+                  <p>Track and manage your water can balance and subscription-based recurring deliveries.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">headset_mic</span>
+                <div>
+                  <h4>Support &amp; Help Centre</h4>
+                  <p>Raise support tickets and get help with orders, payments, and account queries.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─ Shop Owner ───────────────────────────────── -->
+          <div class="tab-panel" id="tab-shop" role="tabpanel" aria-label="Shop owner features">
+            <div class="features-grid">
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">verified</span>
+                <div>
+                  <h4>Shop Onboarding &amp; Verification</h4>
+                  <p>Guided setup flow with document submission, location mapping, and business verification.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">inventory_2</span>
+                <div>
+                  <h4>Product &amp; Catalog Management</h4>
+                  <p>Build and manage your full product catalog with categories, pricing, images, and availability toggles.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">warehouse</span>
+                <div>
+                  <h4>Inventory Management</h4>
+                  <p>Stay on top of every product in your shop — manage stock levels, get low-stock alerts, and track water can quantities with ease.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">receipt</span>
+                <div>
+                  <h4>Order Management</h4>
+                  <p>Accept, process, and track all incoming orders from a single intuitive dashboard.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">groups</span>
+                <div>
+                  <h4>Customer Management</h4>
+                  <p>View and manage your customer base with order history and per-customer engagement data.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">two_wheeler</span>
+                <div>
+                  <h4>Delivery Fleet Management</h4>
+                  <p>Manage your delivery fleet, assign tasks, and monitor partner availability.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">campaign</span>
+                <div>
+                  <h4>Promotions &amp; Coupons</h4>
+                  <p>Create targeted coupon campaigns and promotions to drive repeat orders.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">bar_chart</span>
+                <div>
+                  <h4>Analytics Dashboard</h4>
+                  <p>Monitor revenue, order volumes, customer trends, and business performance in one view.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">manage_accounts</span>
+                <div>
+                  <h4>Staff Management</h4>
+                  <p>Add shop staff with controlled access to help manage orders and daily operations.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">account_balance</span>
+                <div>
+                  <h4>Payout Settings</h4>
+                  <p>Configure your bank account, view earnings history, and manage payout preferences.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">calendar_month</span>
+                <div>
+                  <h4>Schedule &amp; Holiday Management</h4>
+                  <p>Set operating hours, configure delivery time slots, and block holiday dates.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">add_shopping_cart</span>
+                <div>
+                  <h4>Manual Order Entry</h4>
+                  <p>Create orders manually for walk-in or phone customers directly from your dashboard.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─ Delivery Partner ─────────────────────────── -->
+          <div class="tab-panel" id="tab-delivery" role="tabpanel" aria-label="Delivery partner features">
+            <div class="features-grid">
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">assignment</span>
+                <div>
+                  <h4>Task &amp; Delivery Management</h4>
+                  <p>View and accept delivery tasks, manage active deliveries, and mark completions with confirmation.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">navigation</span>
+                <div>
+                  <h4>Turn-by-Turn Navigation</h4>
+                  <p>Built-in map navigation guides you from pickup to delivery with optimised routing.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">payments</span>
+                <div>
+                  <h4>Earnings Tracking</h4>
+                  <p>View your earnings by day, week, or month with a detailed per-delivery breakdown.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">history</span>
+                <div>
+                  <h4>Delivery History</h4>
+                  <p>Access your complete delivery history with timestamps, locations, and order details.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">flag</span>
+                <div>
+                  <h4>Complaint Submission</h4>
+                  <p>Raise issues or report problems with deliveries directly through the app for fast resolution.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <span class="material-symbols-outlined feature-icon" aria-hidden="true">request_quote</span>
+                <div>
+                  <h4>Charge Requests</h4>
+                  <p>Submit delivery-related charge requests with transparent tracking and review.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tabs-content -->
+      </div><!-- /features-wrapper -->
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOW IT WORKS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="how-it-works" aria-labelledby="hiw-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-badge">How It Works</span>
+        <h2 id="hiw-heading">
+          From Cart to Doorstep in<br>
+          <span class="gradient-text">Four Simple Steps</span>
+        </h2>
+        <p class="section-description">
+          ThanniGo orchestrates the entire local commerce journey — seamlessly connecting every
+          participant from order to delivery.
+        </p>
+      </div>
+
+      <div class="steps-flow reveal">
+
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-icon-wrap" aria-hidden="true">
+            <span class="material-symbols-outlined">add_shopping_cart</span>
+          </div>
+          <h3>Place Order</h3>
+          <p>Customer browses local shops, selects products, applies coupons, and places an order with their preferred delivery schedule.</p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-icon-wrap" aria-hidden="true">
+            <span class="material-symbols-outlined">storefront</span>
+          </div>
+          <h3>Shop Confirms</h3>
+          <p>The shop owner receives an instant alert, reviews the order, confirms availability, and prepares items for dispatch.</p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-icon-wrap" aria-hidden="true">
+            <span class="material-symbols-outlined">directions_bike</span>
+          </div>
+          <h3>Delivery Assigned</h3>
+          <p>A delivery partner accepts the task, picks up the order from the shop, and begins navigating to the customer.</p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-icon-wrap" aria-hidden="true">
+            <span class="material-symbols-outlined">home</span>
+          </div>
+          <h3>Order Delivered</h3>
+          <p>The customer receives real-time updates, tracks delivery live on a map, and gets their order at the door — on time.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       TECH STACK
+  ══════════════════════════════════════════════════════════ -->
+  <section id="tech" aria-labelledby="tech-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-badge">Technology</span>
+        <h2 id="tech-heading">
+          Powered by a<br>
+          <span class="gradient-text">Modern, Scalable Stack</span>
+        </h2>
+        <p class="section-description">
+          ThanniGo is built on proven, production-grade technologies designed to scale
+          reliably from day one.
+        </p>
+      </div>
+
+      <div class="tech-grid reveal" role="list" aria-label="Technology stack">
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">📱</span><span>React Native</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🚀</span><span>Expo</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🟢</span><span>Node.js</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">⚡</span><span>Express</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🗄️</span><span>MySQL</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🔴</span><span>Redis</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🔌</span><span>Socket.io</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🔥</span><span>Firebase</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">💳</span><span>Razorpay</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🗺️</span><span>Mapbox</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">💬</span><span>MSG91 SMS</span></div>
+        <div class="tech-badge" role="listitem"><span class="tech-icon" aria-hidden="true">🎨</span><span>NativeWind</span></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       WHY THANNIGO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="why" aria-labelledby="why-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-badge">Why ThanniGo</span>
+        <h2 id="why-heading">
+          The Platform Built for<br>
+          <span class="gradient-text">Real Local Commerce</span>
+        </h2>
+      </div>
+
+      <div class="stats-row reveal" role="list" aria-label="Platform statistics">
+
+        <div class="stat-card glass-card" role="listitem">
+          <span class="stat-number" data-count="3">0</span>
+          <span class="stat-label">User Roles</span>
+          <span class="stat-desc">Customer &middot; Shop Owner &middot; Delivery Partner</span>
+        </div>
+
+        <div class="stat-card glass-card" role="listitem">
+          <span class="stat-number" data-count="40" data-suffix="+">0</span>
+          <span class="stat-label">Platform Features</span>
+          <span class="stat-desc">Purpose-built for local commerce workflows</span>
+        </div>
+
+        <div class="stat-card glass-card" role="listitem">
+          <span class="stat-number" data-count="12">0</span>
+          <span class="stat-label">Tech Integrations</span>
+          <span class="stat-desc">Payments &middot; Maps &middot; SMS &middot; Push &middot; Real-time</span>
+        </div>
+
+        <div class="stat-card glass-card" role="listitem">
+          <span class="stat-number" data-count="100" data-suffix="%">0</span>
+          <span class="stat-label">Mobile-First</span>
+          <span class="stat-desc">Native iOS &amp; Android via React Native &amp; Expo</span>
+        </div>
+
+      </div>
+
+      <div class="why-benefits reveal">
+
+        <div class="benefit glass-card">
+          <div class="benefit-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">bolt</span>
+          </div>
+          <h3>Real-Time Everything</h3>
+          <p>Live order tracking, instant push notifications, and real-time delivery updates keep every participant in sync at all times.</p>
+        </div>
+
+        <div class="benefit glass-card">
+          <div class="benefit-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">hub</span>
+          </div>
+          <h3>One Unified Platform</h3>
+          <p>Customers, shop owners, and delivery partners — all operating together in one connected, purpose-built platform.</p>
+        </div>
+
+        <div class="benefit glass-card">
+          <div class="benefit-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">security</span>
+          </div>
+          <h3>Secure by Design</h3>
+          <p>Your account, orders, and payments are protected at every step — so customers can shop, shop owners can sell, and delivery partners can earn with complete confidence.</p>
+        </div>
+
+        <div class="benefit glass-card">
+          <div class="benefit-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">trending_up</span>
+          </div>
+          <h3>Built to Scale</h3>
+          <p>Fast, reliable, and ready to grow — ThanniGo is built to handle more shops, more customers, and more deliveries as your community expands.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-badge">Get in Touch</span>
+        <h2 id="contact-heading">
+          Ready to Transform<br>
+          <span class="gradient-text">Your Local Commerce?</span>
+        </h2>
+        <p class="section-description">
+          Have a question, want to register your shop, or explore a business opportunity?
+          Reach us through the right channel and we'll get back to you promptly.
+        </p>
+      </div>
+
+      <div class="contact-grid reveal">
+
+        <div class="contact-card glass-card">
+          <div class="contact-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">headset_mic</span>
+          </div>
+          <h3>Customer Support</h3>
+          <p>Need help with an order, account, or delivery?</p>
+          <a href="mailto:support@thannigo.com" class="contact-email">support@thannigo.com</a>
+        </div>
+
+        <div class="contact-card glass-card">
+          <div class="contact-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">business_center</span>
+          </div>
+          <h3>Business &amp; Partnerships</h3>
+          <p>Shop registrations, investor enquiries, and partnership opportunities.</p>
+          <a href="mailto:business@thannigo.com" class="contact-email">business@thannigo.com</a>
+        </div>
+
+        <div class="contact-card glass-card">
+          <div class="contact-icon" aria-hidden="true">
+            <span class="material-symbols-outlined">receipt_long</span>
+          </div>
+          <h3>Order Enquiries</h3>
+          <p>Questions about a specific order, delivery, or refund request.</p>
+          <a href="mailto:orders@thannigo.com" class="contact-email">orders@thannigo.com</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <img src="assets/images/logo.png" alt="ThanniGo" height="32">
+        <p>
+          Your neighbourhood, delivered instantly.<br>
+          Connecting communities through smarter local commerce.
+        </p>
+        <div class="footer-social" role="list" aria-label="Social media links">
+          <a href="#" role="listitem" aria-label="Follow us on Instagram" class="social-link">
+            <span class="material-symbols-outlined">photo_camera</span>
+          </a>
+          <a href="#" role="listitem" aria-label="Connect on LinkedIn" class="social-link">
+            <span class="material-symbols-outlined">business_center</span>
+          </a>
+          <a href="#" role="listitem" aria-label="Chat on WhatsApp" class="social-link">
+            <span class="material-symbols-outlined">chat</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>For Partners</h4>
+          <ul>
+            <li><a href="#contact">Shop Owners</a></li>
+            <li><a href="#contact">Delivery Partners</a></li>
+            <li><a href="#contact">Investors</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#contact">Help Centre</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 ThanniGo. All rights reserved.</p>
+        <p class="footer-tagline">Hyperlocal commerce, reimagined.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
-</html> 
+</html>
