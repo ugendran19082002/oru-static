@@ -6,63 +6,55 @@
    Source: frontend/constants/theme.ts — customer role only
    ──────────────────────────────────────────────────────────── */
 :root {
-  /* Brand — thannigoPalette (theme.ts) */
-  --color-primary: #0077B6;
-  /* thannigoPalette.primary */
-  --color-primary-light: #48CAE4;
-  /* thannigoPalette.secondary */
-  --color-secondary: #0096C7;
-  /* thannigoPalette.accent */
-  --color-secondary-light: #00B4D8;
-  --color-accent: #ADEBF4;
-  /* thannigoPalette.tertiary */
-  --color-success: #27AE60;
-  /* thannigoPalette.success */
+  /* ── Aqua Pura Water Bottle Color Palette ───────────────────
+     Extracted from image: deep ocean #072A56 → electric blue #1B7FD4
+     → bright sky #3BA8E8 → icy gloss #6EC8F5 · crisp white-blue #E8F6FE
+  ─────────────────────────────────────────────────────────── */
 
-  /* Gradients — roleGradients.customer + auth deep blues (theme.ts) */
-  --gradient-brand: linear-gradient(135deg, #005D90 0%, #0077B6 55%, #48CAE4 100%);
-  --gradient-hero: linear-gradient(135deg, #001428 0%, #002D4E 38%, #004E7C 68%, #0B1220 100%);
-  --gradient-card: linear-gradient(135deg, rgba(0, 119, 182, 0.12) 0%, rgba(0, 150, 199, 0.06) 100%);
-  --gradient-cta: linear-gradient(135deg, #005D90 0%, #0096C7 100%);
-  --gradient-step: linear-gradient(135deg, #0077B6 0%, #48CAE4 100%);
+  /* Core brand colors — water-can blue spectrum */
+  --color-primary:        #1B7FD4;   /* electric blue — main bottle color   */
+  --color-primary-dark:   #0F5EA8;   /* deep water — bottle shadow/base     */
+  --color-primary-deeper: #072A56;   /* ocean abyss — darkest tone          */
+  --color-primary-light:  #6EC8F5;   /* icy gloss — frosted bottle sheen    */
+  --color-primary-pale:   #E8F6FE;   /* crisp white-blue — label/caps       */
+  --color-secondary:      #3BA8E8;   /* bright sky — label highlight        */
+  --color-accent:         #A8DFF7;   /* soft icy accent                     */
+  --color-success:        #22C55E;   /* green success                       */
 
-  /* Backgrounds — darkBg / darkSurface / surfaceElevated (theme.ts) */
-  --bg-base: #0B1220;
-  /* thannigoPalette.darkBg */
-  --bg-surface: #111827;
-  /* thannigoPalette.darkSurface */
-  --bg-elevated: #1A2332;
-  /* Colors.dark.surfaceElevated */
-  --bg-glass: rgba(0, 119, 182, 0.08);
-  --bg-glass-hover: rgba(0, 119, 182, 0.15);
+  /* Gradients — water-bottle blue spectrum */
+  --gradient-brand: linear-gradient(135deg, #072A56 0%, #1B7FD4 50%, #6EC8F5 100%);
+  --gradient-hero:  linear-gradient(135deg, #020C1B 0%, #06193A 38%, #0A4272 68%, #020C1B 100%);
+  --gradient-card:  linear-gradient(135deg, rgba(27, 127, 212, 0.12) 0%, rgba(59, 168, 232, 0.06) 100%);
+  --gradient-cta:   linear-gradient(135deg, #0F5EA8 0%, #1B7FD4 100%);
+  --gradient-step:  linear-gradient(135deg, #1B7FD4 0%, #6EC8F5 100%);
+
+  /* Backgrounds — deep ocean navy from bottle image */
+  --bg-base:         #020C1B;   /* deepest ocean dark                  */
+  --bg-surface:      #061628;   /* surface navy                        */
+  --bg-elevated:     #0D2540;   /* elevated card                       */
+  --bg-glass:        rgba(27, 127, 212, 0.08);
+  --bg-glass-hover:  rgba(27, 127, 212, 0.16);
 
   /* Borders */
-  --border-glass: rgba(0, 119, 182, 0.20);
-  --border-glow: rgba(0, 119, 182, 0.55);
+  --border-glass: rgba(27, 127, 212, 0.22);
+  --border-glow:  rgba(110, 200, 245, 0.55);
 
   /* Text */
-  --text-primary: #F1F5F9;
-  --text-secondary: #9BA1A6;
-  /* thannigoPalette.darkMuted */
-  --text-muted: #64748B;
+  --text-primary:   #EEF6FC;
+  --text-secondary: #8BBDD9;
+  --text-muted:     #3D6480;
 
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
 
-  /* Spacing — 4-based scale mirrors theme.ts Spacing tokens */
-  --space-1: 0.25rem;
-  /* 4px  */
-  --space-2: 0.5rem;
-  /* 8px  — Spacing.xs */
-  --space-3: 0.75rem;
-  /* 12px — Spacing.sm */
-  --space-4: 1rem;
-  /* 16px — Spacing.md */
-  --space-6: 1.5rem;
-  /* 24px — Spacing.xl */
-  --space-8: 2rem;
-  /* 32px — Spacing.xxl */
+  /* Spacing — 4-based scale */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
@@ -70,32 +62,26 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  /* Radius — mirrors theme.ts Radius tokens */
-  --radius-sm: 8px;
-  /* Radius.sm */
-  --radius-md: 12px;
-  /* Radius.md */
-  --radius-lg: 16px;
-  /* Radius.lg */
-  --radius-xl: 24px;
-  /* Radius.xl / Radius.pill */
-  --radius-2xl: 32px;
-  /* Radius.xxl */
+  /* Radius */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
   --radius-full: 9999px;
-  /* Radius.full */
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 40px rgba(0, 119, 182, 0.40);
-  --shadow-glow-warm: 0 0 40px rgba(72, 202, 228, 0.28);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  /* Shadows — water-blue glow */
+  --shadow-sm:        0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md:        0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-lg:        0 16px 48px rgba(0, 0, 0, 0.65);
+  --shadow-glow:      0 0 40px rgba(27, 127, 212, 0.50);
+  --shadow-glow-warm: 0 0 40px rgba(110, 200, 245, 0.35);
+  --shadow-card:      0 4px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   /* Transitions */
-  --ease-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-base:   300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-slow:   600ms cubic-bezier(0.4, 0, 0.2, 1);
   --ease-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -238,12 +224,12 @@ p {
 .btn-primary {
   background: var(--gradient-brand);
   color: #fff;
-  box-shadow: var(--shadow-glow), 0 4px 16px rgba(0, 119, 182, 0.3);
+  box-shadow: var(--shadow-glow), 0 4px 16px rgba(27, 127, 212, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow), 0 8px 28px rgba(0, 119, 182, 0.45);
+  box-shadow: var(--shadow-glow), 0 8px 28px rgba(27, 127, 212, 0.50);
 }
 
 .btn-primary:active {
@@ -259,7 +245,7 @@ p {
 
 .btn-outline:hover {
   border-color: var(--color-primary-light);
-  background: rgba(0, 119, 182, 0.1);
+  background: rgba(27, 127, 212, 0.1);
   transform: translateY(-2px);
 }
 
@@ -268,8 +254,8 @@ p {
   display: inline-block;
   padding: 0.375rem 1rem;
   border-radius: var(--radius-full);
-  background: rgba(0, 119, 182, 0.15);
-  border: 1px solid rgba(0, 119, 182, 0.3);
+  background: rgba(27, 127, 212, 0.15);
+  border: 1px solid rgba(27, 127, 212, 0.35);
   color: var(--color-primary-light);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -370,11 +356,11 @@ p {
 
   0%,
   100% {
-    box-shadow: 0 0 30px rgba(0, 119, 182, 0.25);
+    box-shadow: 0 0 30px rgba(27, 127, 212, 0.30);
   }
 
   50% {
-    box-shadow: 0 0 60px rgba(0, 119, 182, 0.5);
+    box-shadow: 0 0 60px rgba(110, 200, 245, 0.55);
   }
 }
 
@@ -436,11 +422,11 @@ p {
 }
 
 #navbar.scrolled {
-  background: rgba(8, 12, 20, 0.88);
+  background: rgba(2, 8, 22, 0.90);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-glass);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 12px rgba(27, 127, 212, 0.08);
 }
 
 .nav-logo {
@@ -458,20 +444,20 @@ p {
   display: block;
   margin-right: -2px;
 
-  /* Glow uses exact theme tokens: --color-primary #0077B6, --color-primary-light #48CAE4 */
+  /* Glow uses Aqua Pura palette: --color-primary #1B7FD4, --color-primary-light #6EC8F5 */
   filter:
-    drop-shadow(0 0 8px rgba(0, 119, 182, 0.45))
-    drop-shadow(0 0 20px rgba(72, 202, 228, 0.30))
-    drop-shadow(0 0 2px rgba(0, 150, 199, 0.60));
+    drop-shadow(0 0 8px rgba(27, 127, 212, 0.50))
+    drop-shadow(0 0 20px rgba(110, 200, 245, 0.35))
+    drop-shadow(0 0 2px rgba(59, 168, 232, 0.65));
 
   transition: all 0.3s ease;
 }
 
 .nav-logo:hover img {
   filter:
-    drop-shadow(0 0 12px rgba(0, 119, 182, 0.70))
-    drop-shadow(0 0 28px rgba(72, 202, 228, 0.50))
-    drop-shadow(0 0 4px rgba(0, 180, 216, 0.80));
+    drop-shadow(0 0 12px rgba(27, 127, 212, 0.75))
+    drop-shadow(0 0 28px rgba(110, 200, 245, 0.55))
+    drop-shadow(0 0 4px rgba(59, 168, 232, 0.85));
   transform: scale(1.04);
 }
 
@@ -483,26 +469,26 @@ p {
   margin-left: -2px;
 }
 
-/* Thanni — brand gradient: --color-primary-dark #005D90 → --color-primary #0077B6 → --color-primary-light #48CAE4 */
+/* Thanni — Aqua Pura gradient: ocean deep #072A56 → electric blue #1B7FD4 → bright sky #3BA8E8 */
 .brand-main {
   font-size: 1.72rem;
   font-weight: 800;
   letter-spacing: -1.8px;
 
   background: linear-gradient(135deg,
-      #005D90 0%,
-      #0077B6 55%,
-      #48CAE4 100%);
+      #072A56 0%,
+      #1B7FD4 55%,
+      #3BA8E8 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
   /* Chrome/Safari: text glow via filter */
-  filter: drop-shadow(0 0 8px rgba(0, 119, 182, 0.60));
+  filter: drop-shadow(0 0 8px rgba(27, 127, 212, 0.65));
 }
 
-/* Go — accent: --color-primary-light #48CAE4 → --color-secondary-light #00B4D8 → --color-accent #ADEBF4 */
+/* Go — accent: icy gloss #6EC8F5 → bright sky #3BA8E8 → crisp white-blue #A8DFF7 */
 .brand-go {
   font-size: 1.72rem;
   font-weight: 800;
@@ -510,15 +496,15 @@ p {
   letter-spacing: -1.8px;
 
   background: linear-gradient(135deg,
-      #48CAE4 0%,
-      #00B4D8 60%,
-      #ADEBF4 100%);
+      #6EC8F5 0%,
+      #3BA8E8 60%,
+      #A8DFF7 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
-  filter: drop-shadow(0 0 10px rgba(72, 202, 228, 0.75));
+  filter: drop-shadow(0 0 10px rgba(110, 200, 245, 0.80));
 }
 
 .nav-links {
@@ -637,7 +623,7 @@ p {
 .orb-1 {
   width: 500px;
   height: 500px;
-  background: rgba(0, 119, 182, 0.18);
+  background: rgba(27, 127, 212, 0.20);
   top: -100px;
   left: -100px;
   animation-duration: 20s;
@@ -646,7 +632,7 @@ p {
 .orb-2 {
   width: 400px;
   height: 400px;
-  background: rgba(72, 202, 228, 0.15);
+  background: rgba(110, 200, 245, 0.16);
   bottom: -80px;
   right: -60px;
   animation-duration: 15s;
@@ -656,7 +642,7 @@ p {
 .orb-3 {
   width: 300px;
   height: 300px;
-  background: rgba(0, 150, 199, 0.12);
+  background: rgba(59, 168, 232, 0.13);
   top: 40%;
   left: 40%;
   animation-duration: 25s;
@@ -1226,6 +1212,8 @@ p {
 .stat-card {
   padding: var(--space-8) var(--space-6);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .stat-number {
@@ -1381,10 +1369,6 @@ p {
   grid-template-columns: 1.5fr 1fr;
   gap: var(--space-12);
   padding-bottom: var(--space-12);
-}
-
-.footer-brand img {
-  margin-bottom: var(--space-4);
 }
 
 .footer-brand p {
@@ -1701,20 +1685,7 @@ p {
   opacity: 0.35;
 }
 
-/* ── Section badge upgrade ──────────────────────────────── */
-.section-badge {
-  position: relative;
-  overflow: hidden;
-  animation: badge-pop 0.5s var(--ease-spring) both;
-}
-.section-badge::after {
-  content: '';
-  position: absolute;
-  top: 0; left: -60%;
-  width: 40%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  animation: shimmer 3s ease-in-out infinite;
-}
+/* .section-badge upgrades — managed in upgrade.css */
 
 /* ── Section dividers ───────────────────────────────────── */
 section + section {
@@ -1817,9 +1788,7 @@ section + section::before {
   background: rgba(255,255,255,0.05);
   color: var(--text-primary);
 }
-.tab-panel.active {
-  animation: slide-in-tab 0.35s var(--ease-base) both;
-}
+/* .tab-panel.active animation — managed in upgrade.css */
 .tabs-content {
   padding: var(--space-10) var(--space-8);
 }
@@ -1855,10 +1824,6 @@ section + section::before {
 }
 
 /* ── Stat cards: top glow line ──────────────────────────── */
-.stat-card {
-  position: relative;
-  overflow: hidden;
-}
 .stat-card::before {
   content: '';
   position: absolute;
@@ -2079,18 +2044,9 @@ section + section::before {
 .footer-team-divider { color: var(--text-muted); }
 .footer-team-members strong { color: var(--text-primary); font-weight: 600; }
 
-/* ── Pillar: left accent ─────────────────────────────────── */
-.pillar {
-  border-left: 3px solid transparent;
-  transition: border-color var(--ease-base), all var(--ease-base);
-}
-.pillar:hover { border-left-color: var(--color-primary); }
+/* .pillar border-left upgrade — managed in upgrade.css */
 
-/* ── Problem card: number overlay ───────────────────────── */
-.problem-card {
-  position: relative;
-  overflow: hidden;
-}
+/* ── Problem card: gradient underline wipe ───────────────── */
 .problem-card::after {
   content: '';
   position: absolute;
