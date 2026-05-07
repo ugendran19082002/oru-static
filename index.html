@@ -39,14 +39,21 @@
   <link rel="apple-touch-icon" href="assets/images/favicon.png?v=2">
 
   <!-- ── Fonts & Icons ────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/material-symbols.css">
 
   <!-- ── Styles ───────────────────────────────────────────── -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="upgrade.css">
 </head>
 
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
 
   <!-- ═══════════════════════════════════════════════════════
        NAVIGATION
@@ -96,6 +103,7 @@
        HERO
   ══════════════════════════════════════════════════════════ -->
   <section id="hero" aria-labelledby="hero-heading">
+    <canvas id="hero-particles" aria-hidden="true"></canvas>
     <div class="hero-orbs" aria-hidden="true">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
@@ -179,6 +187,48 @@
 
 
   <!-- ═══════════════════════════════════════════════════════
+       TRUST TICKER
+  ══════════════════════════════════════════════════════════ -->
+  <div class="trust-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="material-symbols-outlined">verified</span> Real-Time Order Tracking</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">local_shipping</span> Hyperlocal Delivery</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">store</span> 147+ Local Shops</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">workspace_premium</span> Loyalty Rewards</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">payments</span> Secure Payments</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">directions_bike</span> Delivery Partners</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">water_drop</span> Can Management</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">schedule</span> Scheduled Orders</span>
+      <span class="ticker-sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item"><span class="material-symbols-outlined">verified</span> Real-Time Order Tracking</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">local_shipping</span> Hyperlocal Delivery</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">store</span> 147+ Local Shops</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">workspace_premium</span> Loyalty Rewards</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">payments</span> Secure Payments</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">directions_bike</span> Delivery Partners</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">water_drop</span> Can Management</span>
+      <span class="ticker-sep">·</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">schedule</span> Scheduled Orders</span>
+      <span class="ticker-sep">·</span>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
        ABOUT
   ══════════════════════════════════════════════════════════ -->
   <section id="about" aria-labelledby="about-heading">
@@ -192,14 +242,13 @@
             <span class="gradient-text">Local Shops &amp; Modern Customers</span>
           </h2>
           <p>
-            Local businesses have always been the backbone of communities — but they've struggled
-            to compete with the convenience of large e-commerce platforms. ThanniGo was built to
-            change that imbalance.
+            Local businesses are the heartbeat of every community — yet they've always been left
+            behind by the digital economy. ThanniGo was built to change that, permanently.
           </p>
           <p>
-            We give shop owners powerful digital tools to manage their entire operations, customers
-            the speed of instant local delivery with live tracking, and delivery partners a structured,
-            reliable earning platform — all connected in real time on a single system.
+            We empower shop owners with smart digital storefronts, give customers the joy of instant
+            local delivery with live tracking, and offer delivery partners a rewarding, flexible
+            income opportunity — all on one beautifully connected platform.
           </p>
 
           <div class="about-pillars">
@@ -207,21 +256,21 @@
               <span class="material-symbols-outlined pillar-icon">store</span>
               <div>
                 <strong>For Shop Owners</strong>
-                <span>Go digital in minutes with full catalog, inventory, and order management</span>
+                <span>Launch your digital shop in minutes — manage products, orders, and growth effortlessly</span>
               </div>
             </div>
             <div class="pillar">
               <span class="material-symbols-outlined pillar-icon">shopping_bag</span>
               <div>
                 <strong>For Customers</strong>
-                <span>Browse local shops, place orders, and track delivery in real time</span>
+                <span>Discover neighbourhood shops, order instantly, and track every delivery live</span>
               </div>
             </div>
             <div class="pillar">
               <span class="material-symbols-outlined pillar-icon">directions_bike</span>
               <div>
                 <strong>For Delivery Partners</strong>
-                <span>Accept deliveries, navigate with precision, and track your earnings</span>
+                <span>Earn on your schedule with clear tasks, guided navigation, and transparent payouts</span>
               </div>
             </div>
           </div>
@@ -592,63 +641,76 @@
           <span class="gradient-text">Four Simple Steps</span>
         </h2>
         <p class="section-description">
-          ThanniGo orchestrates the entire local commerce journey — seamlessly connecting every
-          participant from order to delivery.
+          ThanniGo makes local commerce effortless — connecting customers, shops, and delivery
+          partners from the first tap to the final doorstep.
         </p>
+      </div>
+
+      <!-- Animated progress line -->
+      <div class="steps-progress-track" aria-hidden="true">
+        <div class="steps-progress-fill" id="steps-fill"></div>
       </div>
 
       <div class="steps-flow reveal">
 
-        <div class="step">
+        <div class="step" data-step="1">
           <div class="step-number">01</div>
           <div class="step-icon-wrap" aria-hidden="true">
             <span class="material-symbols-outlined">add_shopping_cart</span>
           </div>
-          <h3>Place Order</h3>
-          <p>Customer browses local shops, selects products, applies coupons, and places an order with their preferred
-            delivery schedule.</p>
+          <h3>Browse &amp; Order</h3>
+          <p>Discover nearby shops, choose what you need, apply offers, and place your order in seconds.</p>
         </div>
 
         <div class="step-connector" aria-hidden="true">
-          <span class="material-symbols-outlined">arrow_forward</span>
+          <svg viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="32,3 40,8 32,13" fill="url(#cg)"/>
+            <defs><linearGradient id="cg" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0077B6"/><stop offset="1" stop-color="#48CAE4"/></linearGradient></defs>
+          </svg>
         </div>
 
-        <div class="step">
+        <div class="step" data-step="2">
           <div class="step-number">02</div>
           <div class="step-icon-wrap" aria-hidden="true">
             <span class="material-symbols-outlined">storefront</span>
           </div>
-          <h3>Shop Confirms</h3>
-          <p>The shop owner receives an instant alert, reviews the order, confirms availability, and prepares items for
-            dispatch.</p>
+          <h3>Shop Prepares</h3>
+          <p>The shop gets notified instantly, confirms your order, and gets it ready for collection.</p>
         </div>
 
         <div class="step-connector" aria-hidden="true">
-          <span class="material-symbols-outlined">arrow_forward</span>
+          <svg viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg2)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="32,3 40,8 32,13" fill="url(#cg2)"/>
+            <defs><linearGradient id="cg2" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0077B6"/><stop offset="1" stop-color="#48CAE4"/></linearGradient></defs>
+          </svg>
         </div>
 
-        <div class="step">
+        <div class="step" data-step="3">
           <div class="step-number">03</div>
           <div class="step-icon-wrap" aria-hidden="true">
             <span class="material-symbols-outlined">directions_bike</span>
           </div>
-          <h3>Delivery Assigned</h3>
-          <p>A delivery partner accepts the task, picks up the order from the shop, and begins navigating to the
-            customer.</p>
+          <h3>On Its Way</h3>
+          <p>A delivery partner picks up your order and heads straight to you — track every move live on the map.</p>
         </div>
 
         <div class="step-connector" aria-hidden="true">
-          <span class="material-symbols-outlined">arrow_forward</span>
+          <svg viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="32,3 40,8 32,13" fill="url(#cg3)"/>
+            <defs><linearGradient id="cg3" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#0077B6"/><stop offset="1" stop-color="#48CAE4"/></linearGradient></defs>
+          </svg>
         </div>
 
-        <div class="step">
+        <div class="step" data-step="4">
           <div class="step-number">04</div>
           <div class="step-icon-wrap" aria-hidden="true">
             <span class="material-symbols-outlined">home</span>
           </div>
-          <h3>Order Delivered</h3>
-          <p>The customer receives real-time updates, tracks delivery live on a map, and gets their order at the door —
-            on time.</p>
+          <h3>Delivered to Your Door</h3>
+          <p>Receive your order right at your doorstep, on time, every time. Rate your experience and earn loyalty rewards.</p>
         </div>
 
       </div>
@@ -673,27 +735,27 @@
       <div class="stats-row reveal" role="list" aria-label="Platform statistics">
 
         <div class="stat-card glass-card" role="listitem">
-          <span class="stat-number" data-count="4">0</span>
-          <span class="stat-label">User Roles</span>
-          <span class="stat-desc">Customer &middot; Shop Owner &middot; Delivery Partner &middot; Admin</span>
+          <span class="stat-number" data-count="3">0</span>
+          <span class="stat-label">User Experiences</span>
+          <span class="stat-desc">Customers &middot; Shop Owners &middot; Delivery Partners</span>
         </div>
 
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="40" data-suffix="+">0</span>
           <span class="stat-label">Platform Features</span>
-          <span class="stat-desc">Purpose-built for local commerce workflows</span>
+          <span class="stat-desc">Purpose-built for hyperlocal commerce</span>
         </div>
 
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="4">0</span>
-          <span class="stat-label">Steps to Order</span>
-          <span class="stat-desc">Place &middot; Confirm &middot; Dispatch &middot; Deliver</span>
+          <span class="stat-label">Steps to Doorstep</span>
+          <span class="stat-desc">Browse &middot; Order &middot; Track &middot; Receive</span>
         </div>
 
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="100" data-suffix="%">0</span>
           <span class="stat-label">Mobile-First</span>
-          <span class="stat-desc">Native app experience on iOS &amp; Android</span>
+          <span class="stat-desc">Beautiful native apps on iOS &amp; Android</span>
         </div>
 
       </div>
@@ -704,9 +766,8 @@
           <div class="benefit-icon" aria-hidden="true">
             <span class="material-symbols-outlined">bolt</span>
           </div>
-          <h3>Real-Time Everything</h3>
-          <p>Live order tracking, instant push notifications, and real-time delivery updates keep every participant in
-            sync at all times.</p>
+          <h3>Always Live. Always On.</h3>
+          <p>Live order tracking, instant delivery alerts, and real-time status updates — so customers, shops, and partners stay perfectly in sync.</p>
         </div>
 
         <div class="benefit glass-card">
@@ -714,8 +775,7 @@
             <span class="material-symbols-outlined">hub</span>
           </div>
           <h3>One Unified Platform</h3>
-          <p>Customers, shop owners, delivery partners, and admins — all operating together in one connected,
-            purpose-built platform.</p>
+          <p>Customers, shop owners, and delivery partners — all connected on a single, beautifully designed platform built for local commerce.</p>
         </div>
 
         <div class="benefit glass-card">
@@ -723,8 +783,7 @@
             <span class="material-symbols-outlined">security</span>
           </div>
           <h3>Secure by Design</h3>
-          <p>Your account, orders, and payments are protected at every step — so customers can shop, shop owners can
-            sell, and delivery partners can earn with complete confidence.</p>
+          <p>Every account, order, and payment is protected end-to-end — so everyone on ThanniGo can transact with total confidence.</p>
         </div>
 
         <div class="benefit glass-card">
@@ -732,8 +791,7 @@
             <span class="material-symbols-outlined">trending_up</span>
           </div>
           <h3>Built to Scale</h3>
-          <p>Fast, reliable, and ready to grow — ThanniGo is built to handle more shops, more customers, and more
-            deliveries as your community expands.</p>
+          <p>Engineered for growth — ThanniGo expands seamlessly as more shops join, more customers order, and more communities come alive.</p>
         </div>
 
       </div>
@@ -902,7 +960,7 @@
           <div class="team-info">
             <h3 class="team-name">Mr. Sudeep</h3>
             <span class="team-role">Chief Operating Officer</span>
-            <p class="team-desc">Operational architect behind ThanniGo's seamless platform delivery, scaling systems, and building reliable end-to-end commerce pipelines.</p>
+            <p class="team-desc">Operations leader driving ThanniGo's seamless execution, ensuring every customer, shop, and delivery partner enjoys a world-class experience.</p>
           </div>
           <div class="team-badge-role">COO</div>
         </article>
@@ -1079,7 +1137,108 @@
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
   <script src="script.js"></script>
+  <script>
+  /* ── Scroll Progress Bar ────────────────────────── */
+  (function() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    function update() {
+      const scrollTop = window.scrollY;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+      bar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+
+  /* ── Back to Top ─────────────────────────────────── */
+  (function() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+
+  /* ── Hero Particle Canvas ─────────────────────────── */
+  (function() {
+    const canvas = document.getElementById('hero-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], raf;
+
+    function resize() {
+      const hero = document.getElementById('hero');
+      W = canvas.width  = hero ? hero.offsetWidth  : window.innerWidth;
+      H = canvas.height = hero ? hero.offsetHeight : window.innerHeight;
+    }
+
+    function Particle() {
+      this.reset = function() {
+        this.x  = Math.random() * W;
+        this.y  = Math.random() * H;
+        this.r  = Math.random() * 1.8 + 0.4;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.a  = Math.random() * 0.5 + 0.15;
+        this.hue = Math.random() > 0.5 ? '0,119,182' : '72,202,228';
+      };
+      this.reset();
+    }
+
+    function init() {
+      resize();
+      particles = Array.from({ length: 90 }, () => new Particle());
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) p.reset();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.hue},${p.a})`;
+        ctx.fill();
+      });
+      raf = requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', () => { resize(); });
+    init();
+    draw();
+  })();
+
+  /* ── Steps Active Highlight ───────────────────────── */
+  (function() {
+    const fill  = document.getElementById('steps-fill');
+    const steps = document.querySelectorAll('.step[data-step]');
+    if (!fill || !steps.length) return;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const n = parseInt(entry.target.dataset.step, 10);
+          fill.style.width = ((n / steps.length) * 100) + '%';
+          steps.forEach((s, i) => {
+            s.classList.toggle('step-active', i < n);
+          });
+        }
+      });
+    }, { threshold: 0.6 });
+
+    steps.forEach(s => obs.observe(s));
+  })();
+  </script>
 </body>
 
 </html>

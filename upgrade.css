@@ -1,0 +1,472 @@
+/* ============================================================
+   ThanniGo — Next-Level Design Upgrade
+   upgrade.css  ·  appended to style.css pipeline
+   ============================================================ */
+
+/* ── Scroll Progress Bar ─────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #005D90, #0077B6, #48CAE4, #00B4D8);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s linear infinite;
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px rgba(72, 202, 228, 0.6);
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Hero Canvas Particles ──────────────────────────────── */
+#hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+/* Ensure hero content is above canvas */
+#hero .hero-inner,
+#hero .hero-orbs,
+#hero .hero-scroll-hint {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Trust Ticker / Marquee Strip ───────────────────────── */
+.trust-ticker {
+  background: rgba(0, 119, 182, 0.06);
+  border-top: 1px solid rgba(0, 119, 182, 0.18);
+  border-bottom: 1px solid rgba(0, 119, 182, 0.18);
+  padding: 0.75rem 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.trust-ticker::before,
+.trust-ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.trust-ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-base) 0%, transparent 100%);
+}
+
+.trust-ticker::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-base) 0%, transparent 100%);
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+  animation: ticker-scroll 32s linear infinite;
+  width: max-content;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.ticker-item .material-symbols-outlined {
+  font-size: 1rem;
+  color: var(--color-primary-light);
+}
+
+.ticker-sep {
+  color: var(--border-glow);
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Enhanced Section Backgrounds with Mesh ─────────────── */
+#about {
+  background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-surface) 100%);
+  position: relative;
+}
+
+#about::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 119, 182, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Steps — SVG Connector Upgrades ─────────────────────── */
+.steps-progress-track {
+  position: relative;
+  height: 2px;
+  background: rgba(0, 119, 182, 0.15);
+  border-radius: 2px;
+  margin: 0 auto var(--space-8);
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.steps-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0077B6, #48CAE4);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(72, 202, 228, 0.5);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  opacity: 0.9;
+}
+
+.step-connector svg {
+  width: 40px;
+  height: 16px;
+  display: block;
+}
+
+/* Active step highlight */
+.step.step-active {
+  border-color: var(--color-primary) !important;
+  background: rgba(0, 119, 182, 0.12) !important;
+  box-shadow: 0 0 32px rgba(0, 119, 182, 0.25) !important;
+}
+
+.step.step-active .step-icon-wrap {
+  box-shadow: 0 0 40px rgba(72, 202, 228, 0.55) !important;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Feature Icon Color System ───────────────────────────── */
+/* Give each feature category a tinted icon */
+#tab-customer .feature-icon {
+  color: #48CAE4;
+  background: rgba(72, 202, 228, 0.1);
+}
+
+#tab-shop .feature-icon {
+  color: #56CFE1;
+  background: rgba(86, 207, 225, 0.1);
+}
+
+#tab-delivery .feature-icon {
+  color: #00B4D8;
+  background: rgba(0, 180, 216, 0.1);
+}
+
+#tab-admin .feature-icon {
+  color: #90E0EF;
+  background: rgba(144, 224, 239, 0.1);
+}
+
+/* Problem icon colours — unique per card */
+.problems-grid article:nth-child(1) .problem-icon {
+  color: #FF6B6B;
+}
+
+.problems-grid article:nth-child(2) .problem-icon {
+  color: #FFD166;
+}
+
+.problems-grid article:nth-child(3) .problem-icon {
+  color: #48CAE4;
+}
+
+.problems-grid article:nth-child(4) .problem-icon {
+  color: #06D6A0;
+}
+
+.problems-grid article:nth-child(5) .problem-icon {
+  color: #FF9F1C;
+}
+
+.problems-grid article:nth-child(6) .problem-icon {
+  color: #C77DFF;
+}
+
+/* ── Enhanced Glass Card Gradient Border ─────────────────── */
+@supports (background: paint(something)) or (background: conic-gradient(red, red)) {
+  .glass-card {
+    position: relative;
+  }
+}
+
+/* Gradient border via ::before pseudo on hover */
+.problem-card,
+.benefit,
+.stat-card {
+  position: relative;
+}
+
+.problem-card:hover,
+.benefit:hover {
+  background: rgba(0, 119, 182, 0.1) !important;
+}
+
+/* ── Benefit Icons – Unique Accent Colors ────────────────── */
+.why-benefits .benefit:nth-child(1) .benefit-icon {
+  background: rgba(255, 215, 0, 0.1);
+  color: #FFD700;
+}
+
+.why-benefits .benefit:nth-child(2) .benefit-icon {
+  background: rgba(86, 207, 225, 0.12);
+  color: #56CFE1;
+}
+
+.why-benefits .benefit:nth-child(3) .benefit-icon {
+  background: rgba(106, 195, 133, 0.12);
+  color: #6AC385;
+}
+
+.why-benefits .benefit:nth-child(4) .benefit-icon {
+  background: rgba(199, 125, 255, 0.12);
+  color: #C77DFF;
+}
+
+/* ── Stats Pulse on Hover ────────────────────────────────── */
+.stat-card:hover .stat-number {
+  filter: brightness(1.2);
+  text-shadow: 0 0 24px rgba(72, 202, 228, 0.4);
+}
+
+/* ── Contact Cards – Icon Colors ────────────────────────── */
+.contact-grid .contact-card:nth-child(1) .contact-icon {
+  background: rgba(72, 202, 228, 0.12);
+  color: #48CAE4;
+}
+
+.contact-grid .contact-card:nth-child(2) .contact-icon {
+  background: rgba(199, 125, 255, 0.12);
+  color: #C77DFF;
+}
+
+.contact-grid .contact-card:nth-child(3) .contact-icon {
+  background: rgba(106, 195, 133, 0.12);
+  color: #6AC385;
+}
+
+/* ── Back-to-Top Button ──────────────────────────────────── */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 119, 182, 0.5), 0 0 0 0 rgba(72, 202, 228, 0.4);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 500;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+#back-to-top:hover {
+  box-shadow: 0 8px 32px rgba(0, 119, 182, 0.65), 0 0 0 8px rgba(72, 202, 228, 0.12);
+  transform: translateY(-3px) scale(1.05);
+}
+
+#back-to-top .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+/* ── Enhanced Section Badge — glow on hover ─────────────── */
+.section-badge {
+  transition: box-shadow var(--ease-base), background var(--ease-base);
+}
+
+section:hover .section-badge {
+  background: rgba(0, 119, 182, 0.22);
+  box-shadow: 0 0 16px rgba(0, 119, 182, 0.25);
+}
+
+/* ── Animated Gradient Heading Underline ─────────────────── */
+h2 .gradient-text {
+  position: relative;
+  display: inline-block;
+}
+
+h2 .gradient-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #005D90, #0077B6, #48CAE4, #00B4D8);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s linear infinite;
+  opacity: 0.55;
+}
+
+/* ── Feature Tab Panel Fade Transition ───────────────────── */
+.tab-panel {
+  animation: none;
+}
+
+.tab-panel.active {
+  animation: fade-in-up 0.35s ease both;
+}
+
+/* ── Pillar Hover – Left Border Accent ───────────────────── */
+.pillar {
+  border-left: 3px solid transparent;
+  transition: border-color var(--ease-base), background var(--ease-base), transform var(--ease-base);
+}
+
+.pillar:hover {
+  border-left-color: var(--color-primary-light);
+  transform: translateX(4px);
+}
+
+.pillar:nth-child(2):hover {
+  border-left-color: #56CFE1;
+}
+
+.pillar:nth-child(3):hover {
+  border-left-color: #48CAE4;
+}
+
+/* ── Team Card Stagger Animation ────────────────────────── */
+.team-grid .team-card:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.team-grid .team-card:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.team-grid .team-card:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+/* ── Download DL Feature – Stagger ──────────────────────── */
+.dl-feature:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.dl-feature:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.dl-feature:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.dl-feature:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+/* ── Hero Float Cards — enhanced shadow ─────────────────── */
+.hero-float-card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(72, 202, 228, 0.15);
+}
+
+/* ── Nav Active Link ─────────────────────────────────────── */
+.nav-links a.nav-active {
+  color: var(--color-primary-light) !important;
+  position: relative;
+}
+
+.nav-links a.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient-brand);
+}
+
+/* ── Footer Brand Logo Glow — mirrors nav logo theme shadow ── */
+.footer-brand img {
+  height: 150px;
+  width: auto;
+  filter:
+    drop-shadow(0 0 4px rgba(0, 119, 182, 0.80)) drop-shadow(0 0 12px rgba(72, 202, 228, 0.45)) drop-shadow(0 0 22px rgba(0, 150, 199, 0.25)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+  transition: filter 0.3s ease;
+}
+
+.footer-brand img:hover {
+  filter:
+    drop-shadow(0 0 6px rgba(0, 119, 182, 1.00)) drop-shadow(0 0 18px rgba(72, 202, 228, 0.70)) drop-shadow(0 0 32px rgba(0, 150, 199, 0.40)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55));
+}
+
+/* ── Responsive: hide progress track on mobile ───────────── */
+@media (max-width: 768px) {
+  .steps-progress-track {
+    display: none;
+  }
+
+  #back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .trust-ticker {
+    display: none;
+  }
+}
