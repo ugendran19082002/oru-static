@@ -137,20 +137,52 @@
       background-clip: text;
     }
 
-    /* Glass card */
+    /* Glass card - Enhanced for Clarity */
     .glass-card {
-      background: var(--bg-glass);
-      border: 1px solid var(--border-glass);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 16px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all var(--ease-base);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all var(--ease-spring);
+      position: relative;
+      isolation: isolate;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px; /* Creates the border width */
+      background: linear-gradient(135deg, rgba(27, 127, 212, 0.4), rgba(110, 200, 245, 0.1), rgba(27, 127, 212, 0.4));
+      background-size: 200% 200%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 1;
+      opacity: 0.5;
+      transition: opacity var(--ease-base);
     }
 
     .glass-card:hover {
-      background: rgba(255, 255, 255, 0.95);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(15, 23, 42, 0.1);
+      background: #ffffff;
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      border-color: transparent;
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+      animation: border-rotate 3s linear infinite;
+    }
+
+    @keyframes border-rotate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* Scroll reveal */
@@ -2372,42 +2404,6 @@
       width: 200px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
-    }
-
-    .glass-card {
-      position: relative;
-      isolation: isolate;
-    }
-
-    .glass-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background: linear-gradient(135deg, #0077B6, #48CAE4, #0096C7, #005D90);
-      background-size: 300% 300%;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity var(--ease-base);
-      animation: border-rotate 4s linear infinite;
-    }
-
-    .glass-card:hover::before {
-      opacity: 1;
-    }
-
-    @keyframes border-rotate {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
     }
 
     .feature-item {
