@@ -83,7 +83,7 @@
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
-  document.querySelectorAll('.problems-grid, .features-grid, .why-benefits, .contact-grid, .about-pillars, .download-features, .steps-flow, .stats-row').forEach(grid => {
+  document.querySelectorAll('.problems-grid, .features-grid, .why-benefits, .contact-grid, .about-pillars, .download-features, .steps-flow, .stats-row, .testimonials-grid, .partner-logos').forEach(grid => {
     Array.from(grid.children).forEach((child, i) => {
       if (!child.classList.contains('reveal')) {
         child.classList.add('reveal');
@@ -288,4 +288,16 @@
       el.style.transform = '';
     });
   });
+})();
+
+/* ── Hero Parallax ───────────────────────────────── */
+(function () {
+  const mockup = document.querySelector('.hero-visual');
+  if (!mockup) return;
+  window.addEventListener('scroll', () => {
+    const depth = window.scrollY * 0.12;
+    if (depth < 200) {
+      mockup.style.transform = `translateY(${depth}px)`;
+    }
+  }, { passive: true });
 })();
