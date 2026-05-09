@@ -307,8 +307,9 @@
     }
 
     .nav-links a.nav-active {
-      color: var(--color-primary);
+      color: var(--color-primary-dark);
       position: relative;
+      font-weight: 600;
     }
 
     .nav-links a.nav-active::after {
@@ -1040,8 +1041,9 @@
 
     .tab-btn.active {
       color: #fff;
-      background: var(--gradient-brand);
-      box-shadow: 0 4px 16px rgba(27, 127, 212, 0.35);
+      background: linear-gradient(135deg, #072A56 0%, #0F5EA8 100%);
+      box-shadow: 0 8px 20px rgba(15, 94, 168, 0.3);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 
     .tab-panel {
@@ -1173,8 +1175,18 @@
     .step:hover,
     .step.step-active {
       border-color: var(--color-primary);
-      background: rgba(37, 99, 235, 0.08);
-      box-shadow: 0 0 32px rgba(37, 99, 235, 0.2);
+      background: rgba(37, 99, 235, 0.06);
+      box-shadow: 0 0 32px rgba(37, 99, 235, 0.15);
+    }
+
+    .step:hover h3,
+    .step.step-active h3 {
+      color: var(--color-primary);
+    }
+
+    .step:hover p,
+    .step.step-active p {
+      color: var(--text-primary);
     }
 
     .step.step-active .step-icon-wrap {
