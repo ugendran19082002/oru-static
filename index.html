@@ -7,20 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- SEO -->
-  <title>ThanniGo — India's Hyperlocal Commerce Platform</title>
+  <title>ThanniGo — India's Hyperlocal Commerce Platform | Save More, Shop Local</title>
   <meta name="description"
-    content="ThanniGo connects customers, local shops, and delivery partners on one beautifully designed platform — bringing neighbourhood commerce to your pocket.">
+    content="ThanniGo connects you to nearby shops for instant delivery. Save costs with direct local pricing and discover the best neighbourhood stores on one beautifully designed platform.">
   <meta name="keywords"
-    content="hyperlocal delivery app India, local shop delivery, neighbourhood commerce, instant delivery platform, ThanniGo">
+    content="hyperlocal delivery app India, local shop delivery, neighbourhood commerce, cost saving local shopping, nearby shop discovery, instant delivery platform, ThanniGo">
   <meta name="author" content="ThanniGo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://thannigo.com/">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ThanniGo — Your Neighbourhood, Delivered Instantly">
+  <meta property="og:title" content="ThanniGo — Save Costs & Discover Nearby Shops Instantly">
   <meta property="og:description"
-    content="A modern platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
+    content="Connecting you to your neighbourhood. Discover local shops, save on delivery costs, and experience seamless hyperlocal commerce.">
   <meta property="og:url" content="https://thannigo.com/">
   <meta property="og:image" content="https://thannigo.com/assets/images/hero-gen.png">
   <meta property="og:site_name" content="ThanniGo">
@@ -28,9 +28,9 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ThanniGo — Your Neighbourhood, Delivered Instantly">
+  <meta name="twitter:title" content="ThanniGo — Save Costs & Discover Nearby Shops Instantly">
   <meta name="twitter:description"
-    content="A modern platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
+    content="Discover nearby stores and save on every order. The modern platform for seamless hyperlocal commerce in India.">
   <meta name="twitter:image" content="https://thannigo.com/assets/images/hero-gen.png">
 
   <!-- Favicon -->
@@ -78,12 +78,15 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       width: 100%;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE and Edge */
     }
 
     html::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none;
+      /* Chrome, Safari, Opera */
     }
 
     body {
@@ -93,12 +96,15 @@
       overflow-x: hidden;
       width: 100%;
       position: relative;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE and Edge */
     }
 
     body::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none;
+      /* Chrome, Safari, Opera */
     }
 
     a {
@@ -2509,6 +2515,25 @@
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
       }
+
+      .steps-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .step {
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .step-connector {
+        display: none;
+      }
+
+      .steps-progress-track {
+        display: none;
+      }
     }
 
     @media (max-width: 768px) {
@@ -2538,6 +2563,10 @@
         font-size: clamp(1.75rem, 7vw, 2.125rem);
       }
 
+      .section-header {
+        margin-bottom: 2.5rem;
+      }
+
       .problems-grid {
         grid-template-columns: 1fr;
       }
@@ -2551,22 +2580,12 @@
         gap: 1rem;
       }
 
-      .steps-flow {
-        flex-direction: column;
-        align-items: center;
+      .hero-stat-divider {
+        display: none;
+      }
+
+      .hero-stats {
         gap: 1.5rem;
-      }
-
-      .step-connector {
-        transform: rotate(90deg);
-      }
-
-      .stats-row {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .why-benefits {
-        grid-template-columns: 1fr 1fr;
       }
 
       .team-grid {
@@ -2589,11 +2608,11 @@
       }
 
       .trust-ticker {
-        display: none;
+        padding: 0.5rem 0;
       }
 
-      .steps-progress-track {
-        display: none;
+      .ticker-track {
+        gap: 1rem;
       }
 
       #back-to-top {
@@ -2675,7 +2694,17 @@
 
       .footer-team-inner {
         flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+
+      .footer-team-members {
+        flex-direction: column;
         gap: 0.5rem;
+      }
+
+      .footer-team-divider {
+        display: none;
       }
 
       .download-phone-stack {
@@ -2763,9 +2792,9 @@
         </h1>
 
         <p class="hero-description">
-          ThanniGo connects customers, local shop owners, and delivery partners on
-          one beautifully designed platform — bringing the convenience of modern commerce
-          to every street, every shop, and every doorstep.
+          Discover nearby shops and save costs with direct local pricing. ThanniGo connects customers, store owners, and
+          delivery partners on
+          one modern platform — bringing the convenience of hyperlocal commerce to every street and every doorstep.
         </p>
 
         <div class="hero-ctas">
@@ -2892,7 +2921,8 @@
               <span class="material-symbols-outlined pillar-icon">shopping_bag</span>
               <div>
                 <strong>For Customers</strong>
-                <span>Discover local shops, order in seconds, and enjoy a smooth delivery experience.</span>
+                <span>Discover nearby shops instantly, save on every order with direct local pricing, and enjoy a smooth
+                  doorstep delivery.</span>
               </div>
             </div>
             <div class="pillar">
@@ -3028,6 +3058,12 @@
                 <div>
                   <h4>Cash on Delivery</h4>
                   <p>Prefer to pay on arrival? We've got that covered too.</p>
+                </div>
+              </div>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">savings</span>
+                <div>
+                  <h4>Cost Effective Shopping</h4>
+                  <p>Save more on every order with direct neighbourhood pricing and no hidden fees.</p>
                 </div>
               </div>
               <div class="feature-item"><span class="material-symbols-outlined feature-icon">local_offer</span>
@@ -3288,6 +3324,11 @@
           <p>Connecting neighbourhoods through seamless local shopping.</p>
         </div>
         <div class="benefit glass-card">
+          <div class="benefit-icon"><span class="material-symbols-outlined">payments</span></div>
+          <h3>Cost Effective</h3>
+          <p>Direct neighbourhood pricing ensures you save more on every local purchase.</p>
+        </div>
+        <div class="benefit glass-card">
           <div class="benefit-icon"><span class="material-symbols-outlined">local_shipping</span></div>
           <h3>Fast & Reliable Delivery</h3>
           <p>Ensuring your orders arrive quickly and safely every time.</p>
@@ -3317,11 +3358,7 @@
           <h3>Unified Platform</h3>
           <p>One ecosystem connecting all participants seamlessly.</p>
         </div>
-        <div class="benefit glass-card">
-          <div class="benefit-icon"><span class="material-symbols-outlined">sentiment_very_satisfied</span></div>
-          <h3>Seamless Experience</h3>
-          <p>Every interaction designed to be smooth and delightful.</p>
-        </div>
+
       </div>
     </div>
   </section>
