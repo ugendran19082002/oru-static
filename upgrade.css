@@ -459,7 +459,16 @@ h2 .gradient-text::after {
     drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55));
 }
 
-/* ── Responsive: hide progress track on mobile ───────────── */
+/* ── Responsive Enhancements ───────────────────────────── */
+@media (min-width: 1440px) {
+  .trust-ticker {
+    padding: 1rem 0;
+  }
+  .ticker-track {
+    gap: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .steps-progress-track {
     display: none;
@@ -474,5 +483,18 @@ h2 .gradient-text::after {
 
   .trust-ticker {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+  .team-avatar {
+    width: 80px;
+    height: 80px;
   }
 }

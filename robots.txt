@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block admin and private routes
+Disallow: /admin/
+Disallow: /private/
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /hidden/
+
+Sitemap: https://thannigo.com/sitemap.xml
