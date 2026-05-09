@@ -205,7 +205,7 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 8px; /* Tighter premium grouping */
+      gap: 0px !important;
       text-decoration: none;
       transition: opacity var(--ease-base);
       margin: 0;
@@ -218,7 +218,8 @@
     }
 
     .nav-logo img {
-      height: 44px; /* Balanced height for premium identity */
+      height: 44px;
+      /* Balanced height for premium identity */
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(15, 94, 168, 0.1));
@@ -231,7 +232,8 @@
 
     .brand-text {
       display: flex;
-      align-items: center; /* Better vertical centering with logo */
+      align-items: center;
+      /* Better vertical centering with logo */
       gap: 0;
       line-height: 1;
     }
@@ -1386,7 +1388,8 @@
       background: linear-gradient(180deg, #fff 0%, #F0F9FF 100%);
       position: relative;
       overflow: hidden;
-      padding: 60px 0; /* Reduced to fix excessive whitespace */
+      padding: 60px 0;
+      /* Reduced to fix excessive whitespace */
     }
 
     .download-wrapper {
@@ -1402,7 +1405,8 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      transform: scale(0.85); /* Reduced phone dominance */
+      transform: scale(0.85);
+      /* Reduced phone dominance */
       perspective: 1500px;
     }
 
@@ -1455,8 +1459,19 @@
       z-index: 5;
     }
 
-    .badge-android { top: 40px; left: -50px; color: #10B981; animation: float-phone 7s ease-in-out infinite; }
-    .badge-ios { top: 140px; right: -60px; color: var(--color-primary); animation: float-phone 7s ease-in-out infinite reverse; }
+    .badge-android {
+      top: 40px;
+      left: -50px;
+      color: #10B981;
+      animation: float-phone 7s ease-in-out infinite;
+    }
+
+    .badge-ios {
+      top: 140px;
+      right: -60px;
+      color: var(--color-primary);
+      animation: float-phone 7s ease-in-out infinite reverse;
+    }
 
     .download-content {
       flex: 1.2;
@@ -1479,7 +1494,8 @@
       background: #fff;
       border: 1px solid rgba(15, 94, 168, 0.08);
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03); /* Fix Cards Lack Depth */
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+      /* Fix Cards Lack Depth */
       transition: all var(--ease-base);
     }
 
@@ -1513,7 +1529,8 @@
       border-radius: 14px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       transition: all var(--ease-base);
-      width: fit-content; /* Fix CTA Buttons Too Wide */
+      width: fit-content;
+      /* Fix CTA Buttons Too Wide */
       min-width: 180px;
       max-width: 260px;
     }
@@ -1539,10 +1556,13 @@
     }
 
     @keyframes glow-pulse-phone {
-      0%, 100% {
+
+      0%,
+      100% {
         opacity: 0.4;
         transform: translateX(-50%) scale(1);
       }
+
       50% {
         opacity: 0.8;
         transform: translateX(-50%) scale(1.1);
@@ -2096,14 +2116,16 @@
     .footer-brand {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem; /* Tighter grouping for premium feel */
+      gap: 0.75rem;
+      /* Tighter grouping for premium feel */
     }
 
     .footer-brand p {
       font-size: 0.875rem;
       color: #94A3B8;
       line-height: 1.5;
-      max-width: 280px; /* Slightly narrower for better density */
+      max-width: 280px;
+      /* Slightly narrower for better density */
     }
 
     .footer-social {
@@ -2432,8 +2454,22 @@
       }
 
       .download-wrapper {
+        display: grid;
         grid-template-columns: 1fr;
-        gap: 3.5rem;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .download-content {
+        align-items: center;
+      }
+
+      .dl-feature {
+        text-align: left;
+      }
+
+      .download-note {
+        justify-content: center;
       }
 
       .download-phone-stack {
@@ -2628,6 +2664,15 @@
       .footer-team-inner {
         flex-direction: column;
         gap: 0.5rem;
+      }
+
+      .download-phone-stack {
+        transform: scale(0.75) translateY(0);
+        margin-bottom: -1rem;
+      }
+
+      .download-wrapper {
+        gap: 1.5rem;
       }
     }
 
