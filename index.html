@@ -185,16 +185,44 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Scroll reveal */
+    /* Scroll reveal - Professional System */
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform, opacity;
     }
 
-    .reveal.visible {
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible {
       opacity: 1;
-      transform: none;
+      transform: translate(0) scale(1);
+    }
+
+    /* Hover Lift - Reusable Utility */
+    .hover-lift {
+      transition: transform var(--ease-spring), box-shadow var(--ease-spring);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     }
 
     /* Scroll progress */
@@ -2791,7 +2819,7 @@
     </div>
 
     <div class="hero-inner">
-      <div class="hero-content">
+      <div class="hero-content reveal-left">
         <span class="section-badge">India's Hyperlocal Commerce Platform</span>
 
         <h1 id="hero-heading">
@@ -2834,19 +2862,19 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual reveal-right" aria-hidden="true">
         <div class="hero-mockup-frame">
           <img src="assets/images/hero-gen.png" alt="ThanniGo mobile app">
           <div class="hero-mockup-glow"></div>
         </div>
-        <div class="hero-float-card card-1">
+        <div class="hero-float-card card-1 hover-lift">
           <span class="material-symbols-outlined">local_shipping</span>
           <div>
             <strong>Order Delivered</strong>
             <span>Just now · On time</span>
           </div>
         </div>
-        <div class="hero-float-card card-2">
+        <div class="hero-float-card card-2 hover-lift">
           <span class="material-symbols-outlined">storefront</span>
           <div>
             <strong>Shop Nearby</strong>
@@ -2906,7 +2934,7 @@
   <section id="about" aria-labelledby="about-heading">
     <div class="container">
       <div class="about-grid">
-        <div class="about-content reveal">
+        <div class="about-content reveal-left">
           <span class="section-badge">About ThanniGo</span>
           <h2 id="about-heading">
             Putting Local Commerce<br>
@@ -2918,22 +2946,21 @@
             flexible earnings. Everyone wins — on one beautifully designed platform.</p>
 
           <div class="about-pillars">
-            <div class="pillar">
+            <div class="pillar hover-lift">
               <span class="material-symbols-outlined pillar-icon">store</span>
               <div>
                 <strong>For Shop Owners</strong>
                 <span>Go digital in minutes. Manage your catalog, orders, and growth — all from one dashboard.</span>
               </div>
             </div>
-            <div class="pillar">
+            <div class="pillar hover-lift">
               <span class="material-symbols-outlined pillar-icon">shopping_bag</span>
               <div>
                 <strong>For Customers</strong>
-                <span>Discover nearby shops instantly, save on every order with direct local pricing, and enjoy a smooth
-                  doorstep delivery.</span>
+                <span>Discover nearby shops instantly, save on every order with direct local pricing, and enjoy a smooth doorstep delivery.</span>
               </div>
             </div>
-            <div class="pillar">
+            <div class="pillar hover-lift">
               <span class="material-symbols-outlined pillar-icon">directions_bike</span>
               <div>
                 <strong>For Delivery Partners</strong>
@@ -2943,7 +2970,7 @@
           </div>
         </div>
 
-        <div class="about-visual reveal">
+        <div class="about-visual reveal-right">
           <div class="about-image-frame">
             <img src="assets/images/hero-water.jpg" alt="ThanniGo local delivery" class="about-image"
               onerror="this.parentElement.style.background='linear-gradient(135deg,#E0F2FE,#BAE6FD)';this.style.display='none'">
@@ -2967,32 +2994,32 @@
       </div>
 
       <div class="problems-grid">
-        <article class="problem-card glass-card">
+        <article class="problem-card glass-card hover-lift">
           <span class="material-symbols-outlined problem-icon">route</span>
           <h3>No Reliable Local Delivery</h3>
           <p>Customers couldn't count on neighbourhood shops — no updates, no transparency, no trust.</p>
         </article>
-        <article class="problem-card glass-card">
+        <article class="problem-card glass-card hover-lift">
           <span class="material-symbols-outlined problem-icon">storefront</span>
           <h3>Shops Stuck Offline</h3>
           <p>Local shops had no digital presence, missing an entire generation of smartphone-first customers.</p>
         </article>
-        <article class="problem-card glass-card">
+        <article class="problem-card glass-card hover-lift">
           <span class="material-symbols-outlined problem-icon">pending_actions</span>
           <h3>Orders Managed Manually</h3>
           <p>Without proper tools, order handling was chaotic — prone to errors, delays, and lost revenue.</p>
         </article>
-        <article class="problem-card glass-card">
+        <article class="problem-card glass-card hover-lift">
           <span class="material-symbols-outlined problem-icon">location_searching</span>
           <h3>Zero Delivery Visibility</h3>
           <p>Once an order left the shop, customers were left guessing — no ETA, no peace of mind.</p>
         </article>
-        <article class="problem-card glass-card">
+        <article class="problem-card glass-card hover-lift">
           <span class="material-symbols-outlined problem-icon">forum</span>
           <h3>Disconnected Experiences</h3>
           <p>Customers, shops, and partners had no shared platform — coordination was fragmented and frustrating.</p>
         </article>
-        <article class="problem-card glass-card">
+        <article class="problem-card glass-card hover-lift">
           <span class="material-symbols-outlined problem-icon">payments</span>
           <h3>Limited Payment Options</h3>
           <p>Cash-only meant no digital receipts, no payment history, no flexibility for modern customers.</p>
@@ -3032,67 +3059,67 @@
           <!-- Customer -->
           <div class="tab-panel active" id="tab-customer" role="tabpanel">
             <div class="features-grid">
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">how_to_reg</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">how_to_reg</span>
                 <div>
                   <h4>Quick Account Setup</h4>
                   <p>Sign up in seconds and start discovering local shops right away.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">store</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">store</span>
                 <div>
                   <h4>Nearby Shop Discovery</h4>
                   <p>Find and connect with the best local shops in your neighbourhood.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">bolt</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">bolt</span>
                 <div>
                   <h4>Fast Online Ordering</h4>
                   <p>Place orders in just a few taps — simple, quick, and satisfying.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">update</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">update</span>
                 <div>
                   <h4>Live Delivery Updates</h4>
                   <p>Stay informed with delivery progress throughout your experience.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">payments</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">payments</span>
                 <div>
                   <h4>Multiple Payment Options</h4>
                   <p>Pay your way — choose from a range of convenient payment methods.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">local_atm</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">local_atm</span>
                 <div>
                   <h4>Cash on Delivery</h4>
                   <p>Prefer to pay on arrival? We've got that covered too.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">savings</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">savings</span>
                 <div>
                   <h4>Cost Effective Shopping</h4>
                   <p>Save more on every order with direct neighbourhood pricing and no hidden fees.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">local_offer</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">local_offer</span>
                 <div>
                   <h4>Exclusive Offers</h4>
                   <p>Unlock special deals and savings from your favourite local shops.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">workspace_premium</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">workspace_premium</span>
                 <div>
                   <h4>Loyalty Rewards</h4>
                   <p>Earn points on every order and enjoy great rewards over time.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">search</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">search</span>
                 <div>
                   <h4>Smart Search & Filters</h4>
                   <p>Find exactly what you need with intuitive search and filter tools.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">notifications_active</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">notifications_active</span>
                 <div>
                   <h4>Timely Notifications</h4>
                   <p>Stay in the loop with helpful updates throughout your journey.</p>
@@ -3104,50 +3131,50 @@
           <!-- Shop Owner -->
           <div class="tab-panel" id="tab-shop" role="tabpanel">
             <div class="features-grid">
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">add_business</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">add_business</span>
                 <div>
                   <h4>Simple Shop Setup</h4>
                   <p>Create your digital storefront quickly and get selling in minutes.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">inventory_2</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">inventory_2</span>
                 <div>
                   <h4>Catalogue Management</h4>
                   <p>Easily add, update, and organise your product listings anytime.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">list_alt</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">list_alt</span>
                 <div>
                   <h4>Order Management</h4>
                   <p>Handle customer orders smoothly from a single, clean dashboard.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">campaign</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">campaign</span>
                 <div>
                   <h4>Promotions & Campaigns</h4>
                   <p>Create engaging offers and campaigns to attract more customers.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">insights</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">insights</span>
                 <div>
                   <h4>Sales Insights</h4>
                   <p>Track earnings and understand your business performance clearly.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">dashboard</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">dashboard</span>
                 <div>
                   <h4>Business Dashboard</h4>
                   <p>Monitor your shop's key metrics and health at a glance.</p>
                 </div>
               </div>
-              <div class="feature-item"><span
+              <div class="feature-item hover-lift"><span
                   class="material-symbols-outlined feature-icon">notification_important</span>
                 <div>
                   <h4>Order Alerts</h4>
                   <p>Never miss an incoming order with instant, reliable notifications.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">security</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">security</span>
                 <div>
                   <h4>Secure Settings</h4>
                   <p>Manage your account and shop preferences with full confidence.</p>
@@ -3159,37 +3186,37 @@
           <!-- Delivery Partner -->
           <div class="tab-panel" id="tab-delivery" role="tabpanel">
             <div class="features-grid">
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">dashboard</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">dashboard</span>
                 <div>
                   <h4>Dedicated Dashboard</h4>
                   <p>Access all your deliveries and performance metrics in one place.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">navigation</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">navigation</span>
                 <div>
                   <h4>Delivery Support</h4>
                   <p>Get reliable guidance to reach your destination every time.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">update</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">update</span>
                 <div>
                   <h4>Customer Updates</h4>
                   <p>Keep customers informed with progress updates along the way.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">event_available</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">event_available</span>
                 <div>
                   <h4>Flexible Scheduling</h4>
                   <p>Set your own hours and manage your availability with ease.</p>
                 </div>
               </div>
-              <div class="feature-item"><span class="material-symbols-outlined feature-icon">verified</span>
+              <div class="feature-item hover-lift"><span class="material-symbols-outlined feature-icon">verified</span>
                 <div>
                   <h4>Secure Handoffs</h4>
                   <p>Every delivery is completed with verified, safe handoff protocols.</p>
                 </div>
               </div>
-              <div class="feature-item"><span
+              <div class="feature-item hover-lift"><span
                   class="material-symbols-outlined feature-icon">account_balance_wallet</span>
                 <div>
                   <h4>Flexible Earnings</h4>
@@ -3221,7 +3248,7 @@
       </div>
 
       <div class="steps-flow reveal">
-        <div class="step" data-step="1">
+        <div class="step hover-lift" data-step="1">
           <div class="step-number">01</div>
           <div class="step-icon-wrap"><span class="material-symbols-outlined">add_shopping_cart</span></div>
           <h3>Browse & Order</h3>
@@ -3241,7 +3268,7 @@
           </svg>
         </div>
 
-        <div class="step" data-step="2">
+        <div class="step hover-lift" data-step="2">
           <div class="step-number">02</div>
           <div class="step-icon-wrap"><span class="material-symbols-outlined">storefront</span></div>
           <h3>Shop Prepares</h3>
@@ -3261,7 +3288,7 @@
           </svg>
         </div>
 
-        <div class="step" data-step="3">
+        <div class="step hover-lift" data-step="3">
           <div class="step-number">03</div>
           <div class="step-icon-wrap"><span class="material-symbols-outlined">directions_bike</span></div>
           <h3>On Its Way</h3>
@@ -3281,7 +3308,7 @@
           </svg>
         </div>
 
-        <div class="step" data-step="4">
+        <div class="step hover-lift" data-step="4">
           <div class="step-number">04</div>
           <div class="step-icon-wrap"><span class="material-symbols-outlined">home</span></div>
           <h3>Delivered!</h3>
@@ -3303,22 +3330,22 @@
       </div>
 
       <div class="stats-row reveal" role="list">
-        <div class="stat-card glass-card" role="listitem">
+        <div class="stat-card glass-card hover-lift" role="listitem">
           <span class="stat-number" data-count="3">0</span>
           <span class="stat-label">User Experiences</span>
           <span class="stat-desc">Customers · Shops · Delivery Partners</span>
         </div>
-        <div class="stat-card glass-card" role="listitem">
+        <div class="stat-card glass-card hover-lift" role="listitem">
           <span class="stat-number" data-count="40" data-suffix="+">0</span>
           <span class="stat-label">Platform Features</span>
           <span class="stat-desc">Purpose-built for hyperlocal commerce</span>
         </div>
-        <div class="stat-card glass-card" role="listitem">
+        <div class="stat-card glass-card hover-lift" role="listitem">
           <span class="stat-number" data-count="4">0</span>
           <span class="stat-label">Steps to Doorstep</span>
           <span class="stat-desc">Browse · Order · Track · Receive</span>
         </div>
-        <div class="stat-card glass-card" role="listitem">
+        <div class="stat-card glass-card hover-lift" role="listitem">
           <span class="stat-number" data-count="100" data-suffix="%">0</span>
           <span class="stat-label">Mobile-First</span>
           <span class="stat-desc">Beautiful native apps on iOS & Android</span>
@@ -3326,42 +3353,42 @@
       </div>
 
       <div class="why-benefits reveal">
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">hub</span></div>
           <h3>Hyperlocal Commerce</h3>
           <p>Connecting neighbourhoods through seamless local shopping.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">payments</span></div>
           <h3>Cost Effective</h3>
           <p>Direct neighbourhood pricing ensures you save more on every local purchase.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">local_shipping</span></div>
           <h3>Fast & Reliable Delivery</h3>
           <p>Ensuring your orders arrive quickly and safely every time.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">smartphone</span></div>
           <h3>Mobile-First Design</h3>
           <p>Perfected for on-the-go access across all your devices.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">notifications_active</span></div>
           <h3>Timely Updates</h3>
           <p>Stay informed at every step of your experience.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">security</span></div>
           <h3>Secure Payments</h3>
           <p>Your transactions are always safe and protected.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">design_services</span></div>
           <h3>Modern Interface</h3>
           <p>Clean, intuitive design tailored for everyone.</p>
         </div>
-        <div class="benefit glass-card">
+        <div class="benefit glass-card hover-lift">
           <div class="benefit-icon"><span class="material-symbols-outlined">groups</span></div>
           <h3>Unified Platform</h3>
           <p>One ecosystem connecting all participants seamlessly.</p>
@@ -3496,28 +3523,28 @@
         <div class="download-content">
 
           <div class="download-features">
-            <div class="dl-feature">
+            <div class="dl-feature hover-lift">
               <span class="material-symbols-outlined">bolt</span>
               <div>
                 <strong>Lightning Fast</strong>
                 <span>Optimised for a smooth and seamless user experience.</span>
               </div>
             </div>
-            <div class="dl-feature">
+            <div class="dl-feature hover-lift">
               <span class="material-symbols-outlined">location_on</span>
               <div>
                 <strong>Live Tracking</strong>
                 <span>Real-time delivery progress and precise GPS location updates.</span>
               </div>
             </div>
-            <div class="dl-feature">
+            <div class="dl-feature hover-lift">
               <span class="material-symbols-outlined">notifications_active</span>
               <div>
                 <strong>Smart Updates</strong>
                 <span>Stay informed throughout the entire experience with smart alerts.</span>
               </div>
             </div>
-            <div class="dl-feature">
+            <div class="dl-feature hover-lift">
               <span class="material-symbols-outlined">fingerprint</span>
               <div>
                 <strong>Secure Access</strong>
@@ -3571,7 +3598,7 @@
       </div>
 
       <div class="team-grid reveal">
-        <article class="team-card glass-card" aria-label="Mr Ugendran, CEO">
+        <article class="team-card glass-card hover-lift" aria-label="Mr Ugendran, CEO">
           <div class="team-avatar">
             <div class="team-avatar-ring"></div>
             <div class="team-avatar-inner"><span class="material-symbols-outlined">person</span></div>
@@ -3585,7 +3612,7 @@
           <div class="team-badge-role">CEO</div>
         </article>
 
-        <article class="team-card glass-card" aria-label="Mr Sudeep, COO">
+        <article class="team-card glass-card hover-lift" aria-label="Mr Sudeep, COO">
           <div class="team-avatar">
             <div class="team-avatar-ring" style="animation-delay:-2.5s;"></div>
             <div class="team-avatar-inner"><span class="material-symbols-outlined">person</span></div>
@@ -3599,7 +3626,7 @@
           <div class="team-badge-role">COO</div>
         </article>
 
-        <article class="team-card glass-card" aria-label="Mr Hari Murugan, CMO">
+        <article class="team-card glass-card hover-lift" aria-label="Mr Hari Murugan, CMO">
           <div class="team-avatar">
             <div class="team-avatar-ring" style="animation-delay:-5s;"></div>
             <div class="team-avatar-inner"><span class="material-symbols-outlined">person</span></div>
@@ -3630,7 +3657,7 @@
       </div>
 
       <div class="contact-phone-highlight reveal">
-        <div class="contact-phone-card glass-card">
+        <div class="contact-phone-card glass-card hover-lift">
           <div class="contact-phone-icon">
             <span class="material-symbols-outlined">call</span>
           </div>
@@ -3644,19 +3671,19 @@
       </div>
 
       <div class="contact-grid reveal">
-        <div class="contact-card glass-card">
+        <div class="contact-card glass-card hover-lift">
           <div class="contact-icon"><span class="material-symbols-outlined">headset_mic</span></div>
           <h3>Customer Support</h3>
           <p>Need help with an order, account, or delivery?</p>
           <a href="mailto:support@thannigo.com" class="contact-email">support@thannigo.com</a>
         </div>
-        <div class="contact-card glass-card">
+        <div class="contact-card glass-card hover-lift">
           <div class="contact-icon"><span class="material-symbols-outlined">business_center</span></div>
           <h3>Business & Partnerships</h3>
           <p>Shop registrations, investor enquiries, and partnership opportunities.</p>
           <a href="mailto:business@thannigo.com" class="contact-email">business@thannigo.com</a>
         </div>
-        <div class="contact-card glass-card">
+        <div class="contact-card glass-card hover-lift">
           <div class="contact-icon"><span class="material-symbols-outlined">receipt_long</span></div>
           <h3>Order Enquiries</h3>
           <p>Questions about a specific order, delivery, or refund request.</p>

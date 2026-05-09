@@ -81,9 +81,9 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
-  document.querySelectorAll('.problems-grid, .features-grid, .why-benefits, .contact-grid, .about-pillars, .download-features').forEach(grid => {
+  document.querySelectorAll('.problems-grid, .features-grid, .why-benefits, .contact-grid, .about-pillars, .download-features, .steps-flow, .stats-row').forEach(grid => {
     Array.from(grid.children).forEach((child, i) => {
       if (!child.classList.contains('reveal')) {
         child.classList.add('reveal');
