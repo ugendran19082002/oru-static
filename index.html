@@ -1,71 +1,2669 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- ── SEO ─────────────────────────────────────────────── -->
+  <!-- SEO -->
   <title>ThanniGo — India's Hyperlocal Commerce Platform</title>
   <meta name="description"
-    content="ThanniGo is India's unified hyperlocal commerce platform — empowering local shops, delighting customers, and enabling delivery partners with a fast, beautiful, and seamless mobile experience.">
+    content="ThanniGo connects customers, local shops, and delivery partners on one beautifully designed platform — bringing neighbourhood commerce to your pocket.">
   <meta name="keywords"
-    content="hyperlocal delivery app India, local shop delivery, neighbourhood commerce, instant delivery platform, ThanniGo, local business growth">
+    content="hyperlocal delivery app India, local shop delivery, neighbourhood commerce, instant delivery platform, ThanniGo">
   <meta name="author" content="ThanniGo">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://thannigo.com/">
 
-  <!-- ── OpenGraph ─────────────────────────────────────────── -->
+  <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="ThanniGo — Your Neighbourhood, Delivered Instantly">
   <meta property="og:description"
-    content="A modern multi-role platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
+    content="A modern platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
   <meta property="og:url" content="https://thannigo.com/">
   <meta property="og:image" content="https://thannigo.com/assets/images/hero-gen.png">
   <meta property="og:site_name" content="ThanniGo">
   <meta property="og:locale" content="en_IN">
 
-  <!-- ── Twitter Card ──────────────────────────────────────── -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ThanniGo — Your Neighbourhood, Delivered Instantly">
   <meta name="twitter:description"
-    content="A modern multi-role platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
+    content="A modern platform connecting customers, shop owners, and delivery partners for seamless hyperlocal commerce.">
   <meta name="twitter:image" content="https://thannigo.com/assets/images/hero-gen.png">
 
-  <!-- ── Favicon ───────────────────────────────────────────── -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2">
   <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="assets/images/favicon.png?v=2">
 
-  <!-- ── Fonts & Icons ────────────────────────────────────── -->
+  <!-- Tailwind CSS Local -->
+  <link rel="stylesheet" href="tailwind.css">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/css/material-symbols.css">
 
-  <!-- ── Styles ───────────────────────────────────────────── -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="upgrade.css">
+  <!-- Custom CSS (design tokens + complex animations not expressible in Tailwind) -->
+  <style>
+    :root {
+      --color-primary: #1B7FD4;
+      --color-primary-dark: #0F5EA8;
+      --color-primary-deeper: #072A56;
+      --color-primary-light: #6EC8F5;
+      --gradient-brand: linear-gradient(135deg, #072A56 0%, #1B7FD4 50%, #6EC8F5 100%);
+      --bg-base: #F8FAFC;
+      --bg-glass: rgba(255, 255, 255, 0.7);
+      --border-glass: rgba(15, 94, 168, 0.12);
+      --border-glow: rgba(27, 127, 212, 0.35);
+      --text-primary: #0F172A;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+      --ease-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glass card */
+    .glass-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all var(--ease-base);
+    }
+
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(15, 23, 42, 0.1);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Scroll progress */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #0D2DB4, #2563EB, #60A5FA, #3B82F6);
+      background-size: 200% 100%;
+      animation: gradient-shift 3s linear infinite;
+      z-index: 9999;
+      transition: width 0.1s linear;
+      box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+      border-radius: 0 2px 2px 0;
+    }
+
+    @keyframes gradient-shift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
+    /* Navbar */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(248, 250, 252, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
+      transition: all var(--ease-base);
+    }
+
+    #navbar.scrolled {
+      background: rgba(248, 250, 252, 0.97);
+      border-bottom-color: var(--border-glass);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Tighter premium grouping */
+      text-decoration: none;
+      transition: opacity var(--ease-base);
+      margin: 0;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-logo:hover {
+      opacity: 0.9;
+    }
+
+    .nav-logo img {
+      height: 44px; /* Balanced height for premium identity */
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(15, 94, 168, 0.1));
+      transition: transform var(--ease-spring);
+    }
+
+    .nav-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .brand-text {
+      display: flex;
+      align-items: center; /* Better vertical centering with logo */
+      gap: 0;
+      line-height: 1;
+    }
+
+    .brand-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--color-primary-deeper);
+      letter-spacing: -0.03em;
+    }
+
+    .brand-go {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Footer Logo Overrides */
+    .footer-brand .nav-logo {
+      margin-bottom: 0.5rem;
+      gap: 8px;
+    }
+
+    .footer-brand .brand-main {
+      color: #FFFFFF;
+    }
+
+    .footer-brand img {
+      filter: drop-shadow(0 0 12px rgba(110, 200, 245, 0.3));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color var(--ease-base);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .nav-links a.nav-active {
+      color: var(--color-primary);
+      position: relative;
+    }
+
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--gradient-brand);
+    }
+
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: #fff;
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 0 40px rgba(27, 127, 212, 0.2), 0 4px 16px rgba(27, 127, 212, 0.3);
+      transition: all var(--ease-base);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(27, 127, 212, 0.3), 0 8px 28px rgba(27, 127, 212, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-glass);
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(8px);
+      transition: all var(--ease-base);
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--color-primary-light);
+      background: rgba(27, 127, 212, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile menu */
+    .nav-mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      background: rgba(248, 250, 252, 0.98);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-glass);
+    }
+
+    .nav-mobile-menu.open {
+      max-height: 600px;
+      padding: 1.5rem;
+    }
+
+    .nav-mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .nav-mobile-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 0.5rem 0;
+      display: block;
+    }
+
+    .nav-mobile-menu a:hover {
+      color: var(--color-primary);
+    }
+
+    /* Section badge */
+    .section-badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      background: rgba(27, 127, 212, 0.12);
+      border: 1px solid rgba(27, 127, 212, 0.3);
+      color: var(--color-primary);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      transition: background var(--ease-base), box-shadow var(--ease-base);
+    }
+
+    section:hover .section-badge {
+      background: rgba(27, 127, 212, 0.2);
+      box-shadow: 0 0 16px rgba(27, 127, 212, 0.2);
+    }
+
+    /* Hero */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 38%, #BAE6FD 68%, #F0F9FF 100%);
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    #hero-particles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(80px);
+      opacity: 0.45;
+    }
+
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(110, 200, 245, 0.6) 0%, transparent 70%);
+      top: -100px;
+      right: -80px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .orb-2 {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(27, 127, 212, 0.5) 0%, transparent 70%);
+      bottom: -60px;
+      left: -60px;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .orb-3 {
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(59, 168, 232, 0.4) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-16px);
+      }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.875rem, 4vw, 2.875rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.375rem);
+      font-weight: 700;
+    }
+
+    h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-size: clamp(1.0625rem, 2vw, 1.125rem);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-lg {
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .hero-stat-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--border-glass);
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero-mockup-frame {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(110, 200, 245, 0.3);
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .hero-mockup-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+    }
+
+    .hero-mockup-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(ellipse, rgba(110, 200, 245, 0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-float-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(110, 200, 245, 0.25);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(96, 165, 250, 0.18);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-width: 180px;
+    }
+
+    .hero-float-card span.material-symbols-outlined {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      background: rgba(27, 127, 212, 0.1);
+      border-radius: 10px;
+      padding: 6px;
+    }
+
+    .hero-float-card strong {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .hero-float-card>div>span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .card-1 {
+      top: 10%;
+      right: -20px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .card-2 {
+      bottom: 15%;
+      left: -20px;
+      animation: float 5s ease-in-out infinite reverse;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: var(--color-primary);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    /* Trust ticker */
+    .trust-ticker {
+      background: rgba(37, 99, 235, 0.05);
+      border-top: 1px solid rgba(37, 99, 235, 0.15);
+      border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-ticker::before,
+    .trust-ticker::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .trust-ticker::before {
+      left: 0;
+      background: linear-gradient(90deg, #F8FAFC 0%, transparent 100%);
+    }
+
+    .trust-ticker::after {
+      right: 0;
+      background: linear-gradient(270deg, #F8FAFC 0%, transparent 100%);
+    }
+
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      white-space: nowrap;
+      animation: ticker-scroll 32s linear infinite;
+      width: max-content;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes ticker-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .ticker-item .material-symbols-outlined {
+      font-size: 1rem;
+      color: var(--color-primary);
+    }
+
+    .ticker-sep {
+      color: var(--border-glow);
+      font-size: 1.25rem;
+    }
+
+    /* Section layout */
+    section {
+      padding: 6rem 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      margin-top: 0.75rem;
+      line-height: 1.7;
+    }
+
+    /* About */
+    #about {
+      background: linear-gradient(180deg, #F8FAFC 0%, #fff 100%);
+      position: relative;
+    }
+
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(37, 99, 235, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-content p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+      border: 1px solid var(--border-glass);
+      border-left: 3px solid transparent;
+      transition: border-color var(--ease-base), background var(--ease-base), transform var(--ease-base);
+    }
+
+    .pillar:hover {
+      border-left-color: var(--color-primary-light);
+      transform: translateX(4px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .pillar-icon {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      background: rgba(27, 127, 212, 0.1);
+      border-radius: 10px;
+      padding: 8px;
+      flex-shrink: 0;
+    }
+
+    .pillar strong {
+      display: block;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin-bottom: 0.2rem;
+    }
+
+    .pillar span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .about-image-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+      position: relative;
+    }
+
+    .about-image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(27, 127, 212, 0.08) 0%, transparent 60%);
+    }
+
+    .about-image {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    /* Problems */
+    #problems {
+      background: #fff;
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .problem-card {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all var(--ease-base);
+    }
+
+    .problem-card:hover {
+      background: rgba(37, 99, 235, 0.08) !important;
+      transform: translateY(-6px);
+    }
+
+    .problem-icon {
+      font-size: 2rem;
+    }
+
+    .problems-grid article:nth-child(1) .problem-icon {
+      color: #FF6B6B;
+    }
+
+    .problems-grid article:nth-child(2) .problem-icon {
+      color: #FFD166;
+    }
+
+    .problems-grid article:nth-child(3) .problem-icon {
+      color: #48CAE4;
+    }
+
+    .problems-grid article:nth-child(4) .problem-icon {
+      color: #06D6A0;
+    }
+
+    .problems-grid article:nth-child(5) .problem-icon {
+      color: #FF9F1C;
+    }
+
+    .problems-grid article:nth-child(6) .problem-icon {
+      color: #C77DFF;
+    }
+
+    .problem-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+    }
+
+    .problem-card p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Features */
+    #features {
+      background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%);
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      padding: 0.5rem;
+      border: 1px solid var(--border-glass);
+    }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all var(--ease-base);
+      white-space: nowrap;
+    }
+
+    .tab-btn .material-symbols-outlined {
+      font-size: 1.1rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--color-primary);
+      background: rgba(27, 127, 212, 0.08);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--gradient-brand);
+      box-shadow: 0 4px 16px rgba(27, 127, 212, 0.35);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fade-in-up 0.35s ease both;
+    }
+
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      border: 1px solid var(--border-glass);
+      transition: all var(--ease-base);
+    }
+
+    .feature-item:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      padding: 8px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    #tab-customer .feature-icon {
+      color: #60A5FA;
+      background: rgba(96, 165, 250, 0.1);
+    }
+
+    #tab-shop .feature-icon {
+      color: #3B82F6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    #tab-delivery .feature-icon {
+      color: #2563EB;
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    .feature-item h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* How it works */
+    #how-it-works {
+      background: #fff;
+    }
+
+    .steps-progress-track {
+      position: relative;
+      height: 2px;
+      background: rgba(37, 99, 235, 0.12);
+      border-radius: 2px;
+      margin: 0 auto 3rem;
+      max-width: 600px;
+      overflow: hidden;
+    }
+
+    .steps-progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563EB, #60A5FA);
+      border-radius: 2px;
+      box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .steps-flow {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      border: 1px solid var(--border-glass);
+      transition: all var(--ease-base);
+      max-width: 220px;
+    }
+
+    .step:hover,
+    .step.step-active {
+      border-color: var(--color-primary);
+      background: rgba(37, 99, 235, 0.08);
+      box-shadow: 0 0 32px rgba(37, 99, 235, 0.2);
+    }
+
+    .step.step-active .step-icon-wrap {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(110, 200, 245, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(110, 200, 245, 0.8);
+      }
+    }
+
+    .step-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .step-icon-wrap {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(27, 127, 212, 0.15) 0%, rgba(110, 200, 245, 0.15) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .step-icon-wrap .material-symbols-outlined {
+      font-size: 1.75rem;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .step-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 40px;
+      opacity: 0.8;
+      margin-top: 2.5rem;
+    }
+
+    .step-connector svg {
+      width: 40px;
+      height: 16px;
+    }
+
+    /* Why */
+    #why {
+      background: linear-gradient(180deg, #EFF6FF 0%, #F8FAFC 100%);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all var(--ease-base);
+      position: relative;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: var(--gradient-brand);
+      border-radius: 0 0 100px 100px;
+      opacity: 0.4;
+      transition: all var(--ease-base);
+    }
+
+    .stat-card:hover::before {
+      left: 10%;
+      right: 10%;
+      opacity: 1;
+      box-shadow: 0 0 15px var(--color-primary-light);
+    }
+
+    .stat-card:hover .stat-number {
+      filter: brightness(1.2);
+      text-shadow: 0 0 24px rgba(96, 165, 250, 0.4);
+    }
+
+    .stat-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .stat-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .why-benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .benefit {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all var(--ease-base);
+    }
+
+    .benefit:hover {
+      background: rgba(37, 99, 235, 0.08) !important;
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .benefit-icon .material-symbols-outlined {
+      font-size: 1.5rem;
+    }
+
+    .why-benefits .benefit:nth-child(1) .benefit-icon {
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFD700;
+    }
+
+    .why-benefits .benefit:nth-child(2) .benefit-icon {
+      background: rgba(86, 207, 225, 0.12);
+      color: #56CFE1;
+    }
+
+    .why-benefits .benefit:nth-child(3) .benefit-icon {
+      background: rgba(106, 195, 133, 0.12);
+      color: #6AC385;
+    }
+
+    .why-benefits .benefit:nth-child(4) .benefit-icon {
+      background: rgba(199, 125, 255, 0.12);
+      color: #C77DFF;
+    }
+
+    .why-benefits .benefit:nth-child(5) .benefit-icon {
+      background: rgba(96, 165, 250, 0.12);
+      color: #60A5FA;
+    }
+
+    .why-benefits .benefit:nth-child(6) .benefit-icon {
+      background: rgba(251, 146, 60, 0.12);
+      color: #FB923C;
+    }
+
+    .why-benefits .benefit:nth-child(7) .benefit-icon {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34D399;
+    }
+
+    .why-benefits .benefit:nth-child(8) .benefit-icon {
+      background: rgba(244, 63, 94, 0.12);
+      color: #F43F5E;
+    }
+
+    .benefit h3 {
+      font-size: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    .benefit p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Download Section Improvements */
+    #download {
+      background: linear-gradient(180deg, #fff 0%, #F0F9FF 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0; /* Reduced to fix excessive whitespace */
+    }
+
+    .download-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .download-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      transform: scale(0.85); /* Reduced phone dominance */
+      perspective: 1500px;
+    }
+
+    .download-phone-stack {
+      position: relative;
+      width: 240px;
+      height: 460px;
+    }
+
+    .phone-frame {
+      position: absolute;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .phone-front {
+      width: 220px;
+      height: 440px;
+      background: #020617;
+      z-index: 2;
+      animation: float-phone 6s ease-in-out infinite;
+    }
+
+    .phone-back {
+      width: 210px;
+      height: 420px;
+      background: linear-gradient(135deg, #1e293b 0%, #020617 100%);
+      z-index: 1;
+      left: 50px;
+      top: 25px;
+      transform: rotate(8deg);
+      opacity: 0.5;
+    }
+
+    .download-badge-float {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 0.625rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      z-index: 5;
+    }
+
+    .badge-android { top: 40px; left: -50px; color: #10B981; animation: float-phone 7s ease-in-out infinite; }
+    .badge-ios { top: 140px; right: -60px; color: var(--color-primary); animation: float-phone 7s ease-in-out infinite reverse; }
+
+    .download-content {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .download-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .dl-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: #fff;
+      border: 1px solid rgba(15, 94, 168, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03); /* Fix Cards Lack Depth */
+      transition: all var(--ease-base);
+    }
+
+    .dl-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      border-color: var(--color-primary-light);
+    }
+
+    .dl-feature .material-symbols-outlined {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      background: rgba(27, 127, 212, 0.08);
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    .download-btns {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 0.875rem 1.5rem;
+      background: #0f172a;
+      color: #fff;
+      border-radius: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all var(--ease-base);
+      width: fit-content; /* Fix CTA Buttons Too Wide */
+      min-width: 180px;
+      max-width: 260px;
+    }
+
+    .store-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.3);
+      background: #1e293b;
+    }
+
+    .phone-glow {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 40px;
+      background: radial-gradient(ellipse, rgba(110, 200, 245, 0.4) 0%, transparent 70%);
+      filter: blur(20px);
+      border-radius: 50%;
+      animation: glow-pulse-phone 3s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes glow-pulse-phone {
+      0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+    }
+      z-index: 0;
+    }
+
+    @keyframes glow-pulse-phone {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
+
+    .download-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      /* Better density */
+    }
+
+    .download-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .dl-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid rgba(15, 94, 168, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      /* Add subtle shadow to fix Flat UI problem */
+      transition: all var(--ease-base);
+    }
+
+    .dl-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      border-color: var(--color-primary-light);
+    }
+
+    /* Alternate Icon Backgrounds to Fix Feature Cards Too Similar */
+    .dl-feature:nth-child(1) .material-symbols-outlined {
+      background: rgba(27, 127, 212, 0.1);
+      color: var(--color-primary);
+    }
+
+    .dl-feature:nth-child(2) .material-symbols-outlined {
+      background: rgba(52, 211, 153, 0.1);
+      color: #10B981;
+    }
+
+    .dl-feature:nth-child(3) .material-symbols-outlined {
+      background: rgba(245, 158, 11, 0.1);
+      color: #F59E0B;
+    }
+
+    .dl-feature:nth-child(4) .material-symbols-outlined {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8B5CF6;
+    }
+
+    .dl-feature:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .dl-feature:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .dl-feature:nth-child(3) {
+      transition-delay: 0.15s;
+    }
+
+    .dl-feature:nth-child(4) {
+      transition-delay: 0.2s;
+    }
+
+    .dl-feature .material-symbols-outlined {
+      font-size: 1.5rem;
+      border-radius: 12px;
+      padding: 10px;
+      flex-shrink: 0;
+    }
+
+    .dl-feature strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .dl-feature span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .download-btns {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 0.875rem 1.5rem;
+      background: #0F172A;
+      color: #fff;
+      border-radius: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      width: fit-content;
+      /* Fix CTA Buttons Too Wide */
+      min-width: 180px;
+      max-width: 240px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .store-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(110, 200, 245, 0.3);
+      /* Fix Weak CTA Visibility */
+    }
+
+    #btn-google-play:hover {
+      border-color: #34D399;
+    }
+
+    #btn-app-store:hover {
+      border-color: #6EC8F5;
+    }
+
+    .store-btn-icon .material-symbols-outlined {
+      font-size: 1.75rem;
+    }
+
+    .store-btn-sub {
+      display: block;
+      font-size: 0.7rem;
+      opacity: 0.8;
+      font-weight: 500;
+    }
+
+    .store-btn-title {
+      display: block;
+      font-size: 1.0625rem;
+      font-weight: 700;
+    }
+
+    .download-note {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .download-note .material-symbols-outlined {
+      font-size: 1rem;
+      color: #22C55E;
+    }
+
+    /* Team */
+    #team {
+      background: #F8FAFC;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      padding: 2.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      position: relative;
+      transition: all var(--ease-base);
+      border-bottom: 2px solid transparent;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-bottom-color: var(--color-primary-light);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .team-avatar {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 9999px;
+      background: var(--gradient-brand);
+      animation: spin-slow 12s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes spin-slow {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .team-avatar-inner {
+      position: absolute;
+      inset: 4px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #EFF6FF, #BAE6FD);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-avatar-inner .material-symbols-outlined {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+    }
+
+    .team-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .team-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1875rem;
+      font-weight: 800;
+    }
+
+    .team-role {
+      font-size: 0.875rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .team-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .team-badge-role {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--gradient-brand);
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Contact */
+    #contact {
+      background: linear-gradient(180deg, #EFF6FF 0%, #fff 100%);
+    }
+
+    .contact-phone-highlight {
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-phone-card {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-phone-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(27, 127, 212, 0.12);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-phone-icon .material-symbols-outlined {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+    }
+
+    .contact-phone-label {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-phone-number {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-phone-note {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .contact-phone-pulse {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(27, 127, 212, 0.12) 0%, transparent 70%);
+      border-radius: 9999px;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: scale(1.3);
+        opacity: 0.3;
+      }
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all var(--ease-base);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon .material-symbols-outlined {
+      font-size: 1.5rem;
+    }
+
+    .contact-grid .contact-card:nth-child(1) .contact-icon {
+      background: rgba(96, 165, 250, 0.12);
+      color: #60A5FA;
+    }
+
+    .contact-grid .contact-card:nth-child(2) .contact-icon {
+      background: rgba(199, 125, 255, 0.12);
+      color: #C77DFF;
+    }
+
+    .contact-grid .contact-card:nth-child(3) .contact-icon {
+      background: rgba(106, 195, 133, 0.12);
+      color: #6AC385;
+    }
+
+    .contact-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .contact-email {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-top: 0.25rem;
+      display: inline-block;
+      transition: color var(--ease-base);
+    }
+
+    .contact-email:hover {
+      color: var(--color-primary-dark);
+    }
+
+    /* Social media */
+    .social-links-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link-item {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.6);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .social-link-item:hover {
+      transform: translateY(-8px) scale(1.08);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-link-item.instagram:hover {
+      color: #E1306C;
+      border-color: #E1306C;
+    }
+
+    .social-link-item.twitter:hover {
+      color: #1DA1F2;
+      border-color: #1DA1F2;
+    }
+
+    .social-link-item.linkedin:hover {
+      color: #0A66C2;
+      border-color: #0A66C2;
+    }
+
+    .social-link-item.facebook:hover {
+      color: #1877F2;
+      border-color: #1877F2;
+    }
+
+    .social-link-item.whatsapp:hover {
+      color: #25D366;
+      border-color: #25D366;
+    }
+
+    .social-link-item.youtube:hover {
+      color: #FF0000;
+      border-color: #FF0000;
+    }
+
+    /* Social SVG icons */
+    .icon-instagram {
+      background: none;
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-twitter {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-linkedin {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-facebook {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-whatsapp {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-youtube {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Footer */
+    #footer {
+      background: #0c0c0c;
+      color: #CBD5E1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(110, 200, 245, 0.2), transparent);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 2.5rem;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; /* Tighter grouping for premium feel */
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: #94A3B8;
+      line-height: 1.5;
+      max-width: 280px; /* Slightly narrower for better density */
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #64748B;
+      transition: all var(--ease-base);
+    }
+
+    .footer-social-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-social-link.instagram:hover {
+      color: #E1306C;
+      border-color: #E1306C;
+      background: rgba(225, 48, 108, 0.12);
+    }
+
+    .footer-social-link.twitter:hover {
+      color: #1DA1F2;
+      border-color: #1DA1F2;
+      background: rgba(29, 161, 242, 0.12);
+    }
+
+    .footer-social-link.linkedin:hover {
+      color: #0A66C2;
+      border-color: #0A66C2;
+      background: rgba(10, 102, 194, 0.12);
+    }
+
+    .footer-social-link.facebook:hover {
+      color: #1877F2;
+      border-color: #1877F2;
+      background: rgba(24, 119, 242, 0.12);
+    }
+
+    .footer-social-link.whatsapp:hover {
+      color: #25D366;
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.12);
+    }
+
+    .footer-social-link.youtube:hover {
+      color: #FF0000;
+      border-color: #FF0000;
+      background: rgba(255, 0, 0, 0.12);
+    }
+
+    .footer-col h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #F1F5F9;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      font-size: 0.875rem;
+      color: #64748B;
+      transition: color var(--ease-base);
+    }
+
+    .footer-col a:hover {
+      color: #93C5FD;
+    }
+
+    .footer-team {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 1rem 0;
+    }
+
+    .footer-team-inner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-team-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #475569;
+    }
+
+    .footer-team-members {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #64748B;
+    }
+
+    .footer-team-divider {
+      color: #334155;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8125rem;
+      color: #475569;
+    }
+
+    .footer-tagline {
+      font-size: 0.8125rem;
+      color: #334155;
+      font-style: italic;
+    }
+
+    /* Back to top */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      background: var(--gradient-brand);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.55);
+      cursor: pointer;
+      border: none;
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 500;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    #back-to-top:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.7);
+    }
+
+    /* Social section */
+    #social-connect {
+      background: #0c0c0c;
+      color: #fff;
+      position: relative;
+    }
+
+    #social-connect::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(27, 127, 212, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #social-connect .section-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    #social-connect h2,
+    #social-connect p {
+      color: #fff;
+    }
+
+    #social-connect .section-description {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* Premium Upgrades */
+    section+section {
+      position: relative;
+    }
+
+    section+section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    }
+
+    .glass-card {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #0077B6, #48CAE4, #0096C7, #005D90);
+      background-size: 300% 300%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity var(--ease-base);
+      animation: border-rotate 4s linear infinite;
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes border-rotate {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .feature-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+
+    .feature-item:hover::after {
+      left: 150%;
+    }
+
+    .footer-brand p {
+      margin-top: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+        padding: 3rem 1.5rem;
+      }
+
+      .hero-ctas {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: 2;
+        margin-top: 2rem;
+      }
+
+      .hero-mockup-frame {
+        max-width: min(320px, 90%);
+        margin: 0 auto;
+      }
+
+      .hero-float-card {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .problems-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-benefits {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .download-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .download-phone-stack {
+        height: 480px;
+        transform: scale(0.8) translateY(-10px);
+      }
+
+      .badge-android {
+        left: -20px;
+      }
+
+      .badge-ios {
+        right: -20px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .hero-inner {
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+      }
+
+      h2 {
+        font-size: clamp(1.75rem, 7vw, 2.125rem);
+      }
+
+      .problems-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .steps-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .step-connector {
+        transform: rotate(90deg);
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .trust-ticker {
+        display: none;
+      }
+
+      .steps-progress-track {
+        display: none;
+      }
+
+      #back-to-top {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: 44px;
+        height: 44px;
+      }
+
+      .card-1,
+      .card-2 {
+        display: none;
+      }
+
+      .tabs-nav {
+        gap: 0.5rem;
+      }
+
+      .tab-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+      }
+
+      .download-btns {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .store-btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .social-links-row {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .brand-main,
+      .brand-go {
+        font-size: 1.25rem;
+      }
+
+      .nav-logo img {
+        height: 36px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+      }
+
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-outline {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .why-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs-nav {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .tab-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-team-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .problems-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .why-benefits {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-  <!-- Scroll Progress Bar -->
+  <!-- Scroll Progress -->
   <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       NAVIGATION
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container nav-inner">
+    <div class="nav-inner">
       <a class="nav-logo" href="#" aria-label="ThanniGo Home">
-        <img src="assets/images/logo.png" alt="ThanniGo Logo">
-
+        <img src="assets/images/logo.png" alt="ThanniGo Logo" onerror="this.style.display='none'">
         <div class="brand-text">
-          <span class="brand-main">Thanni</span>
-          <span class="brand-go">Go</span>
+          <span class="brand-main">Thanni</span><span class="brand-go">Go</span>
         </div>
       </a>
 
@@ -78,7 +2676,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+      <a href="#contact" class="btn-primary nav-cta" style="font-size:0.9rem;padding:0.625rem 1.25rem;">Get in Touch</a>
 
       <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -94,14 +2692,12 @@
         <li><a href="#download">Download</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#contact" class="btn-primary"
+        style="margin-top:0.5rem;display:inline-flex;justify-content:center;width:100%;">Get in Touch</a>
     </div>
   </nav>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ HERO ══════════════════════════════════════════════ -->
   <section id="hero" aria-labelledby="hero-heading">
     <canvas id="hero-particles" aria-hidden="true"></canvas>
     <div class="hero-orbs" aria-hidden="true">
@@ -110,8 +2706,7 @@
       <div class="orb orb-3"></div>
     </div>
 
-    <div class="container hero-inner">
-
+    <div class="hero-inner">
       <div class="hero-content">
         <span class="section-badge">India's Hyperlocal Commerce Platform</span>
 
@@ -121,35 +2716,35 @@
         </h1>
 
         <p class="hero-description">
-          ThanniGo unifies customers, local shop owners, and delivery partners on
-          one unified platform — bringing the convenience of modern commerce
+          ThanniGo connects customers, local shop owners, and delivery partners on
+          one beautifully designed platform — bringing the convenience of modern commerce
           to every street, every shop, and every doorstep.
         </p>
 
         <div class="hero-ctas">
-          <a href="#features" class="btn btn-primary btn-lg">
-            <span class="material-symbols-outlined" aria-hidden="true">explore</span>
+          <a href="#features" class="btn-primary btn-lg">
+            <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1.2rem;">explore</span>
             Explore Features
           </a>
-          <a href="#how-it-works" class="btn btn-outline btn-lg">
-            <span class="material-symbols-outlined" aria-hidden="true">play_circle</span>
-            See How It Works
+          <a href="#how-it-works" class="btn-outline btn-lg">
+            <span class="material-symbols-outlined" aria-hidden="true" style="font-size:1.2rem;">play_circle</span>
+            How It Works
           </a>
         </div>
 
-        <div class="hero-stats" role="list" aria-label="Platform statistics">
+        <div class="hero-stats" role="list">
           <div class="hero-stat" role="listitem">
-            <span class="hero-stat-number" data-count="3" aria-label="3 user roles">3</span>
+            <span class="hero-stat-number" data-count="3">3</span>
             <span class="hero-stat-label">User Roles</span>
           </div>
           <div class="hero-stat-divider" aria-hidden="true"></div>
           <div class="hero-stat" role="listitem">
-            <span class="hero-stat-number" data-count="40" aria-label="40 plus features">40+</span>
+            <span class="hero-stat-number" data-count="40">40+</span>
             <span class="hero-stat-label">Features Built</span>
           </div>
           <div class="hero-stat-divider" aria-hidden="true"></div>
           <div class="hero-stat" role="listitem">
-            <span class="hero-stat-number" data-count="100" aria-label="100 percent mobile">100%</span>
+            <span class="hero-stat-number" data-count="100">100%</span>
             <span class="hero-stat-label">Mobile-First</span>
           </div>
         </div>
@@ -157,18 +2752,16 @@
 
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-mockup-frame">
-          <img src="assets/images/hero-gen.png" alt="ThanniGo mobile app interface">
+          <img src="assets/images/hero-gen.png" alt="ThanniGo mobile app">
           <div class="hero-mockup-glow"></div>
         </div>
-
         <div class="hero-float-card card-1">
           <span class="material-symbols-outlined">local_shipping</span>
           <div>
             <strong>Order Delivered</strong>
-            <span>Just now &middot; On time</span>
+            <span>Just now · On time</span>
           </div>
         </div>
-
         <div class="hero-float-card card-2">
           <span class="material-symbols-outlined">storefront</span>
           <div>
@@ -177,21 +2770,17 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="hero-scroll-hint" aria-label="Scroll to explore">
-      <span class="material-symbols-outlined">keyboard_arrow_down</span>
+      <span class="material-symbols-outlined" style="font-size:2rem;">keyboard_arrow_down</span>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       TRUST TICKER
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ TRUST TICKER ══════════════════════════════════════ -->
   <div class="trust-ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span class="ticker-item"><span class="material-symbols-outlined">my_location</span> Delivery Progress Updates</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">my_location</span> Live Delivery Updates</span>
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">local_shipping</span> Fast Local Delivery</span>
       <span class="ticker-sep">·</span>
@@ -201,14 +2790,15 @@
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">payments</span> Secure Payments</span>
       <span class="ticker-sep">·</span>
-      <span class="ticker-item"><span class="material-symbols-outlined">directions_bike</span> Verified Delivery Partners</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">directions_bike</span> Verified Delivery
+        Partners</span>
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">insights</span> Business Growth Tools</span>
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">schedule</span> Flexible Order Scheduling</span>
       <span class="ticker-sep">·</span>
-      <!-- duplicate for seamless loop -->
-      <span class="ticker-item"><span class="material-symbols-outlined">my_location</span> Delivery Progress Updates</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="ticker-item"><span class="material-symbols-outlined">my_location</span> Live Delivery Updates</span>
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">local_shipping</span> Fast Local Delivery</span>
       <span class="ticker-sep">·</span>
@@ -218,7 +2808,8 @@
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">payments</span> Secure Payments</span>
       <span class="ticker-sep">·</span>
-      <span class="ticker-item"><span class="material-symbols-outlined">directions_bike</span> Verified Delivery Partners</span>
+      <span class="ticker-item"><span class="material-symbols-outlined">directions_bike</span> Verified Delivery
+        Partners</span>
       <span class="ticker-sep">·</span>
       <span class="ticker-item"><span class="material-symbols-outlined">insights</span> Business Growth Tools</span>
       <span class="ticker-sep">·</span>
@@ -227,30 +2818,20 @@
     </div>
   </div>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ ABOUT ══════════════════════════════════════════════ -->
   <section id="about" aria-labelledby="about-heading">
     <div class="container">
       <div class="about-grid">
-
         <div class="about-content reveal">
           <span class="section-badge">About ThanniGo</span>
           <h2 id="about-heading">
             Putting Local Commerce<br>
             <span class="gradient-text">Back in Every Pocket</span>
           </h2>
-          <p>
-            Local businesses power every neighbourhood — yet for years they've had no digital home.
-            ThanniGo changes that. We've built a unified platform that levels the playing field,
-            bringing neighbourhood commerce into the smartphone era.
-          </p>
-          <p>
-            Customers get the speed and convenience they expect. Shop owners get a powerful digital
-            storefront without the complexity. Delivery partners get meaningful, flexible earnings.
-            Everyone wins — on one beautifully designed platform.
-          </p>
+          <p>Local businesses power every neighbourhood — yet for years they've had no digital home. ThanniGo changes
+            that. We've built a unified platform that brings neighbourhood commerce into the smartphone era.</p>
+          <p>Customers get speed and convenience. Shop owners get a powerful digital storefront. Delivery partners get
+            flexible earnings. Everyone wins — on one beautifully designed platform.</p>
 
           <div class="about-pillars">
             <div class="pillar">
@@ -271,7 +2852,7 @@
               <span class="material-symbols-outlined pillar-icon">directions_bike</span>
               <div>
                 <strong>For Delivery Partners</strong>
-                <span>Earn on your own terms with reliable support, and flexible earnings management.</span>
+                <span>Earn on your own terms with reliable support and flexible earnings management.</span>
               </div>
             </div>
           </div>
@@ -279,395 +2860,349 @@
 
         <div class="about-visual reveal">
           <div class="about-image-frame">
-            <img src="assets/images/hero-water.jpg" alt="ThanniGo local delivery in action" class="about-image">
+            <img src="assets/images/hero-water.jpg" alt="ThanniGo local delivery" class="about-image"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#E0F2FE,#BAE6FD)';this.style.display='none'">
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       PROBLEMS
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ PROBLEMS ══════════════════════════════════════════ -->
   <section id="problems" aria-labelledby="problems-heading">
     <div class="container">
-
       <div class="section-header reveal">
         <span class="section-badge">The Problem We Solve</span>
         <h2 id="problems-heading">
           Local Commerce Was Broken.<br>
           <span class="gradient-text">We Fixed Every Piece.</span>
         </h2>
-        <p class="section-description">
-          Millions of neighbourhood shops were invisible to modern customers.
-          ThanniGo bridges that gap — with technology built for the real world.
-        </p>
+        <p class="section-description">Millions of neighbourhood shops were invisible to modern customers. ThanniGo
+          bridges that gap — with technology built for the real world.</p>
       </div>
 
       <div class="problems-grid">
-
         <article class="problem-card glass-card">
           <span class="material-symbols-outlined problem-icon">route</span>
           <h3>No Reliable Local Delivery</h3>
-          <p>Customers couldn't count on neighbourhood shops for deliveries — no tracking, no transparency, no trust.</p>
+          <p>Customers couldn't count on neighbourhood shops — no updates, no transparency, no trust.</p>
         </article>
-
         <article class="problem-card glass-card">
           <span class="material-symbols-outlined problem-icon">storefront</span>
           <h3>Shops Stuck Offline</h3>
-          <p>Local shops had no digital storefront, missing out on a generation of customers who shop from their phones.</p>
+          <p>Local shops had no digital presence, missing an entire generation of smartphone-first customers.</p>
         </article>
-
         <article class="problem-card glass-card">
           <span class="material-symbols-outlined problem-icon">pending_actions</span>
           <h3>Orders Managed Manually</h3>
-          <p>Without proper tools, order management was chaotic — prone to errors, delays, and lost revenue.</p>
+          <p>Without proper tools, order handling was chaotic — prone to errors, delays, and lost revenue.</p>
         </article>
-
         <article class="problem-card glass-card">
           <span class="material-symbols-outlined problem-icon">location_searching</span>
           <h3>Zero Delivery Visibility</h3>
-          <p>Once an order left the shop, customers were left guessing — no updates, no ETA, no peace of mind.</p>
+          <p>Once an order left the shop, customers were left guessing — no ETA, no peace of mind.</p>
         </article>
-
         <article class="problem-card glass-card">
           <span class="material-symbols-outlined problem-icon">forum</span>
           <h3>Disconnected Experiences</h3>
-          <p>Customers, shops, and delivery partners had no shared platform — coordination was fragmented and frustrating.</p>
+          <p>Customers, shops, and partners had no shared platform — coordination was fragmented and frustrating.</p>
         </article>
-
         <article class="problem-card glass-card">
           <span class="material-symbols-outlined problem-icon">payments</span>
           <h3>Limited Payment Options</h3>
-          <p>Cash-only transactions meant no digital receipts, no payment history, and no flexibility for customers.</p>
+          <p>Cash-only meant no digital receipts, no payment history, no flexibility for modern customers.</p>
         </article>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       FEATURES
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ FEATURES ══════════════════════════════════════════ -->
   <section id="features" aria-labelledby="features-heading">
     <div class="container">
-
       <div class="section-header reveal">
         <span class="section-badge">Platform Features</span>
         <h2 id="features-heading">
           Built for Every Role in<br>
           <span class="gradient-text">Your Commerce Ecosystem</span>
         </h2>
-        <p class="section-description">
-          Discover a robust suite of tools designed to elevate the everyday experience for customers, streamline operations for shops, and empower our delivery fleet.
-        </p>
+        <p class="section-description">A complete suite of tools designed to elevate the everyday experience for
+          customers, streamline operations for shops, and empower delivery partners.</p>
       </div>
 
-      <div class="features-wrapper reveal">
-
+      <div class="reveal">
         <div class="tabs-nav" role="tablist" aria-label="Feature categories">
           <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-customer"
             data-tab="customer">
-            <span class="material-symbols-outlined" aria-hidden="true">person</span>
-            Customer
+            <span class="material-symbols-outlined" aria-hidden="true">person</span> Customer
           </button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-shop" data-tab="shop">
-            <span class="material-symbols-outlined" aria-hidden="true">store</span>
-            Shop Owner
+            <span class="material-symbols-outlined" aria-hidden="true">store</span> Shop Owner
           </button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-delivery" data-tab="delivery">
-            <span class="material-symbols-outlined" aria-hidden="true">directions_bike</span>
-            Delivery Partner
+            <span class="material-symbols-outlined" aria-hidden="true">directions_bike</span> Delivery Partner
           </button>
-
         </div>
 
         <div class="tabs-content">
-
-          <!-- ─ Customer ─────────────────────────────────── -->
-          <div class="tab-panel active" id="tab-customer" role="tabpanel" aria-label="Customer features">
+          <!-- Customer -->
+          <div class="tab-panel active" id="tab-customer" role="tabpanel">
             <div class="features-grid">
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">how_to_reg</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">how_to_reg</span>
                 <div>
-                  <h4>Easy Account Registration</h4>
-                  <p>Sign up quickly and securely to start ordering.</p>
+                  <h4>Quick Account Setup</h4>
+                  <p>Sign up in seconds and start discovering local shops right away.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">store</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">store</span>
                 <div>
-                  <h4>Nearby Shop Access</h4>
-                  <p>Discover and connect with local shops in your area.</p>
+                  <h4>Nearby Shop Discovery</h4>
+                  <p>Find and connect with the best local shops in your neighbourhood.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">bolt</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">bolt</span>
                 <div>
                   <h4>Fast Online Ordering</h4>
-                  <p>Place your orders seamlessly with just a few taps.</p>
+                  <p>Place orders in just a few taps — simple, quick, and satisfying.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">update</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">update</span>
                 <div>
-                  <h4>Delivery Updates</h4>
-                  <p>Stay updated on your delivery progress.</p>
+                  <h4>Live Delivery Updates</h4>
+                  <p>Stay informed with delivery progress throughout your experience.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">payments</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">payments</span>
                 <div>
-                  <h4>Multiple Payment Methods</h4>
-                  <p>Pay conveniently using your preferred payment options.</p>
+                  <h4>Multiple Payment Options</h4>
+                  <p>Pay your way — choose from a range of convenient payment methods.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">local_atm</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">local_atm</span>
                 <div>
-                  <h4>Cash on Delivery Support</h4>
-                  <p>Opt to pay with cash when your order arrives.</p>
+                  <h4>Cash on Delivery</h4>
+                  <p>Prefer to pay on arrival? We've got that covered too.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">local_offer</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">local_offer</span>
                 <div>
-                  <h4>Exclusive Offers &amp; Discounts</h4>
-                  <p>Enjoy special deals and savings on your purchases.</p>
+                  <h4>Exclusive Offers</h4>
+                  <p>Unlock special deals and savings from your favourite local shops.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">workspace_premium</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">workspace_premium</span>
                 <div>
-                  <h4>Loyalty Rewards Program</h4>
-                  <p>Earn points and get rewarded for your continued loyalty.</p>
+                  <h4>Loyalty Rewards</h4>
+                  <p>Earn points on every order and enjoy great rewards over time.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">search</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">search</span>
                 <div>
-                  <h4>Search &amp; Product Filters</h4>
-                  <p>Find exactly what you need with ease.</p>
+                  <h4>Smart Search & Filters</h4>
+                  <p>Find exactly what you need with intuitive search and filter tools.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">notifications_active</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">notifications_active</span>
                 <div>
-                  <h4>Timely Communication</h4>
-                  <p>Stay informed throughout your journey.</p>
+                  <h4>Timely Notifications</h4>
+                  <p>Stay in the loop with helpful updates throughout your journey.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ─ Shop Owner ───────────────────────────────── -->
-          <div class="tab-panel" id="tab-shop" role="tabpanel" aria-label="Shop owner features">
+          <!-- Shop Owner -->
+          <div class="tab-panel" id="tab-shop" role="tabpanel">
             <div class="features-grid">
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">add_business</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">add_business</span>
                 <div>
-                  <h4>Simple Shop Onboarding</h4>
-                  <p>Set up your digital storefront quickly and effortlessly.</p>
+                  <h4>Simple Shop Setup</h4>
+                  <p>Create your digital storefront quickly and get selling in minutes.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">inventory_2</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">inventory_2</span>
                 <div>
-                  <h4>Product &amp; Catalog Management</h4>
-                  <p>Easily organize and update your store's offerings.</p>
+                  <h4>Catalogue Management</h4>
+                  <p>Easily add, update, and organise your product listings anytime.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">list_alt</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">list_alt</span>
                 <div>
-                  <h4>Efficient Order Management</h4>
-                  <p>Handle incoming orders easily from a central dashboard.</p>
+                  <h4>Order Management</h4>
+                  <p>Handle customer orders smoothly from a single, clean dashboard.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">campaign</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">campaign</span>
                 <div>
-                  <h4>Promotions &amp; Campaign Tools</h4>
-                  <p>Create and manage marketing campaigns to boost sales.</p>
+                  <h4>Promotions & Campaigns</h4>
+                  <p>Create engaging offers and campaigns to attract more customers.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">insights</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">insights</span>
                 <div>
-                  <h4>Revenue &amp; Sales Insights</h4>
-                  <p>Track your earnings and analyze sales performance.</p>
+                  <h4>Sales Insights</h4>
+                  <p>Track earnings and understand your business performance clearly.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">dashboard</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">dashboard</span>
                 <div>
-                  <h4>Business Performance Dashboard</h4>
-                  <p>Monitor key metrics and business health.</p>
+                  <h4>Business Dashboard</h4>
+                  <p>Monitor your shop's key metrics and health at a glance.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">notification_important</span>
+              <div class="feature-item"><span
+                  class="material-symbols-outlined feature-icon">notification_important</span>
                 <div>
-                  <h4>Order Updates</h4>
-                  <p>Manage incoming requests with ease.</p>
+                  <h4>Order Alerts</h4>
+                  <p>Never miss an incoming order with instant, reliable notifications.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">security</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">security</span>
                 <div>
-                  <h4>Secure Business Settings</h4>
-                  <p>Manage your account and operational settings safely.</p>
+                  <h4>Secure Settings</h4>
+                  <p>Manage your account and shop preferences with full confidence.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ─ Delivery Partner ─────────────────────────── -->
-          <div class="tab-panel" id="tab-delivery" role="tabpanel" aria-label="Delivery partner features">
+          <!-- Delivery Partner -->
+          <div class="tab-panel" id="tab-delivery" role="tabpanel">
             <div class="features-grid">
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">dashboard</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">dashboard</span>
                 <div>
-                  <h4>Dedicated Delivery Dashboard</h4>
-                  <p>Access all your delivery tasks and metrics in one place.</p>
+                  <h4>Dedicated Dashboard</h4>
+                  <p>Access all your deliveries and performance metrics in one place.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">navigation</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">navigation</span>
                 <div>
-                  <h4>Delivery Guidance</h4>
-                  <p>Enjoy reliable support on the road.</p>
+                  <h4>Delivery Support</h4>
+                  <p>Get reliable guidance to reach your destination every time.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">update</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">update</span>
                 <div>
                   <h4>Customer Updates</h4>
-                  <p>Help customers stay informed throughout the journey.</p>
+                  <p>Keep customers informed with progress updates along the way.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">event_available</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">event_available</span>
                 <div>
-                  <h4>Flexible Availability Controls</h4>
-                  <p>Set your working hours and manage your schedule.</p>
+                  <h4>Flexible Scheduling</h4>
+                  <p>Set your own hours and manage your availability with ease.</p>
                 </div>
               </div>
-              <div class="feature-item">
-                <span class="material-symbols-outlined feature-icon" aria-hidden="true">verified</span>
+              <div class="feature-item"><span class="material-symbols-outlined feature-icon">verified</span>
                 <div>
-                  <h4>Secure Deliveries</h4>
-                  <p>Ensure safe and verified handoffs for every order.</p>
+                  <h4>Secure Handoffs</h4>
+                  <p>Every delivery is completed with verified, safe handoff protocols.</p>
+                </div>
+              </div>
+              <div class="feature-item"><span
+                  class="material-symbols-outlined feature-icon">account_balance_wallet</span>
+                <div>
+                  <h4>Flexible Earnings</h4>
+                  <p>Earn on your terms with transparent and reliable earning opportunities.</p>
                 </div>
               </div>
             </div>
           </div>
-
-
-        </div><!-- /tabs-content -->
-      </div><!-- /features-wrapper -->
-    </div><!-- /container -->
+        </div>
+      </div>
+    </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       HOW IT WORKS
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ HOW IT WORKS ══════════════════════════════════════ -->
   <section id="how-it-works" aria-labelledby="hiw-heading">
     <div class="container">
-
       <div class="section-header reveal">
         <span class="section-badge">How It Works</span>
         <h2 id="hiw-heading">
           From Cart to Doorstep in<br>
           <span class="gradient-text">Four Simple Steps</span>
         </h2>
-        <p class="section-description">
-          Experience a seamless, intuitive ordering process. We've refined every step to ensure your neighbourhood essentials reach you with unprecedented speed and reliability.
-        </p>
+        <p class="section-description">Experience a seamless ordering process. We've refined every step to ensure your
+          neighbourhood essentials reach you with speed and reliability.</p>
       </div>
 
-      <!-- Animated progress line -->
       <div class="steps-progress-track" aria-hidden="true">
         <div class="steps-progress-fill" id="steps-fill"></div>
       </div>
 
       <div class="steps-flow reveal">
-
         <div class="step" data-step="1">
           <div class="step-number">01</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <span class="material-symbols-outlined">add_shopping_cart</span>
-          </div>
-          <h3>Browse &amp; Order</h3>
-          <p>Discover nearby shops, choose what you need, apply offers, and place your order in seconds.</p>
+          <div class="step-icon-wrap"><span class="material-symbols-outlined">add_shopping_cart</span></div>
+          <h3>Browse & Order</h3>
+          <p>Discover local shops, choose what you need, and place your order in seconds.</p>
         </div>
 
         <div class="step-connector" aria-hidden="true">
           <svg viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <polygon points="32,3 40,8 32,13" fill="url(#cg)"/>
-            <defs><linearGradient id="cg" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#1B7FD4"/><stop offset="1" stop-color="#6EC8F5"/></linearGradient></defs>
+            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg)" stroke-width="1.5" stroke-dasharray="4 3" />
+            <polygon points="32,3 40,8 32,13" fill="url(#cg)" />
+            <defs>
+              <linearGradient id="cg" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1B7FD4" />
+                <stop offset="1" stop-color="#6EC8F5" />
+              </linearGradient>
+            </defs>
           </svg>
         </div>
 
         <div class="step" data-step="2">
           <div class="step-number">02</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <span class="material-symbols-outlined">storefront</span>
-          </div>
+          <div class="step-icon-wrap"><span class="material-symbols-outlined">storefront</span></div>
           <h3>Shop Prepares</h3>
-          <p>Orders are processed quickly to ensure a smooth and reliable experience.</p>
+          <p>Your local shop gets to work, carefully preparing your order for dispatch.</p>
         </div>
 
         <div class="step-connector" aria-hidden="true">
           <svg viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg2)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <polygon points="32,3 40,8 32,13" fill="url(#cg2)"/>
-            <defs><linearGradient id="cg2" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#1B7FD4"/><stop offset="1" stop-color="#6EC8F5"/></linearGradient></defs>
+            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg2)" stroke-width="1.5" stroke-dasharray="4 3" />
+            <polygon points="32,3 40,8 32,13" fill="url(#cg2)" />
+            <defs>
+              <linearGradient id="cg2" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1B7FD4" />
+                <stop offset="1" stop-color="#6EC8F5" />
+              </linearGradient>
+            </defs>
           </svg>
         </div>
 
         <div class="step" data-step="3">
           <div class="step-number">03</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <span class="material-symbols-outlined">directions_bike</span>
-          </div>
+          <div class="step-icon-wrap"><span class="material-symbols-outlined">directions_bike</span></div>
           <h3>On Its Way</h3>
-          <p>Enjoy fast and reliable delivery support right to your location.</p>
+          <p>A delivery partner picks up your order and heads to your location.</p>
         </div>
 
         <div class="step-connector" aria-hidden="true">
           <svg viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg3)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <polygon points="32,3 40,8 32,13" fill="url(#cg3)"/>
-            <defs><linearGradient id="cg3" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#1B7FD4"/><stop offset="1" stop-color="#6EC8F5"/></linearGradient></defs>
+            <line x1="0" y1="8" x2="32" y2="8" stroke="url(#cg3)" stroke-width="1.5" stroke-dasharray="4 3" />
+            <polygon points="32,3 40,8 32,13" fill="url(#cg3)" />
+            <defs>
+              <linearGradient id="cg3" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1B7FD4" />
+                <stop offset="1" stop-color="#6EC8F5" />
+              </linearGradient>
+            </defs>
           </svg>
         </div>
 
         <div class="step" data-step="4">
           <div class="step-number">04</div>
-          <div class="step-icon-wrap" aria-hidden="true">
-            <span class="material-symbols-outlined">home</span>
-          </div>
-          <h3>Delivered to Your Door</h3>
-          <p>Receive your order right at your doorstep, on time, every time. Rate your experience and earn loyalty rewards.</p>
+          <div class="step-icon-wrap"><span class="material-symbols-outlined">home</span></div>
+          <h3>Delivered!</h3>
+          <p>Your order arrives at your door, on time. Rate your experience and earn loyalty points.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       WHY THANNIGO
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ WHY THANNIGO ══════════════════════════════════════ -->
   <section id="why" aria-labelledby="why-heading">
     <div class="container">
-
       <div class="section-header reveal">
         <span class="section-badge">Why Choose Us</span>
         <h2 id="why-heading">
@@ -676,120 +3211,160 @@
         </h2>
       </div>
 
-      <div class="stats-row reveal" role="list" aria-label="Platform statistics">
-
+      <div class="stats-row reveal" role="list">
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="3">0</span>
           <span class="stat-label">User Experiences</span>
-          <span class="stat-desc">Customers &middot; Shop Owners &middot; Delivery Partners</span>
+          <span class="stat-desc">Customers · Shops · Delivery Partners</span>
         </div>
-
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="40" data-suffix="+">0</span>
           <span class="stat-label">Platform Features</span>
           <span class="stat-desc">Purpose-built for hyperlocal commerce</span>
         </div>
-
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="4">0</span>
           <span class="stat-label">Steps to Doorstep</span>
-          <span class="stat-desc">Browse &middot; Order &middot; Track &middot; Receive</span>
+          <span class="stat-desc">Browse · Order · Track · Receive</span>
         </div>
-
         <div class="stat-card glass-card" role="listitem">
           <span class="stat-number" data-count="100" data-suffix="%">0</span>
           <span class="stat-label">Mobile-First</span>
-          <span class="stat-desc">Beautiful native apps on iOS &amp; Android</span>
+          <span class="stat-desc">Beautiful native apps on iOS & Android</span>
         </div>
-
       </div>
 
       <div class="why-benefits reveal">
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">hub</span>
-          </div>
-          <h3>Hyperlocal Commerce Platform</h3>
-          <p>Connecting neighborhoods through seamless local shopping.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">hub</span></div>
+          <h3>Hyperlocal Commerce</h3>
+          <p>Connecting neighbourhoods through seamless local shopping.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">local_shipping</span>
-          </div>
-          <h3>Fast &amp; Reliable Delivery Experience</h3>
-          <p>Ensuring your orders arrive quickly and safely.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">local_shipping</span></div>
+          <h3>Fast & Reliable Delivery</h3>
+          <p>Ensuring your orders arrive quickly and safely every time.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">smartphone</span>
-          </div>
-          <h3>Mobile-First User Experience</h3>
-          <p>Perfect for on-the-go access across all devices.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">smartphone</span></div>
+          <h3>Mobile-First Design</h3>
+          <p>Perfected for on-the-go access across all your devices.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">notifications_active</span>
-          </div>
+          <div class="benefit-icon"><span class="material-symbols-outlined">notifications_active</span></div>
           <h3>Timely Updates</h3>
-          <p>Stay informed throughout your entire journey.</p>
+          <p>Stay informed at every step of your experience.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">security</span>
-          </div>
-          <h3>Secure Payment Ecosystem</h3>
-          <p>Protecting your transactions with advanced security.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">security</span></div>
+          <h3>Secure Payments</h3>
+          <p>Your transactions are always safe and protected.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">design_services</span>
-          </div>
-          <h3>Modern &amp; Responsive Interface</h3>
-          <p>Enjoy a clean, intuitive design tailored for you.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">design_services</span></div>
+          <h3>Modern Interface</h3>
+          <p>Clean, intuitive design tailored for everyone.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">groups</span>
-          </div>
-          <h3>Multi-Role Unified Platform</h3>
-          <p>A single cohesive ecosystem for all participants.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">groups</span></div>
+          <h3>Unified Platform</h3>
+          <p>One ecosystem connecting all participants seamlessly.</p>
         </div>
-
         <div class="benefit glass-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">sentiment_very_satisfied</span>
-          </div>
-          <h3>Seamless User Experience</h3>
-          <p>Designed to make every interaction smooth and easy.</p>
+          <div class="benefit-icon"><span class="material-symbols-outlined">sentiment_very_satisfied</span></div>
+          <h3>Seamless Experience</h3>
+          <p>Every interaction designed to be smooth and delightful.</p>
         </div>
-
       </div>
-
     </div>
   </section>
 
+  <!-- ═══ SOCIAL CONNECT ════════════════════════════════════ -->
+  <section id="social-connect" aria-labelledby="social-heading">
+    <div class="container">
+      <div class="section-header reveal" style="max-width:580px;">
+        <span class="section-badge">Stay Connected</span>
+        <h2 id="social-heading">
+          Follow Our<br>
+          <span style="color:#6EC8F5;">Journey</span>
+        </h2>
+        <p class="section-description">Be the first to know about new features, exclusive offers, and the story of
+          ThanniGo. Join our growing community.</p>
+      </div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       APP DOWNLOAD
-  ══════════════════════════════════════════════════════════ -->
+      <div class="reveal" style="display:flex;flex-direction:column;align-items:center;gap:2rem;">
+        <div class="social-links-row">
+          <!-- Instagram -->
+          <a href="https://instagram.com/thannigo" target="_blank" rel="noopener noreferrer"
+            class="social-link-item instagram" aria-label="Follow ThanniGo on Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="https://twitter.com/thannigo" target="_blank" rel="noopener noreferrer"
+            class="social-link-item twitter" aria-label="Follow ThanniGo on X (Twitter)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/company/thannigo" target="_blank" rel="noopener noreferrer"
+            class="social-link-item linkedin" aria-label="Connect with ThanniGo on LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://facebook.com/thannigo" target="_blank" rel="noopener noreferrer"
+            class="social-link-item facebook" aria-label="Like ThanniGo on Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/918428882777" target="_blank" rel="noopener noreferrer"
+            class="social-link-item whatsapp" aria-label="Chat with ThanniGo on WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://youtube.com/@thannigo" target="_blank" rel="noopener noreferrer"
+            class="social-link-item youtube" aria-label="Watch ThanniGo on YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+        </div>
+
+        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;text-align:center;max-width:480px;">
+          Follow us for exclusive launch updates, neighbourhood stories, and behind-the-scenes content from the ThanniGo
+          team.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOWNLOAD ══════════════════════════════════════════ -->
   <section id="download" aria-labelledby="download-heading">
     <div class="container">
 
       <div class="section-header reveal">
         <span class="section-badge">Get the App</span>
         <h2 id="download-heading">
-          Your Neighbourhood in<br>
-          <span class="gradient-text">Your Pocket</span>
+          Download ThanniGo Today &<br>
+          <span class="gradient-text">Experience the Future</span>
         </h2>
         <p class="section-description">
-          Unlock the ultimate hyperlocal experience. Download the ThanniGo app for exclusive offers, quick ordering, and delivery tracking on the go.
+          Unlock the ultimate hyperlocal experience. Experience neighbourhood commerce at lightning speed with our
+          powerful, mobile-first platform.
         </p>
       </div>
 
@@ -832,29 +3407,29 @@
             <div class="dl-feature">
               <span class="material-symbols-outlined">bolt</span>
               <div>
-                <strong>Fast Performance</strong>
-                <span>Optimised for a smooth and seamless user experience</span>
+                <strong>Lightning Fast</strong>
+                <span>Optimised for a smooth and seamless user experience.</span>
               </div>
             </div>
             <div class="dl-feature">
               <span class="material-symbols-outlined">location_on</span>
               <div>
-                <strong>Delivery Updates</strong>
-                <span>Stay updated with delivery progress</span>
+                <strong>Live Tracking</strong>
+                <span>Real-time delivery progress and precise GPS location updates.</span>
               </div>
             </div>
             <div class="dl-feature">
               <span class="material-symbols-outlined">notifications_active</span>
               <div>
-                <strong>Timely Updates</strong>
-                <span>Stay informed throughout the entire experience</span>
+                <strong>Smart Updates</strong>
+                <span>Stay informed throughout the entire experience with smart alerts.</span>
               </div>
             </div>
             <div class="dl-feature">
               <span class="material-symbols-outlined">fingerprint</span>
               <div>
-                <strong>Secure Biometric Login</strong>
-                <span>One tap access with face ID or fingerprint authentication</span>
+                <strong>Secure Access</strong>
+                <span>Biometric authentication for fast, secure, one-tap login.</span>
               </div>
             </div>
           </div>
@@ -882,7 +3457,7 @@
 
           <p class="download-note">
             <span class="material-symbols-outlined">verified_user</span>
-            Available for Android 8.0+ and iOS 14+. Free to download.
+            Free to download on Google Play and App Store. Free updates.
           </p>
 
         </div>
@@ -890,169 +3465,174 @@
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       LEADERSHIP TEAM
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ TEAM ══════════════════════════════════════════════ -->
   <section id="team" aria-labelledby="team-heading">
     <div class="container">
-
       <div class="section-header reveal">
         <span class="section-badge">Leadership Team</span>
         <h2 id="team-heading">
           The Minds Behind<br>
           <span class="gradient-text">ThanniGo</span>
         </h2>
-        <p class="section-description">
-          Visionary leaders building the future of hyperlocal commerce in India — one neighbourhood at a time.
-        </p>
+        <p class="section-description">Visionary leaders building the future of hyperlocal commerce in India — one
+          neighbourhood at a time.</p>
       </div>
 
       <div class="team-grid reveal">
-
         <article class="team-card glass-card" aria-label="Mr Ugendran, CEO">
-          <div class="team-avatar" aria-hidden="true">
+          <div class="team-avatar">
             <div class="team-avatar-ring"></div>
-            <div class="team-avatar-inner">
-              <span class="material-symbols-outlined">person</span>
-            </div>
+            <div class="team-avatar-inner"><span class="material-symbols-outlined">person</span></div>
           </div>
           <div class="team-info">
             <h3 class="team-name">Mr. Ugendran</h3>
             <span class="team-role">Chief Executive Officer</span>
-            <p class="team-desc">Visionary founder driving ThanniGo's mission to empower local commerce through technology, strategy, and relentless execution.</p>
+            <p class="team-desc">Visionary founder driving ThanniGo's mission to empower local commerce through
+              technology, strategy, and relentless execution.</p>
           </div>
           <div class="team-badge-role">CEO</div>
         </article>
 
         <article class="team-card glass-card" aria-label="Mr Sudeep, COO">
-          <div class="team-avatar" aria-hidden="true">
-            <div class="team-avatar-ring"></div>
-            <div class="team-avatar-inner">
-              <span class="material-symbols-outlined">person</span>
-            </div>
+          <div class="team-avatar">
+            <div class="team-avatar-ring" style="animation-delay:-2.5s;"></div>
+            <div class="team-avatar-inner"><span class="material-symbols-outlined">person</span></div>
           </div>
           <div class="team-info">
             <h3 class="team-name">Mr. Sudeep</h3>
             <span class="team-role">Chief Operating Officer</span>
-            <p class="team-desc">Operations leader driving ThanniGo's seamless execution, ensuring every customer, shop, and delivery partner enjoys a world-class experience.</p>
+            <p class="team-desc">Operations leader ensuring every customer, shop, and delivery partner enjoys a
+              world-class experience on ThanniGo.</p>
           </div>
           <div class="team-badge-role">COO</div>
         </article>
 
         <article class="team-card glass-card" aria-label="Mr Hari Murugan, CMO">
-          <div class="team-avatar" aria-hidden="true">
-            <div class="team-avatar-ring"></div>
-            <div class="team-avatar-inner">
-              <span class="material-symbols-outlined">person</span>
-            </div>
+          <div class="team-avatar">
+            <div class="team-avatar-ring" style="animation-delay:-5s;"></div>
+            <div class="team-avatar-inner"><span class="material-symbols-outlined">person</span></div>
           </div>
           <div class="team-info">
             <h3 class="team-name">Mr. Hari Murugan</h3>
             <span class="team-role">Chief Marketing Officer</span>
-            <p class="team-desc">Brand storyteller and growth strategist crafting ThanniGo's voice, expanding market reach, and connecting communities through powerful campaigns.</p>
+            <p class="team-desc">Brand storyteller and growth strategist crafting ThanniGo's voice and connecting
+              communities through powerful campaigns.</p>
           </div>
           <div class="team-badge-role">CMO</div>
         </article>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ CONTACT ════════════════════════════════════════════ -->
   <section id="contact" aria-labelledby="contact-heading">
     <div class="container">
-
       <div class="section-header reveal">
         <span class="section-badge">Get in Touch</span>
         <h2 id="contact-heading">
           Ready to Grow With<br>
           <span class="gradient-text">ThanniGo?</span>
         </h2>
-        <p class="section-description">
-          Whether you're a customer with a question, a shop looking to expand, or an investor exploring opportunities, our team is here to help you succeed.
-        </p>
+        <p class="section-description">Whether you're a customer with a question, a shop looking to expand, or an
+          investor exploring opportunities — our team is here to help.</p>
       </div>
 
       <div class="contact-phone-highlight reveal">
         <div class="contact-phone-card glass-card">
-          <div class="contact-phone-icon" aria-hidden="true">
+          <div class="contact-phone-icon">
             <span class="material-symbols-outlined">call</span>
           </div>
           <div class="contact-phone-body">
             <span class="contact-phone-label">Call Us Directly</span>
-            <a href="tel:+918428882777" class="contact-phone-number" id="phone-cta">+91 84288 82777</a>
+            <a href="tel:+918428882777" class="contact-phone-number">+91 84288 82777</a>
             <span class="contact-phone-note">Mon – Sat · 9 AM – 7 PM IST</span>
           </div>
-          <div class="contact-phone-pulse" aria-hidden="true"></div>
+          <div class="contact-phone-pulse"></div>
         </div>
       </div>
 
       <div class="contact-grid reveal">
-
         <div class="contact-card glass-card">
-          <div class="contact-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">headset_mic</span>
-          </div>
+          <div class="contact-icon"><span class="material-symbols-outlined">headset_mic</span></div>
           <h3>Customer Support</h3>
           <p>Need help with an order, account, or delivery?</p>
           <a href="mailto:support@thannigo.com" class="contact-email">support@thannigo.com</a>
         </div>
-
         <div class="contact-card glass-card">
-          <div class="contact-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">business_center</span>
-          </div>
-          <h3>Business &amp; Partnerships</h3>
+          <div class="contact-icon"><span class="material-symbols-outlined">business_center</span></div>
+          <h3>Business & Partnerships</h3>
           <p>Shop registrations, investor enquiries, and partnership opportunities.</p>
           <a href="mailto:business@thannigo.com" class="contact-email">business@thannigo.com</a>
         </div>
-
         <div class="contact-card glass-card">
-          <div class="contact-icon" aria-hidden="true">
-            <span class="material-symbols-outlined">receipt_long</span>
-          </div>
+          <div class="contact-icon"><span class="material-symbols-outlined">receipt_long</span></div>
           <h3>Order Enquiries</h3>
           <p>Questions about a specific order, delivery, or refund request.</p>
           <a href="mailto:orders@thannigo.com" class="contact-email">orders@thannigo.com</a>
         </div>
-
       </div>
-
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
   <footer id="footer" role="contentinfo">
-    <div class="container footer-inner">
-
-      <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="ThanniGo" height="32">
-        <p>
-          Your neighbourhood, delivered seamlessly.<br>
-          Connecting communities through modern local commerce.
-        </p>
-        <div class="footer-social" role="list" aria-label="Social media links">
-          <a href="#" role="listitem" aria-label="Follow us on Instagram" class="social-link">
-            <span class="material-symbols-outlined">photo_camera</span>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="nav-logo" href="#" aria-label="ThanniGo Home">
+            <img src="assets/images/logo.png" alt="ThanniGo Logo" onerror="this.style.display='none'">
+            <div class="brand-text">
+              <span class="brand-main">Thanni</span><span class="brand-go">Go</span>
+            </div>
           </a>
-          <a href="#" role="listitem" aria-label="Connect on LinkedIn" class="social-link">
-            <span class="material-symbols-outlined">business_center</span>
-          </a>
-          <a href="#" role="listitem" aria-label="Chat on WhatsApp" class="social-link">
-            <span class="material-symbols-outlined">chat</span>
-          </a>
+          <p>Your neighbourhood, delivered seamlessly.<br>Connecting communities through modern local commerce.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/thannigo" target="_blank" rel="noopener" class="footer-social-link instagram"
+              aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://twitter.com/thannigo" target="_blank" rel="noopener" class="footer-social-link twitter"
+              aria-label="X / Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/company/thannigo" target="_blank" rel="noopener"
+              class="footer-social-link linkedin" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="https://facebook.com/thannigo" target="_blank" rel="noopener" class="footer-social-link facebook"
+              aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://wa.me/918428882777" target="_blank" rel="noopener" class="footer-social-link whatsapp"
+              aria-label="WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/@thannigo" target="_blank" rel="noopener" class="footer-social-link youtube"
+              aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Platform links">
           <h4>Platform</h4>
           <ul>
             <li><a href="#about">About</a></li>
@@ -1060,36 +3640,36 @@
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#why">Why ThanniGo</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+
+        <nav class="footer-col" aria-label="Partner links">
           <h4>For Partners</h4>
           <ul>
             <li><a href="#contact">Shop Owners</a></li>
             <li><a href="#contact">Delivery Partners</a></li>
             <li><a href="#contact">Investors</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+
+        <nav class="footer-col" aria-label="Download links">
           <h4>Download</h4>
           <ul>
             <li><a href="#download">Google Play</a></li>
             <li><a href="#download">App Store</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+
+        <nav class="footer-col" aria-label="Support links">
           <h4>Support</h4>
           <ul>
             <li><a href="#contact">Help Centre</a></li>
             <li><a href="tel:+918428882777">+91 84288 82777</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
-    </div>
-
-    <div class="footer-team">
-      <div class="container">
+      <div class="footer-team">
         <div class="footer-team-inner">
           <span class="footer-team-label">Leadership</span>
           <div class="footer-team-members">
@@ -1101,118 +3681,24 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 ThanniGo Technologies. All rights reserved. Registered in India.</p>
+      <div class="footer-bottom">
+        <p>© 2026 ThanniGo Technologies. All rights reserved. Registered in India.</p>
         <p class="footer-tagline">Hyperlocal commerce, reimagined.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">
     <span class="material-symbols-outlined">arrow_upward</span>
   </button>
 
-  <script src="script.js"></script>
-  <script>
-  /* ── Scroll Progress Bar ────────────────────────── */
-  (function() {
-    const bar = document.getElementById('scroll-progress');
-    if (!bar) return;
-    function update() {
-      const scrollTop = window.scrollY;
-      const docH = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
-      bar.style.width = pct + '%';
-    }
-    window.addEventListener('scroll', update, { passive: true });
-    update();
-  })();
-
-  /* ── Back to Top ─────────────────────────────────── */
-  (function() {
-    const btn = document.getElementById('back-to-top');
-    if (!btn) return;
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) btn.classList.add('visible');
-      else btn.classList.remove('visible');
-    }, { passive: true });
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  })();
-
-  /* ── Hero Particle Canvas ─────────────────────────── */
-  (function() {
-    const canvas = document.getElementById('hero-particles');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let W, H, particles = [], raf;
-
-    function resize() {
-      const hero = document.getElementById('hero');
-      W = canvas.width  = hero ? hero.offsetWidth  : window.innerWidth;
-      H = canvas.height = hero ? hero.offsetHeight : window.innerHeight;
-    }
-
-    function Particle() {
-      this.reset = function() {
-        this.x  = Math.random() * W;
-        this.y  = Math.random() * H;
-        this.r  = Math.random() * 1.8 + 0.4;
-        this.vx = (Math.random() - 0.5) * 0.35;
-        this.vy = (Math.random() - 0.5) * 0.35;
-        this.a  = Math.random() * 0.5 + 0.15;
-        this.hue = Math.random() > 0.5 ? '0,119,182' : '72,202,228';
-      };
-      this.reset();
-    }
-
-    function init() {
-      resize();
-      particles = Array.from({ length: 90 }, () => new Particle());
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) p.reset();
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.hue},${p.a})`;
-        ctx.fill();
-      });
-      raf = requestAnimationFrame(draw);
-    }
-
-    window.addEventListener('resize', () => { resize(); });
-    init();
-    draw();
-  })();
-
-  /* ── Steps Active Highlight ───────────────────────── */
-  (function() {
-    const fill  = document.getElementById('steps-fill');
-    const steps = document.querySelectorAll('.step[data-step]');
-    if (!fill || !steps.length) return;
-
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const n = parseInt(entry.target.dataset.step, 10);
-          fill.style.width = ((n / steps.length) * 100) + '%';
-          steps.forEach((s, i) => {
-            s.classList.toggle('step-active', i < n);
-          });
-        }
-      });
-    }, { threshold: 0.6 });
-
-    steps.forEach(s => obs.observe(s));
-  })();
-  </script>
+  <!-- ═══ SCRIPTS ════════════════════════════════════════════ -->
+  <!-- Centralized External Links -->
+  <script src="assets/js/links.js"></script>
+  <!-- Main Interactions -->
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
